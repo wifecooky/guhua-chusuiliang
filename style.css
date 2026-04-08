@@ -430,24 +430,29 @@ a:hover { text-decoration-color: var(--accent); }
   text-align: center;
 }
 .yfj-panel__stage {
-  width: 140px;
-  height: 140px;
+  width: 180px;
+  height: 220px;
   background: var(--paper);
   border: 1px solid var(--rule);
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 80px;
-  line-height: 1;
-  color: var(--ink);
 }
-.yfj-panel__stage--fallback {
-  font-size: 80px;
+.yfj-panel__leaf-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: zoom-in;
+  transition: transform 0.4s ease;
+}
+.yfj-panel__leaf-img:hover {
+  transform: scale(1.04);
 }
 .yfj-panel__char-label {
   margin-top: 8px;
   font-size: 11px;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
   color: var(--ink-faint);
 }
 .yfj-panel__text {

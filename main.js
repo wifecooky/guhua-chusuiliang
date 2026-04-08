@@ -260,27 +260,25 @@
     }
   }
 
-  /* 在面板里渲染一个静态的标准楷书大字（参考字形） */
-  function mountPanelChar(stage, char) {
-    if (typeof HanziWriter === "undefined") {
-      stage.textContent = char;
-      return;
-    }
-    try {
-      HanziWriter.create(stage.id, char, {
-        width: 140,
-        height: 140,
-        padding: 8,
-        showOutline: true,
-        showCharacter: true,
-        strokeColor: "#1a1714",
-        outlineColor: "rgba(58, 40, 23, 0.18)",
-      });
-      activePanelChar = stage;
-    } catch (e) {
-      stage.textContent = char;
-      stage.classList.add("yfj-panel__stage--fallback");
-    }
+  /* 把句子序号映射到 9610.com 24 张真迹页中的一页（线性近似） */
+  function leafForIdx(idx) {
+    /* 40 句 → 24 页：sentence i centered in [(i)*24/40, (i+1)*24/40] */
+    const leaf = Math.round((idx + 0.5) * 24 / SENTENCES.length);
+    return Math.min(24, Math.max(1, leaf));
+  }
+
+  /* 在面板里挂一张真迹页（褚遂良《阴符经》对应的那一开） */
+  function mountPanelLeaf(stage, idx) {
+    const leaf = leafForIdx(idx);
+    const num = String(leaf).padStart(2, "0");
+    const img = document.createElement("img");
+    img.className = "yfj-panel__leaf-img";
+    img.src = `./assets/yfj-leaves/${num}.jpg`;
+    img.alt = `褚遂良《阴符经》第 ${leaf} 开真迹`;
+    img.loading = "lazy";
+    /* 点击图片在新窗口看大图 */
+    img.addEventListener("click", () => window.open(img.src, "_blank"));
+    stage.appendChild(img);
   }
 
   function fillPanel(ch, idx) {
@@ -302,9 +300,11 @@
 
     const charBox = el("div", "yfj-panel__char-box");
     const stage = el("div", "yfj-panel__stage");
-    stage.id = `panel-char-${idx}-${ch.dataset.cidx}`;
+    stage.id = `panel-leaf-${idx}`;
     charBox.appendChild(stage);
-    charBox.appendChild(el("div", "yfj-panel__char-label", "标准楷书 · 参考"));
+    const label = el("div", "yfj-panel__char-label",
+      `褚遂良 真迹 · 第 ${leafForIdx(idx)} 开`);
+    charBox.appendChild(label);
     body.appendChild(charBox);
 
     const text = el("div", "yfj-panel__text");
@@ -326,7 +326,7 @@
     panelRoot.classList.add("yfj-panel--open");
 
     mountStrokeOverlay(ch);
-    mountPanelChar(stage, ch.dataset.ch);
+    mountPanelLeaf(stage, idx);
   }
 
   root.addEventListener("click", (e) => {
