@@ -201,14 +201,19 @@
 
   root.appendChild(el("div", "yfj-tail", "公有领域"));
 
-  /* ---------- 交互：单例面板 ---------- */
+  /* ---------- 交互：单例面板 + 字位浮层 ---------- */
   let activeChar = null;
-  let activeWriter = null;
+  let activeOverlay = null;   // 字位上的笔顺动画浮层
+  let activePanelChar = null; // 面板里的静态字形
 
   function clearActive() {
     if (activeChar) activeChar.classList.remove("yfj-ch--active");
     activeChar = null;
-    activeWriter = null;
+    if (activeOverlay) {
+      activeOverlay.remove();
+      activeOverlay = null;
+    }
+    activePanelChar = null;
   }
 
   function closePanel() {
@@ -217,13 +222,74 @@
     empty(panelRoot);
   }
 
+  /* 在被点击的字位上挂一个放大的笔顺动画浮层。
+     .yfj 是 position: relative，浮层 absolute 用 offsetLeft/Top 定位，
+     这样 .yfj 横向滚动时浮层会跟着字一起移动。 */
+  function mountStrokeOverlay(ch) {
+    if (typeof HanziWriter === "undefined") return;
+    const size = 120;
+    const overlay = el("div", "yfj-stroke-overlay");
+    const oid = `stroke-overlay-${Date.now()}`;
+    overlay.id = oid;
+    /* 把浮层中心对到字的中心 */
+    overlay.style.left = (ch.offsetLeft + ch.offsetWidth / 2 - size / 2) + "px";
+    overlay.style.top = (ch.offsetTop + ch.offsetHeight / 2 - size / 2) + "px";
+    overlay.style.width = size + "px";
+    overlay.style.height = size + "px";
+    root.appendChild(overlay);
+    activeOverlay = overlay;
+
+    try {
+      const writer = HanziWriter.create(oid, ch.dataset.ch, {
+        width: size,
+        height: size,
+        padding: 8,
+        showOutline: true,
+        showCharacter: false,
+        strokeAnimationSpeed: 1.0,
+        delayBetweenStrokes: 220,
+        strokeColor: "#8b1a1a",
+        outlineColor: "rgba(139, 26, 26, 0.18)",
+        radicalColor: "#8b1a1a",
+      });
+      writer.animateCharacter();
+    } catch (e) {
+      /* 该字无 MakeMeAHanzi 数据，静默移除浮层 */
+      overlay.remove();
+      activeOverlay = null;
+    }
+  }
+
+  /* 在面板里渲染一个静态的标准楷书大字（参考字形） */
+  function mountPanelChar(stage, char) {
+    if (typeof HanziWriter === "undefined") {
+      stage.textContent = char;
+      return;
+    }
+    try {
+      HanziWriter.create(stage.id, char, {
+        width: 140,
+        height: 140,
+        padding: 8,
+        showOutline: true,
+        showCharacter: true,
+        strokeColor: "#1a1714",
+        outlineColor: "rgba(58, 40, 23, 0.18)",
+      });
+      activePanelChar = stage;
+    } catch (e) {
+      stage.textContent = char;
+      stage.classList.add("yfj-panel__stage--fallback");
+    }
+  }
+
   function fillPanel(ch, idx) {
     clearActive();
     const data = SENTENCES[idx];
     empty(panelRoot);
 
+    /* Header */
     const head = el("div", "yfj-panel__head");
-    head.appendChild(el("span", "yfj-panel__char", ch.dataset.ch));
     head.appendChild(el("span", "yfj-panel__src", `${data.p}篇 · 第 ${idx + 1} 句`));
     const closeBtn = el("button", "yfj-panel__close", "×");
     closeBtn.type = "button";
@@ -231,55 +297,36 @@
     head.appendChild(closeBtn);
     panelRoot.appendChild(head);
 
-    panelRoot.appendChild(el("p", "yfj-panel__orig", norm(data.t)));
+    /* Body：左侧字形，右侧文本 */
+    const body = el("div", "yfj-panel__body");
 
+    const charBox = el("div", "yfj-panel__char-box");
+    const stage = el("div", "yfj-panel__stage");
+    stage.id = `panel-char-${idx}-${ch.dataset.cidx}`;
+    charBox.appendChild(stage);
+    charBox.appendChild(el("div", "yfj-panel__char-label", "标准楷书 · 参考"));
+    body.appendChild(charBox);
+
+    const text = el("div", "yfj-panel__text");
+    text.appendChild(el("p", "yfj-panel__orig", norm(data.t)));
     if (data.tr) {
-      panelRoot.appendChild(el("p", "yfj-panel__tr", data.tr));
+      text.appendChild(el("p", "yfj-panel__tr", data.tr));
     } else {
-      panelRoot.appendChild(el("p", "yfj-panel__todo", "（这一句的释文还在写）"));
+      text.appendChild(el("p", "yfj-panel__todo", "（这一句的释文还在写）"));
     }
-
     if (data.note) {
-      panelRoot.appendChild(el("p", "yfj-panel__note", data.note));
+      text.appendChild(el("p", "yfj-panel__note", data.note));
     }
+    body.appendChild(text);
+    panelRoot.appendChild(body);
 
-    /* 笔顺：可选 */
-    if (typeof HanziWriter !== "undefined") {
-      const stroke = el("div", "yfj-stroke");
-      const btn = el("button", "yfj-stroke__btn", `演笔顺 · ${ch.dataset.ch}`);
-      btn.type = "button";
-      const stage = el("div", "yfj-stroke__stage");
-      const stageId = `stroke-${idx}-${ch.dataset.cidx}`;
-      stage.id = stageId;
-
-      btn.addEventListener("click", () => {
-        if (activeWriter) { activeWriter.animateCharacter(); return; }
-        try {
-          activeWriter = HanziWriter.create(stageId, ch.dataset.ch, {
-            width: 160,
-            height: 160,
-            padding: 6,
-            showOutline: false,
-            showCharacter: false,
-            strokeAnimationSpeed: 1.1,
-            delayBetweenStrokes: 220,
-            strokeColor: "#1a1714",
-          });
-          activeWriter.animateCharacter();
-        } catch (e) {
-          stage.textContent = "（此字无标准笔顺数据）";
-        }
-      });
-
-      stroke.appendChild(btn);
-      stroke.appendChild(stage);
-      panelRoot.appendChild(stroke);
-    }
-
+    /* 标记激活字 + 挂动画浮层 + 填面板字形 */
     ch.classList.add("yfj-ch--active");
     activeChar = ch;
     panelRoot.classList.add("yfj-panel--open");
-    panelRoot.scrollIntoView({ behavior: "smooth", block: "nearest" });
+
+    mountStrokeOverlay(ch);
+    mountPanelChar(stage, ch.dataset.ch);
   }
 
   root.addEventListener("click", (e) => {

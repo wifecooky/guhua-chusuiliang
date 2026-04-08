@@ -184,6 +184,7 @@ a:hover { text-decoration-color: var(--accent); }
    ============================================ */
 
 .yfj {
+  position: relative;  /* 字位浮层的定位锚 */
   background: var(--paper-aged);
   /* 宣纸纹理：径向斑驳 */
   background-image:
@@ -310,6 +311,29 @@ a:hover { text-decoration-color: var(--accent); }
   color: var(--ink-faint);
 }
 
+/* 字位上的笔顺动画浮层 —— 跟着字滚动 */
+.yfj-stroke-overlay {
+  position: absolute;
+  pointer-events: none;
+  z-index: 5;
+  /* 强制横排，否则会继承 .yfj 的 vertical-rl 把 SVG 的内部 layout 拧歪 */
+  writing-mode: horizontal-tb;
+  -webkit-writing-mode: horizontal-tb;
+  /* 衬底：半透明朱砂晕染，模拟印泥渗开 */
+  background: radial-gradient(
+    circle at center,
+    rgba(245, 235, 215, 0.85) 0%,
+    rgba(245, 235, 215, 0.6) 50%,
+    rgba(245, 235, 215, 0) 78%
+  );
+  border-radius: 50%;
+  animation: yfj-overlay-in 0.32s ease-out;
+}
+@keyframes yfj-overlay-in {
+  from { opacity: 0; transform: scale(0.6); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
 /* 拖尾 */
 .yfj-tail {
   display: block;
@@ -363,14 +387,8 @@ a:hover { text-decoration-color: var(--accent); }
   display: flex;
   align-items: center;
   gap: clamp(12px, 2vw, 20px);
-  padding: clamp(16px, 2.5vw, 22px) clamp(20px, 3vw, 28px) clamp(12px, 2vw, 16px);
+  padding: clamp(12px, 2vw, 16px) clamp(20px, 3vw, 28px);
   border-bottom: 1px solid var(--rule);
-}
-.yfj-panel__char {
-  font-size: clamp(28px, 4vw, 40px);
-  font-weight: 700;
-  color: var(--accent);
-  line-height: 1;
 }
 .yfj-panel__src {
   flex: 1;
@@ -400,23 +418,57 @@ a:hover { text-decoration-color: var(--accent); }
   color: var(--paper);
 }
 
-.yfj-panel__orig,
-.yfj-panel__tr,
-.yfj-panel__note,
-.yfj-panel__todo {
-  margin: 0;
-  padding: clamp(8px, 1.5vw, 14px) clamp(20px, 3vw, 28px);
+/* Body：双栏（左字形，右文本） */
+.yfj-panel__body {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(16px, 2.5vw, 28px);
+  padding: clamp(14px, 2vw, 20px) clamp(20px, 3vw, 28px) clamp(16px, 2.5vw, 22px);
+}
+.yfj-panel__char-box {
+  flex: 0 0 auto;
+  text-align: center;
+}
+.yfj-panel__stage {
+  width: 140px;
+  height: 140px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80px;
+  line-height: 1;
+  color: var(--ink);
+}
+.yfj-panel__stage--fallback {
+  font-size: 80px;
+}
+.yfj-panel__char-label {
+  margin-top: 8px;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--ink-faint);
+}
+.yfj-panel__text {
+  flex: 1;
+  min-width: 0;
+}
+.yfj-panel__text p {
+  margin: 0 0 0.7em;
+}
+.yfj-panel__text p:last-child {
+  margin-bottom: 0;
 }
 .yfj-panel__orig {
-  font-size: clamp(16px, 1.8vw, 19px);
+  font-size: clamp(15px, 1.7vw, 17px);
   color: var(--ink);
   font-weight: 500;
-  padding-top: clamp(14px, 2vw, 18px);
+  padding-bottom: 0.6em;
   border-bottom: 1px dashed var(--rule);
 }
 .yfj-panel__tr {
   color: var(--ink);
-  padding-top: clamp(12px, 2vw, 16px);
 }
 .yfj-panel__note {
   color: var(--ink-soft);
@@ -426,47 +478,6 @@ a:hover { text-decoration-color: var(--accent); }
 .yfj-panel__todo {
   color: var(--ink-faint);
   font-style: italic;
-  padding-top: clamp(12px, 2vw, 16px);
-}
-
-/* 笔顺 */
-.yfj-stroke {
-  margin: 0;
-  padding: clamp(14px, 2vw, 20px) clamp(20px, 3vw, 28px) clamp(20px, 3vw, 24px);
-  border-top: 1px dashed var(--rule);
-  display: flex;
-  align-items: center;
-  gap: clamp(14px, 2vw, 22px);
-  flex-wrap: wrap;
-}
-.yfj-stroke__btn {
-  font-family: inherit;
-  font-size: 12px;
-  letter-spacing: 0.1em;
-  background: transparent;
-  color: var(--ink);
-  border: 1px solid var(--ink);
-  padding: 8px 16px;
-  cursor: pointer;
-  border-radius: 0;
-  transition: background 0.2s ease, color 0.2s ease;
-}
-.yfj-stroke__btn:hover {
-  background: var(--ink);
-  color: var(--paper);
-}
-.yfj-stroke__stage {
-  width: 160px;
-  height: 160px;
-  background: var(--paper);
-  border: 1px solid var(--rule);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 11px;
-  color: var(--ink-faint);
-  text-align: center;
-  padding: 4px;
 }
 
 /* ----- 页脚 ----- */
