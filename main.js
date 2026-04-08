@@ -1,8 +1,18 @@
-/* 古画 · 字解码 · 褚遂良《阴符经》
+/* 古画 · 卷轴字解码库
  *
- * 形态：卷轴 + 竖排 + 单例面板
+ * 形态：卷轴 + 竖排 + 单例面板 + 字位浮层
  *   卷轴 = #yfj 是 vertical-rl 的横向滚动容器，每句一列
- *   面板 = #yfj-panel 是卷轴下方的单例，点字 → 填充 → 显示
+ *   面板 = #yfj-panel 是卷轴下方的浮层，点字 → 填充 → 显示
+ *
+ * 配置来自 window.YFJ_CONFIG（在本脚本之前由各作品的 data 文件设置）：
+ *   sentences: [{ p?, t, tr?, note? }, ...]  // p = 篇章 optional
+ *   title: 引首竖排标题（例 "褚遂良　阴符经"）
+ *   seal:  朱砂方印内容（例 "褚"）
+ *   leafDir: 真迹图目录绝对路径（末尾带 /）
+ *   leafCount: 图总数（用来算 sentence→leaf 线性映射）
+ *   leafLabelPrefix / leafLabelSuffix: 面板里真迹标签前后缀
+ *   tailText: 卷尾拖尾（可省）
+ *   workName: 用于 img alt
  *
  * 数据结构原则：
  *   - 句子是单位，字只是位置
@@ -13,132 +23,18 @@
 (function () {
   "use strict";
 
-  /* ---------- 数据 ---------- */
-  const SENTENCES = [
-    { p: "上", t: "观天之道，执天之行，尽矣。",
-      tr: "观察天的法则，遵循天的运行规律——这就够了。",
-      note: "全篇开宗明义。'尽矣'二字是先秦诸子里少见的——一句话讲完就够，不再展开。" },
-    { p: "上", t: "故天有五贼，见之者昌。",
-      tr: "天地之间有五种潜藏的力量，能看见它们的人就会昌盛。",
-      note: "'贼'非贬义，指能窃取天机者，对应五行。" },
-    { p: "上", t: "五贼在乎心，施行于天。",
-      tr: "这五种力量根植于人心，又施行于天地之间。",
-      note: "把'天'和'心'打通——道家把宇宙论拉回身心的标志动作。" },
-    { p: "上", t: "宇宙在乎手，万化生乎身。",
-      tr: "宇宙就在你的手中，万物的变化都从你身上生发。",
-      note: "极端主体化的宣言。后世内丹术的理论根。" },
-    { p: "上", t: "天性，人也；人心，机也。",
-      tr: "天的本性就是人，人的内心就是机关。",
-      note: "天 = 人 = 机，三段论压缩到 8 个字。" },
+  const config = window.YFJ_CONFIG;
+  if (!config || !Array.isArray(config.sentences)) {
+    console.error("[yfj] window.YFJ_CONFIG 未设置或 sentences 缺失");
+    return;
+  }
 
-    { p: "上", t: "立天之道，以定人也。",
-      tr: "立起天的法则，用来安顿人。",
-      note: "不是'人法天'那么简单——是'立天之道'，主动把那条法则架起来。'定'字关键。" },
-    { p: "上", t: "天发杀机，移星易宿；地发杀机，龙蛇起陆；人发杀机，天地反覆；天人合发，万变定基。",
-      tr: "天动了杀机，星宿就会移位；地动了杀机，龙蛇就从地下涌出；人动了杀机，天地都要翻转。当天人同时发动，万千变化才有了根基。",
-      note: "全篇最有杀气的一段。'杀机'在此非血腥之意，是断然行动的临界点。三才同动，世界重启。" },
-    { p: "上", t: "性有巧拙，可以伏藏。",
-      tr: "人的天性有巧有拙，都可以收藏起来。",
-      note: "巧拙都得藏。聪明人尤其要藏聪明——这是阴符经反复说的'机'。" },
-    { p: "上", t: "九窍之邪，在乎三要，可以动静。",
-      tr: "人的九窍能进的邪气，源头在三个要害（耳、目、口），动静之间可控。",
-      note: "把'养生'具体到三窍。比起《道德经》'塞其兑、闭其门'更可操作。" },
-    { p: "上", t: "火生于木，祸发必克；奸生于国，时动必溃。",
-      tr: "火本生于木中，一旦发作就反过来烧木；奸佞本生于国中，一旦发作就让国家崩溃。",
-      note: "经典的'由内而外'模型。两个比喻精准对仗——这种工整感是阴符经的语感标签。" },
-    { p: "上", t: "知之修炼，谓之圣人。",
-      tr: "懂得这个道理并且去修炼的人，就叫圣人。",
-      note: "上篇收尾。'知' + '修炼'两步——光知道不算。" },
-
-    { p: "中", t: "天生天杀，道之理也。",
-      tr: "天既生养又收割，这就是道的本质。",
-      note: "中篇开篇直接给定义。生与杀是同一件事的两面。" },
-    { p: "中", t: "天地，万物之盗；万物，人之盗；人，万物之盗。",
-      tr: "天地从万物身上'偷'，万物从人身上'偷'，人也从万物身上'偷'。",
-      note: "三层互相偷盗的循环。'盗'在这里是中性的——指能量与生机的相互索取，整个生态的本来面貌。" },
-    { p: "中", t: "三盗既宜，三才既安。",
-      tr: "当这三种偷盗都合宜，天地人三才就都安稳。",
-      note: "不是要消灭'盗'，而是要'宜'——节奏对了就行。这点很道家。" },
-    { p: "中", t: "故曰：食其时，百骸理；动其机，万化安。",
-      tr: "所以说：在对的时机吃饭，百骸自然调理；在对的机会上动手，万千变化都安稳。",
-      note: "把宇宙论拉回身体。'时'和'机'是阴符经全部哲学的两个落点。" },
-    { p: "中", t: "人知其神而神，不知其不神之所以神也。",
-      tr: "人只知道神奇之处的神奇，却不知道那些看似不神奇之处之所以神奇。",
-      note: "一句话里 5 个'神'字，是全篇语言密度最高的地方。意思反而简单：真神藏在不显眼处。" },
-    { p: "中", t: "日月有数，大小有定，圣功生焉，神明出焉。",
-      tr: "日月运行有定数，大小有定规，圣人的功业由此而生，神明也由此而出。",
-      note: "看似废话，其实是说：神明不是凭空来的，是从规律里'长'出来的。" },
-    { p: "中", t: "其盗机也，天下莫能见，莫能知也。",
-      tr: "那个'盗'的机关，天下没人能看见，也没人能知道。",
-      note: "回扣前面的'三盗'。这个机关如果被人看穿，整个系统就崩了——所以它必须隐。" },
-    { p: "中", t: "君子得之固躬，小人得之轻命。",
-      tr: "君子得到这个'机'会用它修身，小人得到却会拿命去赌。",
-      note: "中篇收尾。同一把刀，握法不同。" },
-
-    { p: "下", t: "瞽者善听，聋者善视。",
-      tr: "瞎子听得格外清，聋子看得格外明。",
-      note: "下篇开篇，用感官代偿现象起兴。损一处即得一处。" },
-    { p: "下", t: "绝利一源，用师十倍。",
-      tr: "断绝其他诱惑只守一个源头，用兵的效力就增十倍。",
-      note: "极简的专注哲学。任何想做事的人都该背下来。" },
-    { p: "下", t: "三返昼夜，用师万倍。",
-      tr: "三个昼夜反复琢磨同一件事，用兵的效力就增万倍。",
-      note: "接上句。专注 × 时间 = 万倍。Linus 看了估计会点头。" },
-    { p: "下", t: "心生于物，死于物，机在于目。",
-      tr: "心因外物而生，因外物而死，关键的机关藏在眼睛里。",
-      note: "眼睛是心和外物的接口。这是非常前现代的认知科学。" },
-    { p: "下", t: "天之无恩而大恩生。",
-      tr: "天本来不施恩，而最大的恩反而由此而生。",
-      note: "反讽式的天道观。施恩是有限的，无恩才是无限的。" },
-    { p: "下", t: "迅雷烈风，莫不蠢然。",
-      tr: "迅雷烈风之下，万物没有不蠢蠢欲动的。",
-      note: "极简的物候观察。'蠢'是动的意思，无贬义。" },
-    { p: "下", t: "至乐性余，至静性廉。",
-      tr: "极乐的人天性有余裕，极静的人天性清廉。",
-      note: "内在状态决定德性，不是反过来。" },
-    { p: "下", t: "天之至私，用之至公。",
-      tr: "天最私（自顾自），用起来却最公（人人受益）。",
-      note: "又一组反讽。私和公在天那里是同一件事。" },
-    { p: "下", t: "禽之制在炁。",
-      tr: "制服飞禽走兽的关键，在于'炁'（气）。",
-      note: "全篇最玄的一句。'炁'是道家专字，比'气'更早。八字之内最神秘。" },
-    { p: "下", t: "生者死之根，死者生之根。",
-      tr: "生是死的根，死是生的根。",
-      note: "八个字的辩证法。后世禅宗、内丹无数次引用。" },
-    { p: "下", t: "恩生于害，害生于恩。",
-      tr: "恩从害中生，害从恩中生。",
-      note: "同上的对偶句。和'天之无恩'句形成大三角。" },
-    { p: "下", t: "愚人以天地文理圣，我以时物文理哲。",
-      tr: "愚人觉得天地的纹理就是'圣'，我觉得时间和事物的纹理里才有'哲'。",
-      note: "'我'字在阴符经里只出现两次，都在这一段。极少见的第一人称宣言。" },
-    { p: "下", t: "人以愚虞圣，我以不愚虞圣；人以奇期圣，我以不奇期圣。",
-      tr: "别人用愚来揣度圣，我用不愚来揣度圣；别人用奇来期待圣，我用不奇来期待圣。",
-      note: "把'圣'从神坛上拽下来。圣不是更愚也不是更奇，是更'不'。" },
-    { p: "下", t: "故曰：沉水入火，自取灭亡。",
-      tr: "所以说：自己跳进水里、跳进火里，那是自取灭亡。",
-      note: "突然冒出一句很白的警句，节奏切换。" },
-    { p: "下", t: "自然之道静，故天地万物生。",
-      tr: "自然之道是静的，所以天地万物才能生。",
-      note: "静是生的前提。这是阴符经对'动'的最大让步——动必须从静中来。" },
-    { p: "下", t: "天地之道浸，故阴阳胜。",
-      tr: "天地之道是渐渐渗透的，所以阴阳才能彼此战胜。",
-      note: "'浸'字用得极好。不是突变，是渗。" },
-    { p: "下", t: "阴阳相推，而变化顺矣。",
-      tr: "阴阳相互推动，变化就顺畅了。",
-      note: "把前面'浸'的过程明说出来。" },
-    { p: "下", t: "是故圣人知自然之道不可违，因而制之至静之道。",
-      tr: "所以圣人知道自然之道不可违逆，便顺应它，制定出那'至静之道'。",
-      note: "'制'字关键。圣人不是被动顺应，是主动制作。" },
-    { p: "下", t: "律历所不能契。",
-      tr: "这道连律历都无法精确对应。",
-      note: "突然转向天文。律历 = 数学化的宇宙模型——阴符经说不够用。" },
-    { p: "下", t: "爰有奇器，是生万象，八卦甲子，神机鬼藏。",
-      tr: "于是就有了奇异的器物，能生发万象，八卦和甲子，神机藏在鬼怪之中。",
-      note: "全篇最神秘一段。'奇器'是什么？历代注家吵了一千年没定论。" },
-    { p: "下", t: "阴阳相胜之术，昭昭乎进于象矣。",
-      tr: "阴阳互相胜过的法术，明明白白进入了'象'的层次。",
-      note: "全篇收尾。从'道'到'理'到'术'到'象'，最后落在'象'——可见可触的图景。" },
-  ];
+  const SENTENCES = config.sentences;
+  const LEAF_DIR = config.leafDir || "";
+  const LEAF_COUNT = config.leafCount || 0;
+  const LEAF_PREFIX = config.leafLabelPrefix || "真迹 · 第";
+  const LEAF_SUFFIX = config.leafLabelSuffix || "开";
+  const WORK_NAME = config.workName || "";
 
   /* 标点全角化兜底 */
   const norm = (s) => s
@@ -164,15 +60,18 @@
 
   /* 引首：标题列 + 印章 */
   const heading = el("div", "yfj-heading");
-  heading.appendChild(el("div", "yfj-heading__title", "褚遂良　阴符经"));
-  const seal = el("div", "yfj-heading__seal", "褚");
-  seal.setAttribute("aria-hidden", "true");
-  heading.appendChild(seal);
+  heading.appendChild(el("div", "yfj-heading__title", config.title || ""));
+  if (config.seal) {
+    const seal = el("div", "yfj-heading__seal", config.seal);
+    seal.setAttribute("aria-hidden", "true");
+    heading.appendChild(seal);
+  }
   root.appendChild(heading);
 
   let lastPart = null;
   SENTENCES.forEach((s, i) => {
-    if (s.p !== lastPart) {
+    /* 篇章分隔 —— 仅当 sentence 有 p 字段时 */
+    if (s.p && s.p !== lastPart) {
       root.appendChild(el("div", "yfj-part", `${s.p}篇`));
       lastPart = s.p;
     }
@@ -199,12 +98,13 @@
     root.appendChild(col);
   });
 
-  root.appendChild(el("div", "yfj-tail", "公有领域"));
+  if (config.tailText) {
+    root.appendChild(el("div", "yfj-tail", config.tailText));
+  }
 
   /* ---------- 交互：单例面板 + 字位浮层 ---------- */
   let activeChar = null;
-  let activeOverlay = null;   // 字位上的笔顺动画浮层
-  let activePanelChar = null; // 面板里的静态字形
+  let activeOverlay = null;
 
   function clearActive() {
     if (activeChar) activeChar.classList.remove("yfj-ch--active");
@@ -213,7 +113,6 @@
       activeOverlay.remove();
       activeOverlay = null;
     }
-    activePanelChar = null;
   }
 
   function closePanel() {
@@ -223,18 +122,14 @@
   }
 
   /* 在被点击的字位上挂一个放大的笔顺动画浮层。
-     .yfj 是 position: relative，浮层 absolute 用 offsetLeft/Top 定位，
-     这样 .yfj 横向滚动时浮层会跟着字一起移动。 */
+     .yfj 是 position: relative，浮层 absolute 用 offsetLeft/Top 定位。 */
   function mountStrokeOverlay(ch) {
     if (typeof HanziWriter === "undefined") return;
-    /* 浮层大小：以字位的实际尺寸为基准放大约 4 倍，
-       桌面端 char ~28px → 浮层 ~112px，mobile char ~22px → 浮层 ~88px */
     const charSize = Math.max(ch.offsetWidth, ch.offsetHeight);
     const size = Math.max(72, Math.min(140, charSize * 4));
     const overlay = el("div", "yfj-stroke-overlay");
     const oid = `stroke-overlay-${Date.now()}`;
     overlay.id = oid;
-    /* 把浮层中心对到字的中心 */
     overlay.style.left = (ch.offsetLeft + ch.offsetWidth / 2 - size / 2) + "px";
     overlay.style.top = (ch.offsetTop + ch.offsetHeight / 2 - size / 2) + "px";
     overlay.style.width = size + "px";
@@ -257,30 +152,28 @@
       });
       writer.animateCharacter();
     } catch (e) {
-      /* 该字无 MakeMeAHanzi 数据，静默移除浮层 */
       overlay.remove();
       activeOverlay = null;
     }
   }
 
-  /* 把句子序号映射到 9610.com 24 张真迹页中的一页（线性近似） */
+  /* 句子序号 → 真迹图编号（线性映射） */
   function leafForIdx(idx) {
-    /* 40 句 → 24 页：sentence i centered in [(i)*24/40, (i+1)*24/40] */
-    const leaf = Math.round((idx + 0.5) * 24 / SENTENCES.length);
-    return Math.min(24, Math.max(1, leaf));
+    if (!LEAF_COUNT) return 1;
+    const leaf = Math.round((idx + 0.5) * LEAF_COUNT / SENTENCES.length);
+    return Math.min(LEAF_COUNT, Math.max(1, leaf));
   }
 
-  /* 在面板里挂一张真迹页（褚遂良《阴符经》对应的那一开） */
+  /* 在面板里挂一张真迹图 */
   function mountPanelLeaf(stage, idx) {
+    if (!LEAF_DIR || !LEAF_COUNT) return;
     const leaf = leafForIdx(idx);
     const num = String(leaf).padStart(2, "0");
     const img = document.createElement("img");
     img.className = "yfj-panel__leaf-img";
-    /* 绝对路径：/index.html 和 /yinfujing/index.html 共用这个 main.js */
-    img.src = `/assets/yfj-leaves/${num}.jpg`;
-    img.alt = `褚遂良《阴符经》第 ${leaf} 开真迹`;
+    img.src = `${LEAF_DIR}${num}.jpg`;
+    img.alt = `${WORK_NAME} 第 ${leaf} 开`;
     img.loading = "lazy";
-    /* 点击图片在新窗口看大图 */
     img.addEventListener("click", () => window.open(img.src, "_blank"));
     stage.appendChild(img);
   }
@@ -292,7 +185,8 @@
 
     /* Header */
     const head = el("div", "yfj-panel__head");
-    head.appendChild(el("span", "yfj-panel__src", `${data.p}篇 · 第 ${idx + 1} 句`));
+    const partLabel = data.p ? `${data.p}篇 · ` : "";
+    head.appendChild(el("span", "yfj-panel__src", `${partLabel}第 ${idx + 1} 句`));
     const closeBtn = el("button", "yfj-panel__close", "×");
     closeBtn.type = "button";
     closeBtn.setAttribute("aria-label", "关闭");
@@ -306,14 +200,14 @@
     const stage = el("div", "yfj-panel__stage");
     stage.id = `panel-leaf-${idx}`;
     charBox.appendChild(stage);
-    const label = el("div", "yfj-panel__char-label",
-      `褚遂良 真迹 · 第 ${leafForIdx(idx)} 开`);
-    charBox.appendChild(label);
+    if (LEAF_COUNT) {
+      charBox.appendChild(el("div", "yfj-panel__char-label",
+        `${LEAF_PREFIX} ${leafForIdx(idx)} ${LEAF_SUFFIX}`));
+    }
     body.appendChild(charBox);
 
     const text = el("div", "yfj-panel__text");
-    /* 原文：把被点击的那个字（按 cidx 精确定位）包成高亮 span
-       —— 句中同字重复时也只亮一个 */
+    /* 原文：把被点击的那个字（按 cidx 精确定位）包成高亮 span */
     const hitIdx = Number(ch.dataset.cidx);
     const orig = el("p", "yfj-panel__orig");
     [...norm(data.t)].forEach((c, j) => {
@@ -334,7 +228,6 @@
     body.appendChild(text);
     panelRoot.appendChild(body);
 
-    /* 标记激活字 + 挂动画浮层 + 填面板字形 */
     ch.classList.add("yfj-ch--active");
     activeChar = ch;
     panelRoot.classList.add("yfj-panel--open");
