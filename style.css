@@ -118,6 +118,8 @@ a:hover { text-decoration-color: var(--accent); }
   max-width: 100vw;
   position: relative;
   filter: drop-shadow(0 16px 32px rgba(58, 40, 23, 0.18));
+  /* 让面板的 backdrop-filter 不被外层 filter 吞掉时仍能正常工作 */
+  isolation: isolate;
 }
 
 /* 天杆 / 地杆：木轴 */
@@ -321,26 +323,39 @@ a:hover { text-decoration-color: var(--accent); }
 }
 
 /* ============================================
-   释文面板（卷轴下方单例）
+   释文面板：浮层吸附在画心底部，沉浸不离场
    ============================================ */
 
 .yfj-panel {
-  max-width: 720px;
-  margin: clamp(24px, 4vh, 40px) auto 0;
-  padding: 0;
-  background: var(--paper-warm);
-  border: 1px solid var(--rule);
+  position: absolute;
+  /* 上下避开天杆/地杆/绫绢，吸在画心底部
+     右侧给印章列留位置（避免遮住朱砂印） */
+  left: clamp(32px, 6vw, 80px);
+  right: clamp(96px, 12vw, 160px);
+  bottom: calc(14px + 28px + clamp(20px, 3vh, 36px));  /* rod + silk + gap */
+  /* 半透明宣纸 + 背景模糊：上方文字隐约可见，沉浸感保住 */
+  background: rgba(245, 235, 215, 0.94);
+  -webkit-backdrop-filter: blur(8px) saturate(1.05);
+  backdrop-filter: blur(8px) saturate(1.05);
+  border: 1px solid rgba(58, 40, 23, 0.25);
   border-left: 3px solid var(--accent);
+  box-shadow:
+    0 -8px 24px -8px rgba(58, 40, 23, 0.18),
+    0 4px 12px rgba(58, 40, 23, 0.12);
+  /* 占画心约 55% 高度 */
+  max-height: clamp(220px, 32vh, 340px);
+  overflow-y: auto;
+  font-size: clamp(13px, 1.5vw, 15px);
+  line-height: 1.8;
   display: none;
-  font-size: clamp(14px, 1.6vw, 16px);
-  line-height: 1.85;
+  z-index: 10;
 }
 .yfj-panel--open {
   display: block;
-  animation: yfj-grow 0.32s ease-out;
+  animation: yfj-rise 0.36s cubic-bezier(0.16, 1, 0.3, 1);
 }
-@keyframes yfj-grow {
-  from { opacity: 0; transform: translateY(-6px); }
+@keyframes yfj-rise {
+  from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
