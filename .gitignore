@@ -2,4 +2,5 @@
 .gstack/
 **/.gstack/
 .playwright-mcp/
-scroll-*.png
+*.png
+!assets/*.png
