@@ -1,0 +1,266 @@
+/* 古画 · 字解码 · 褚遂良《阴符经》
+ * 形态：字帖（可点）+ inline 释文展开
+ * 排版：The Pudding 风格 — 留白、衬线、克制
+ */
+
+:root {
+  --ink: #1a1714;
+  --ink-soft: #44403c;
+  --ink-faint: #8c8580;
+  --paper: #f5f1ea;
+  --paper-warm: #ede6d8;
+  --rule: #c8bfb0;
+  --accent: #8b1a1a;
+  --max-width: 760px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Noto Serif SC", "Songti SC", "STSong", serif;
+  font-feature-settings: "palt", "kern";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s ease;
+}
+a:hover { text-decoration-color: var(--accent); }
+
+.page {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: clamp(48px, 8vw, 96px) clamp(20px, 5vw, 48px) 96px;
+}
+
+/* ----- 标题区 ----- */
+.masthead {
+  text-align: center;
+  margin-bottom: clamp(48px, 8vh, 96px);
+}
+.kicker {
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin: 0 0 16px;
+}
+.title {
+  font-size: clamp(32px, 6vw, 56px);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin: 0 0 12px;
+  line-height: 1.2;
+}
+.subtitle {
+  font-size: clamp(14px, 1.6vw, 17px);
+  color: var(--ink-soft);
+  font-style: italic;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ----- 散文 ----- */
+.essay {
+  font-size: clamp(15px, 1.8vw, 18px);
+  line-height: 1.85;
+  color: var(--ink-soft);
+  margin: 0 auto clamp(32px, 6vh, 64px);
+}
+.essay p {
+  margin: 0 0 1.2em;
+  text-align: justify;
+  hyphens: auto;
+}
+.essay .lede {
+  font-size: clamp(17px, 2vw, 21px);
+  color: var(--ink);
+  font-weight: 500;
+  line-height: 1.75;
+}
+.essay strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+.essay--after { margin-top: clamp(48px, 8vh, 96px); }
+
+/* ===========================================
+   字帖核心：yfj-*
+   句子是单位，字只是位置
+   =========================================== */
+
+.yfj {
+  margin: clamp(32px, 6vh, 64px) auto;
+  padding: clamp(24px, 4vw, 48px) 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+/* 篇章分隔（上 / 中 / 下） */
+.yfj-part {
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  color: var(--ink-faint);
+  margin: clamp(24px, 4vh, 40px) 0 clamp(16px, 3vh, 28px);
+}
+.yfj-part:first-child { margin-top: 0; }
+
+/* 一句话 = 一个 section */
+.yfj-sent {
+  margin: 0 0 clamp(14px, 2vh, 22px);
+}
+
+/* 句子的字行 */
+.yfj-line {
+  font-size: clamp(20px, 3vw, 26px);
+  line-height: 1.9;
+  color: var(--ink);
+  text-align: justify;
+  letter-spacing: 0.04em;
+}
+
+/* 单字（可点） */
+.yfj-ch {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  padding: 0 1px;
+  transition: color 0.18s ease, background 0.18s ease;
+  border-radius: 2px;
+}
+.yfj-ch:hover {
+  color: var(--accent);
+  background: rgba(139, 26, 26, 0.06);
+}
+.yfj-ch:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.yfj-ch--active {
+  color: var(--accent);
+  background: rgba(139, 26, 26, 0.1);
+  font-weight: 500;
+}
+
+/* 标点（不可点） */
+.yfj-pun {
+  color: var(--ink-faint);
+  user-select: text;
+}
+
+/* 释文面板：从下方"长出来"，推下文 */
+.yfj-panel {
+  margin: clamp(12px, 2vh, 20px) 0 clamp(8px, 1.5vh, 16px);
+  padding: clamp(16px, 3vw, 24px) clamp(18px, 3vw, 28px);
+  background: var(--paper-warm);
+  border-left: 2px solid var(--accent);
+  font-size: clamp(14px, 1.6vw, 16px);
+  line-height: 1.8;
+  animation: yfj-grow 0.32s ease-out;
+}
+@keyframes yfj-grow {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.yfj-tr {
+  margin: 0 0 0.8em;
+  color: var(--ink);
+  font-weight: 500;
+}
+.yfj-tr:last-child { margin-bottom: 0; }
+
+.yfj-note {
+  margin: 0;
+  color: var(--ink-soft);
+  font-style: italic;
+  font-size: 0.92em;
+}
+
+.yfj-todo {
+  margin: 0;
+  color: var(--ink-faint);
+  font-style: italic;
+}
+
+/* 笔顺面板（可选） */
+.yfj-stroke {
+  margin-top: clamp(14px, 2vh, 20px);
+  padding-top: clamp(12px, 2vh, 18px);
+  border-top: 1px dashed var(--rule);
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 2vw, 22px);
+  flex-wrap: wrap;
+}
+.yfj-stroke__btn {
+  font-family: inherit;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 0;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.yfj-stroke__btn:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+.yfj-stroke__stage {
+  width: 160px;
+  height: 160px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: var(--ink-faint);
+  text-align: center;
+  padding: 4px;
+}
+
+/* ----- 页脚 ----- */
+.colophon {
+  margin-top: clamp(64px, 10vh, 120px);
+  padding-top: 32px;
+  border-top: 1px solid var(--rule);
+  font-size: 12px;
+  color: var(--ink-faint);
+  line-height: 1.7;
+  text-align: center;
+}
+.colophon p { margin: 0 0 8px; }
+.colophon .meta { font-style: italic; }
+
+/* ----- Mobile ----- */
+@media (max-width: 600px) {
+  .essay p { text-align: left; }
+  .yfj-line { text-align: left; }
+  .yfj-stroke { justify-content: center; }
+}
+
+/* ----- Reduced motion ----- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
