@@ -37,8 +37,17 @@
         </p>
       </article>
 
-      <!-- 字帖：461 字按句分组 -->
-      <section id="yfj" class="yfj" aria-label="《阴符经》全文 · 可点击释义"></section>
+      <!-- 卷轴：竖排，从右向左读 -->
+      <div class="scroll" aria-label="《阴符经》全文 · 卷轴形式 · 可点击释义">
+        <div class="scroll__rod scroll__rod--top" aria-hidden="true"></div>
+        <div class="scroll__silk scroll__silk--top" aria-hidden="true"></div>
+        <section id="yfj" class="yfj"></section>
+        <div class="scroll__silk scroll__silk--bottom" aria-hidden="true"></div>
+        <div class="scroll__rod scroll__rod--bottom" aria-hidden="true"></div>
+      </div>
+
+      <!-- 释文面板（单例，卷轴下方） -->
+      <aside id="yfj-panel" class="yfj-panel" aria-live="polite"></aside>
 
       <article class="essay essay--after">
         <p>
