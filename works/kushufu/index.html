@@ -26,35 +26,33 @@
 
       <article class="essay">
         <p class="lede">褚遂良三十五岁所书。款题为燕国公于志宁所作。</p>
-        <p>全册 39 行 467 字。墨迹已佚，仅有碑刻拓本传世。用笔清劲飘逸，字势欹正相生。明人王世贞评：“掩映斐叠，极有好致……有美女婵娟，不胜罗绮之态。”</p>
-        <p>《枯树赋》原文是南北朝时期庾信羁留北方时写的——亡国之痛、乡关之思、羁旅之恨尽在其中。庾文褚书，双璧耀史：一个是亡国之人写的亡国之赋，一个是即将在权力更迭里死去的忠臣抄的那篇亡国之赋。</p>
+        <p>
+          全册 39 行 467 字。墨迹已佚，仅有碑刻拓本传世。
+          <strong>每一句都可以点。</strong>
+          点字 → 这一句的释文、注解、对应一张 9610 彩版一起浮出来。
+          《枯树赋》是一篇层层递进的哀赋——
+          庾信借树写自己，从繁盛到衰败，
+          最后那句"树犹如此，人何以堪"成了中国古典文学里
+          最著名的感叹之一。
+        </p>
       </article>
 
-      <section class="gallery gallery--cols" aria-label="作品图版">
-        <figure class="gallery__item">
-          <a href="/assets/works/kushufu/01.jpg" target="_blank" rel="noreferrer">
-            <img src="/assets/works/kushufu/01.jpg" loading="lazy" alt="枯树赋 局部" />
-          </a>
-          <figcaption>拓本局部 · 一</figcaption>
-        </figure>
-        <figure class="gallery__item">
-          <a href="/assets/works/kushufu/02.jpg" target="_blank" rel="noreferrer">
-            <img src="/assets/works/kushufu/02.jpg" loading="lazy" alt="枯树赋 局部" />
-          </a>
-          <figcaption>拓本局部 · 二</figcaption>
-        </figure>
-        <figure class="gallery__item">
-          <a href="/assets/works/kushufu/03.jpg" target="_blank" rel="noreferrer">
-            <img src="/assets/works/kushufu/03.jpg" loading="lazy" alt="枯树赋 局部" />
-          </a>
-          <figcaption>拓本局部 · 三</figcaption>
-        </figure>
-      </section>
+      <!-- 卷轴：竖排，从右向左读 -->
+      <div class="scroll" aria-label="《枯树赋》· 卷轴形式 · 可点击释义">
+        <div class="scroll__rod scroll__rod--top" aria-hidden="true"></div>
+        <div class="scroll__silk scroll__silk--top" aria-hidden="true"></div>
+        <section id="yfj" class="yfj"></section>
+        <div class="scroll__silk scroll__silk--bottom" aria-hidden="true"></div>
+        <div class="scroll__rod scroll__rod--bottom" aria-hidden="true"></div>
+        <aside id="yfj-panel" class="yfj-panel" aria-live="polite"></aside>
+      </div>
 
       <article class="essay essay--after">
         <p>
-          更多高清图与完整释文见
-          <a href="http://www.9610.com/csl/02.htm" target="_blank" rel="noreferrer">9610 书法空间 · 枯树赋</a>。
+          《枯树赋》原文是南北朝时期庾信羁留北方时写的——
+          亡国之痛、乡关之思、羁旅之恨尽在其中。
+          庾文褚书，双璧耀史：一个是亡国之人写的亡国之赋，
+          一个是即将在权力更迭里死去的忠臣抄的那篇亡国之赋。
         </p>
       </article>
 
@@ -64,18 +62,26 @@
           专为某一卷具体的古代法帖量身打造。
         </p>
         <p class="meta">
-          图片与作品资料：<a href="http://www.9610.com/csl/02.htm" target="_blank" rel="noreferrer">9610 书法空间 · 褚遂良</a> ·
+          原文：庾信《枯树赋》（公有领域）·
+          真迹彩版：<a href="http://www.9610.com/csl/02.htm" target="_blank" rel="noreferrer">9610 书法空间</a> ·
+          字数据：<a href="https://github.com/skishore/makemeahanzi" target="_blank" rel="noreferrer">MakeMeAHanzi</a> ·
+          笔顺：<a href="https://hanziwriter.org" target="_blank" rel="noreferrer">hanzi-writer</a> ·
           字体：<a href="https://fonts.google.com/noto/specimen/Noto+Serif+SC" target="_blank" rel="noreferrer">Noto Serif SC</a>
         </p>
       </footer>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.7.2/dist/hanzi-writer.min.js"></script>
+    <!-- BudouX：给散文段落断词 -->
     <script type="module">
       import { loadDefaultSimplifiedChineseParser } from "https://cdn.jsdelivr.net/npm/budoux@0.8.1/+esm";
       const parser = loadDefaultSimplifiedChineseParser();
-      document.querySelectorAll(".essay p, .gallery figcaption").forEach((el) => {
+      document.querySelectorAll(".essay p").forEach((el) => {
         parser.applyToElement(el);
       });
     </script>
+    <!-- 作品配置 → 卷轴库 -->
+    <script src="../../data/kushufu-data.js?v=7"></script>
+    <script src="../../main.js?v=7"></script>
   </body>
 </html>
