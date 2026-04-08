@@ -825,6 +825,61 @@ a:hover { text-decoration-color: var(--accent); }
 }
 
 /* ============================================
+   作品页：Tier B 原文 + 释读阅读器
+   ============================================ */
+
+.reader {
+  max-width: 680px;
+  margin: clamp(48px, 7vh, 72px) auto;
+  padding: clamp(32px, 5vw, 48px) 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.reader__title {
+  font-size: 12px;
+  letter-spacing: 0.25em;
+  text-transform: none;
+  color: var(--ink-faint);
+  margin: 0 0 clamp(28px, 4vh, 40px);
+  text-align: center;
+  font-weight: 400;
+  font-style: italic;
+}
+.reader__group {
+  margin-bottom: clamp(28px, 4vh, 40px);
+  padding-left: clamp(14px, 2vw, 22px);
+  border-left: 2px solid var(--rule);
+  transition: border-color 0.2s;
+}
+.reader__group:last-child { margin-bottom: 0; }
+.reader__group:hover { border-left-color: var(--accent); }
+.reader__group--highlight {
+  border-left-color: var(--accent);
+  background: rgba(139, 26, 26, 0.035);
+  padding: clamp(16px, 3vh, 24px) clamp(14px, 2vw, 22px);
+}
+.reader__orig {
+  margin: 0 0 0.8em;
+  font-size: clamp(17px, 2vw, 20px);
+  line-height: 1.85;
+  color: var(--ink);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.reader__group--highlight .reader__orig {
+  font-size: clamp(20px, 2.6vw, 26px);
+  color: var(--accent);
+  font-weight: 700;
+}
+.reader__note {
+  margin: 0;
+  font-size: clamp(14px, 1.6vw, 16px);
+  line-height: 1.85;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+/* ============================================
    作品页：图版画廊
    ============================================ */
 
