@@ -311,7 +311,17 @@
     body.appendChild(charBox);
 
     const text = el("div", "yfj-panel__text");
-    text.appendChild(el("p", "yfj-panel__orig", norm(data.t)));
+    /* 原文：把被点击的那个字（按 cidx 精确定位）包成高亮 span
+       —— 句中同字重复时也只亮一个 */
+    const hitIdx = Number(ch.dataset.cidx);
+    const orig = el("p", "yfj-panel__orig");
+    [...norm(data.t)].forEach((c, j) => {
+      const s = document.createElement("span");
+      s.textContent = c;
+      if (j === hitIdx) s.className = "yfj-panel__orig-hit";
+      orig.appendChild(s);
+    });
+    text.appendChild(orig);
     if (data.tr) {
       text.appendChild(el("p", "yfj-panel__tr", data.tr));
     } else {

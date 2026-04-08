@@ -471,6 +471,14 @@ a:hover { text-decoration-color: var(--accent); }
   padding-bottom: 0.6em;
   border-bottom: 1px dashed var(--rule);
 }
+.yfj-panel__orig-hit {
+  color: var(--accent);
+  background: rgba(139, 26, 26, 0.12);
+  font-weight: 700;
+  padding: 0 3px;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(139, 26, 26, 0.35);
+}
 .yfj-panel__tr {
   color: var(--ink);
 }
