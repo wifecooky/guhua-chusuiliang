@@ -1,0 +1,633 @@
+- main [ref=e2]:
+  - generic [ref=e3]:
+    - paragraph [ref=e4]: 古画 · 字解码 · 第一篇
+    - heading "褚遂良《阴符经》" [level=1] [ref=e5]
+    - paragraph [ref=e6]: 461 个字，可点。一卷在道家典籍与楷书法度之间游走的墨迹
+  - article [ref=e7]:
+    - paragraph [ref=e8]: 公元 658 年前后，褚遂良在生命的最后几年，写下了这卷《阴符经》。 全卷四百余字，是他楷书最成熟的体段—— 法度森严却带着那种独属于他的、轻而薄的气质， 像是一支细笔在纸上提住了气息，舍不得落下。
+    - paragraph [ref=e9]:
+      - text: 下面是全文。
+      - strong [ref=e10]: 每一个字都可以点。
+      - text: 点开后，那一句的释文会从下面长出来。 《阴符经》写得极短极绕， 一句话往往要顶住《道德经》一整章—— 所以读它最好的方式不是逐字，而是逐句。
+  - generic "《阴符经》全文 · 卷轴形式 · 可点击释义" [ref=e11]:
+    - generic [ref=e14]:
+      - generic [ref=e15]:
+        - generic [ref=e16]: 褚遂良 阴符经
+        - generic [ref=e17]: 褚
+      - generic [ref=e18]: 上篇
+      - generic [ref=e19]:
+        - button "字 观" [ref=e20] [cursor=pointer]: 观
+        - button "字 天" [ref=e21] [cursor=pointer]: 天
+        - button "字 之" [ref=e22] [cursor=pointer]: 之
+        - button "字 道" [ref=e23] [cursor=pointer]: 道
+        - text: ，
+        - button "字 执" [ref=e24] [cursor=pointer]: 执
+        - button "字 天" [ref=e25] [cursor=pointer]: 天
+        - button "字 之" [ref=e26] [cursor=pointer]: 之
+        - button "字 行" [ref=e27] [cursor=pointer]: 行
+        - text: ，
+        - button "字 尽" [ref=e28] [cursor=pointer]: 尽
+        - button "字 矣" [ref=e29] [cursor=pointer]: 矣
+        - text: 。
+      - generic [ref=e30]:
+        - button "字 故" [ref=e31] [cursor=pointer]: 故
+        - button "字 天" [ref=e32] [cursor=pointer]: 天
+        - button "字 有" [ref=e33] [cursor=pointer]: 有
+        - button "字 五" [ref=e34] [cursor=pointer]: 五
+        - button "字 贼" [ref=e35] [cursor=pointer]: 贼
+        - text: ，
+        - button "字 见" [ref=e36] [cursor=pointer]: 见
+        - button "字 之" [ref=e37] [cursor=pointer]: 之
+        - button "字 者" [ref=e38] [cursor=pointer]: 者
+        - button "字 昌" [ref=e39] [cursor=pointer]: 昌
+        - text: 。
+      - generic [ref=e40]:
+        - button "字 五" [ref=e41] [cursor=pointer]: 五
+        - button "字 贼" [ref=e42] [cursor=pointer]: 贼
+        - button "字 在" [ref=e43] [cursor=pointer]: 在
+        - button "字 乎" [ref=e44] [cursor=pointer]: 乎
+        - button "字 心" [ref=e45] [cursor=pointer]: 心
+        - text: ，
+        - button "字 施" [ref=e46] [cursor=pointer]: 施
+        - button "字 行" [ref=e47] [cursor=pointer]: 行
+        - button "字 于" [ref=e48] [cursor=pointer]: 于
+        - button "字 天" [ref=e49] [cursor=pointer]: 天
+        - text: 。
+      - generic [ref=e50]:
+        - button "字 宇" [ref=e51] [cursor=pointer]: 宇
+        - button "字 宙" [ref=e52] [cursor=pointer]: 宙
+        - button "字 在" [ref=e53] [cursor=pointer]: 在
+        - button "字 乎" [ref=e54] [cursor=pointer]: 乎
+        - button "字 手" [ref=e55] [cursor=pointer]: 手
+        - text: ，
+        - button "字 万" [ref=e56] [cursor=pointer]: 万
+        - button "字 化" [ref=e57] [cursor=pointer]: 化
+        - button "字 生" [ref=e58] [cursor=pointer]: 生
+        - button "字 乎" [ref=e59] [cursor=pointer]: 乎
+        - button "字 身" [ref=e60] [cursor=pointer]: 身
+        - text: 。
+      - generic [ref=e61]:
+        - button "字 天" [ref=e62] [cursor=pointer]: 天
+        - button "字 性" [ref=e63] [cursor=pointer]: 性
+        - text: ，
+        - button "字 人" [ref=e64] [cursor=pointer]: 人
+        - button "字 也" [ref=e65] [cursor=pointer]: 也
+        - text: ；
+        - button "字 人" [ref=e66] [cursor=pointer]: 人
+        - button "字 心" [ref=e67] [cursor=pointer]: 心
+        - text: ，
+        - button "字 机" [ref=e68] [cursor=pointer]: 机
+        - button "字 也" [ref=e69] [cursor=pointer]: 也
+        - text: 。
+      - generic [ref=e70]:
+        - button "字 立" [ref=e71] [cursor=pointer]: 立
+        - button "字 天" [ref=e72] [cursor=pointer]: 天
+        - button "字 之" [ref=e73] [cursor=pointer]: 之
+        - button "字 道" [ref=e74] [cursor=pointer]: 道
+        - text: ，
+        - button "字 以" [ref=e75] [cursor=pointer]: 以
+        - button "字 定" [ref=e76] [cursor=pointer]: 定
+        - button "字 人" [ref=e77] [cursor=pointer]: 人
+        - button "字 也" [ref=e78] [cursor=pointer]: 也
+        - text: 。
+      - generic [ref=e79]:
+        - button "字 天" [ref=e80] [cursor=pointer]: 天
+        - button "字 发" [ref=e81] [cursor=pointer]: 发
+        - button "字 杀" [ref=e82] [cursor=pointer]: 杀
+        - button "字 机" [ref=e83] [cursor=pointer]: 机
+        - text: ，
+        - button "字 移" [ref=e84] [cursor=pointer]: 移
+        - button "字 星" [ref=e85] [cursor=pointer]: 星
+        - button "字 易" [ref=e86] [cursor=pointer]: 易
+        - button "字 宿" [ref=e87] [cursor=pointer]: 宿
+        - text: ；
+        - button "字 地" [ref=e88] [cursor=pointer]: 地
+        - button "字 发" [ref=e89] [cursor=pointer]: 发
+        - button "字 杀" [ref=e90] [cursor=pointer]: 杀
+        - button "字 机" [ref=e91] [cursor=pointer]: 机
+        - text: ，
+        - button "字 龙" [ref=e92] [cursor=pointer]: 龙
+        - button "字 蛇" [ref=e93] [cursor=pointer]: 蛇
+        - button "字 起" [ref=e94] [cursor=pointer]: 起
+        - button "字 陆" [ref=e95] [cursor=pointer]: 陆
+        - text: ；
+        - button "字 人" [ref=e96] [cursor=pointer]: 人
+        - button "字 发" [ref=e97] [cursor=pointer]: 发
+        - button "字 杀" [ref=e98] [cursor=pointer]: 杀
+        - button "字 机" [ref=e99] [cursor=pointer]: 机
+        - text: ，
+        - button "字 天" [ref=e100] [cursor=pointer]: 天
+        - button "字 地" [ref=e101] [cursor=pointer]: 地
+        - button "字 反" [ref=e102] [cursor=pointer]: 反
+        - button "字 覆" [ref=e103] [cursor=pointer]: 覆
+        - text: ；
+        - button "字 天" [ref=e104] [cursor=pointer]: 天
+        - button "字 人" [ref=e105] [cursor=pointer]: 人
+        - button "字 合" [ref=e106] [cursor=pointer]: 合
+        - button "字 发" [ref=e107] [cursor=pointer]: 发
+        - text: ，
+        - button "字 万" [ref=e108] [cursor=pointer]: 万
+        - button "字 变" [ref=e109] [cursor=pointer]: 变
+        - button "字 定" [ref=e110] [cursor=pointer]: 定
+        - button "字 基" [ref=e111] [cursor=pointer]: 基
+        - text: 。
+      - generic [ref=e112]:
+        - button "字 性" [ref=e113] [cursor=pointer]: 性
+        - button "字 有" [ref=e114] [cursor=pointer]: 有
+        - button "字 巧" [ref=e115] [cursor=pointer]: 巧
+        - button "字 拙" [ref=e116] [cursor=pointer]: 拙
+        - text: ，
+        - button "字 可" [ref=e117] [cursor=pointer]: 可
+        - button "字 以" [ref=e118] [cursor=pointer]: 以
+        - button "字 伏" [ref=e119] [cursor=pointer]: 伏
+        - button "字 藏" [ref=e120] [cursor=pointer]: 藏
+        - text: 。
+      - generic [ref=e121]:
+        - button "字 九" [ref=e122] [cursor=pointer]: 九
+        - button "字 窍" [ref=e123] [cursor=pointer]: 窍
+        - button "字 之" [ref=e124] [cursor=pointer]: 之
+        - button "字 邪" [ref=e125] [cursor=pointer]: 邪
+        - text: ，
+        - button "字 在" [ref=e126] [cursor=pointer]: 在
+        - button "字 乎" [ref=e127] [cursor=pointer]: 乎
+        - button "字 三" [ref=e128] [cursor=pointer]: 三
+        - button "字 要" [ref=e129] [cursor=pointer]: 要
+        - text: ，
+        - button "字 可" [ref=e130] [cursor=pointer]: 可
+        - button "字 以" [ref=e131] [cursor=pointer]: 以
+        - button "字 动" [ref=e132] [cursor=pointer]: 动
+        - button "字 静" [ref=e133] [cursor=pointer]: 静
+        - text: 。
+      - generic [ref=e134]:
+        - button "字 火" [ref=e135] [cursor=pointer]: 火
+        - button "字 生" [ref=e136] [cursor=pointer]: 生
+        - button "字 于" [ref=e137] [cursor=pointer]: 于
+        - button "字 木" [ref=e138] [cursor=pointer]: 木
+        - text: ，
+        - button "字 祸" [ref=e139] [cursor=pointer]: 祸
+        - button "字 发" [ref=e140] [cursor=pointer]: 发
+        - button "字 必" [ref=e141] [cursor=pointer]: 必
+        - button "字 克" [ref=e142] [cursor=pointer]: 克
+        - text: ；
+        - button "字 奸" [ref=e143] [cursor=pointer]: 奸
+        - button "字 生" [ref=e144] [cursor=pointer]: 生
+        - button "字 于" [ref=e145] [cursor=pointer]: 于
+        - button "字 国" [ref=e146] [cursor=pointer]: 国
+        - text: ，
+        - button "字 时" [ref=e147] [cursor=pointer]: 时
+        - button "字 动" [ref=e148] [cursor=pointer]: 动
+        - button "字 必" [ref=e149] [cursor=pointer]: 必
+        - button "字 溃" [ref=e150] [cursor=pointer]: 溃
+        - text: 。
+      - generic [ref=e151]:
+        - button "字 知" [ref=e152] [cursor=pointer]: 知
+        - button "字 之" [ref=e153] [cursor=pointer]: 之
+        - button "字 修" [ref=e154] [cursor=pointer]: 修
+        - button "字 炼" [ref=e155] [cursor=pointer]: 炼
+        - text: ，
+        - button "字 谓" [ref=e156] [cursor=pointer]: 谓
+        - button "字 之" [ref=e157] [cursor=pointer]: 之
+        - button "字 圣" [ref=e158] [cursor=pointer]: 圣
+        - button "字 人" [ref=e159] [cursor=pointer]: 人
+        - text: 。
+      - generic [ref=e160]: 中篇
+      - generic [ref=e161]:
+        - button "字 天" [ref=e162] [cursor=pointer]: 天
+        - button "字 生" [ref=e163] [cursor=pointer]: 生
+        - button "字 天" [ref=e164] [cursor=pointer]: 天
+        - button "字 杀" [ref=e165] [cursor=pointer]: 杀
+        - text: ，
+        - button "字 道" [ref=e166] [cursor=pointer]: 道
+        - button "字 之" [ref=e167] [cursor=pointer]: 之
+        - button "字 理" [ref=e168] [cursor=pointer]: 理
+        - button "字 也" [ref=e169] [cursor=pointer]: 也
+        - text: 。
+      - generic [ref=e170]:
+        - button "字 天" [ref=e171] [cursor=pointer]: 天
+        - button "字 地" [ref=e172] [cursor=pointer]: 地
+        - text: ，
+        - button "字 万" [ref=e173] [cursor=pointer]: 万
+        - button "字 物" [ref=e174] [cursor=pointer]: 物
+        - button "字 之" [ref=e175] [cursor=pointer]: 之
+        - button "字 盗" [ref=e176] [cursor=pointer]: 盗
+        - text: ；
+        - button "字 万" [ref=e177] [cursor=pointer]: 万
+        - button "字 物" [ref=e178] [cursor=pointer]: 物
+        - text: ，
+        - button "字 人" [ref=e179] [cursor=pointer]: 人
+        - button "字 之" [ref=e180] [cursor=pointer]: 之
+        - button "字 盗" [ref=e181] [cursor=pointer]: 盗
+        - text: ；
+        - button "字 人" [ref=e182] [cursor=pointer]: 人
+        - text: ，
+        - button "字 万" [ref=e183] [cursor=pointer]: 万
+        - button "字 物" [ref=e184] [cursor=pointer]: 物
+        - button "字 之" [ref=e185] [cursor=pointer]: 之
+        - button "字 盗" [ref=e186] [cursor=pointer]: 盗
+        - text: 。
+      - generic [ref=e187]:
+        - button "字 三" [ref=e188] [cursor=pointer]: 三
+        - button "字 盗" [ref=e189] [cursor=pointer]: 盗
+        - button "字 既" [ref=e190] [cursor=pointer]: 既
+        - button "字 宜" [ref=e191] [cursor=pointer]: 宜
+        - text: ，
+        - button "字 三" [ref=e192] [cursor=pointer]: 三
+        - button "字 才" [ref=e193] [cursor=pointer]: 才
+        - button "字 既" [ref=e194] [cursor=pointer]: 既
+        - button "字 安" [ref=e195] [cursor=pointer]: 安
+        - text: 。
+      - generic [ref=e196]:
+        - button "字 故" [ref=e197] [cursor=pointer]: 故
+        - button "字 曰" [ref=e198] [cursor=pointer]: 曰
+        - text: ：
+        - button "字 食" [ref=e199] [cursor=pointer]: 食
+        - button "字 其" [ref=e200] [cursor=pointer]: 其
+        - button "字 时" [ref=e201] [cursor=pointer]: 时
+        - text: ，
+        - button "字 百" [ref=e202] [cursor=pointer]: 百
+        - button "字 骸" [ref=e203] [cursor=pointer]: 骸
+        - button "字 理" [ref=e204] [cursor=pointer]: 理
+        - text: ；
+        - button "字 动" [ref=e205] [cursor=pointer]: 动
+        - button "字 其" [ref=e206] [cursor=pointer]: 其
+        - button "字 机" [ref=e207] [cursor=pointer]: 机
+        - text: ，
+        - button "字 万" [ref=e208] [cursor=pointer]: 万
+        - button "字 化" [ref=e209] [cursor=pointer]: 化
+        - button "字 安" [ref=e210] [cursor=pointer]: 安
+        - text: 。
+      - generic [ref=e211]:
+        - button "字 人" [ref=e212] [cursor=pointer]: 人
+        - button "字 知" [ref=e213] [cursor=pointer]: 知
+        - button "字 其" [ref=e214] [cursor=pointer]: 其
+        - button "字 神" [ref=e215] [cursor=pointer]: 神
+        - button "字 而" [ref=e216] [cursor=pointer]: 而
+        - button "字 神" [ref=e217] [cursor=pointer]: 神
+        - text: ，
+        - button "字 不" [ref=e218] [cursor=pointer]: 不
+        - button "字 知" [ref=e219] [cursor=pointer]: 知
+        - button "字 其" [ref=e220] [cursor=pointer]: 其
+        - button "字 不" [ref=e221] [cursor=pointer]: 不
+        - button "字 神" [ref=e222] [cursor=pointer]: 神
+        - button "字 之" [ref=e223] [cursor=pointer]: 之
+        - button "字 所" [ref=e224] [cursor=pointer]: 所
+        - button "字 以" [ref=e225] [cursor=pointer]: 以
+        - button "字 神" [ref=e226] [cursor=pointer]: 神
+        - button "字 也" [ref=e227] [cursor=pointer]: 也
+        - text: 。
+      - generic [ref=e228]:
+        - button "字 日" [ref=e229] [cursor=pointer]: 日
+        - button "字 月" [ref=e230] [cursor=pointer]: 月
+        - button "字 有" [ref=e231] [cursor=pointer]: 有
+        - button "字 数" [ref=e232] [cursor=pointer]: 数
+        - text: ，
+        - button "字 大" [ref=e233] [cursor=pointer]: 大
+        - button "字 小" [ref=e234] [cursor=pointer]: 小
+        - button "字 有" [ref=e235] [cursor=pointer]: 有
+        - button "字 定" [ref=e236] [cursor=pointer]: 定
+        - text: ，
+        - button "字 圣" [ref=e237] [cursor=pointer]: 圣
+        - button "字 功" [ref=e238] [cursor=pointer]: 功
+        - button "字 生" [ref=e239] [cursor=pointer]: 生
+        - button "字 焉" [ref=e240] [cursor=pointer]: 焉
+        - text: ，
+        - button "字 神" [ref=e241] [cursor=pointer]: 神
+        - button "字 明" [ref=e242] [cursor=pointer]: 明
+        - button "字 出" [ref=e243] [cursor=pointer]: 出
+        - button "字 焉" [ref=e244] [cursor=pointer]: 焉
+        - text: 。
+      - generic [ref=e245]:
+        - button "字 其" [ref=e246] [cursor=pointer]: 其
+        - button "字 盗" [ref=e247] [cursor=pointer]: 盗
+        - button "字 机" [ref=e248] [cursor=pointer]: 机
+        - button "字 也" [ref=e249] [cursor=pointer]: 也
+        - text: ，
+        - button "字 天" [ref=e250] [cursor=pointer]: 天
+        - button "字 下" [ref=e251] [cursor=pointer]: 下
+        - button "字 莫" [ref=e252] [cursor=pointer]: 莫
+        - button "字 能" [ref=e253] [cursor=pointer]: 能
+        - button "字 见" [ref=e254] [cursor=pointer]: 见
+        - text: ，
+        - button "字 莫" [ref=e255] [cursor=pointer]: 莫
+        - button "字 能" [ref=e256] [cursor=pointer]: 能
+        - button "字 知" [ref=e257] [cursor=pointer]: 知
+        - button "字 也" [ref=e258] [cursor=pointer]: 也
+        - text: 。
+      - generic [ref=e259]:
+        - button "字 君" [ref=e260] [cursor=pointer]: 君
+        - button "字 子" [ref=e261] [cursor=pointer]: 子
+        - button "字 得" [ref=e262] [cursor=pointer]: 得
+        - button "字 之" [ref=e263] [cursor=pointer]: 之
+        - button "字 固" [ref=e264] [cursor=pointer]: 固
+        - button "字 躬" [ref=e265] [cursor=pointer]: 躬
+        - text: ，
+        - button "字 小" [ref=e266] [cursor=pointer]: 小
+        - button "字 人" [ref=e267] [cursor=pointer]: 人
+        - button "字 得" [ref=e268] [cursor=pointer]: 得
+        - button "字 之" [ref=e269] [cursor=pointer]: 之
+        - button "字 轻" [ref=e270] [cursor=pointer]: 轻
+        - button "字 命" [ref=e271] [cursor=pointer]: 命
+        - text: 。
+      - generic [ref=e272]: 下篇
+      - generic [ref=e273]:
+        - button "字 瞽" [ref=e274] [cursor=pointer]: 瞽
+        - button "字 者" [ref=e275] [cursor=pointer]: 者
+        - button "字 善" [ref=e276] [cursor=pointer]: 善
+        - button "字 听" [ref=e277] [cursor=pointer]: 听
+        - text: ，
+        - button "字 聋" [ref=e278] [cursor=pointer]: 聋
+        - button "字 者" [ref=e279] [cursor=pointer]: 者
+        - button "字 善" [ref=e280] [cursor=pointer]: 善
+        - button "字 视" [ref=e281] [cursor=pointer]: 视
+        - text: 。
+      - generic [ref=e282]:
+        - button "字 绝" [ref=e283] [cursor=pointer]: 绝
+        - button "字 利" [ref=e284] [cursor=pointer]: 利
+        - button "字 一" [ref=e285] [cursor=pointer]: 一
+        - button "字 源" [ref=e286] [cursor=pointer]: 源
+        - text: ，
+        - button "字 用" [ref=e287] [cursor=pointer]: 用
+        - button "字 师" [ref=e288] [cursor=pointer]: 师
+        - button "字 十" [ref=e289] [cursor=pointer]: 十
+        - button "字 倍" [ref=e290] [cursor=pointer]: 倍
+        - text: 。
+      - generic [ref=e291]:
+        - button "字 三" [ref=e292] [cursor=pointer]: 三
+        - button "字 返" [ref=e293] [cursor=pointer]: 返
+        - button "字 昼" [ref=e294] [cursor=pointer]: 昼
+        - button "字 夜" [ref=e295] [cursor=pointer]: 夜
+        - text: ，
+        - button "字 用" [ref=e296] [cursor=pointer]: 用
+        - button "字 师" [ref=e297] [cursor=pointer]: 师
+        - button "字 万" [ref=e298] [cursor=pointer]: 万
+        - button "字 倍" [ref=e299] [cursor=pointer]: 倍
+        - text: 。
+      - generic [ref=e300]:
+        - button "字 心" [ref=e301] [cursor=pointer]: 心
+        - button "字 生" [ref=e302] [cursor=pointer]: 生
+        - button "字 于" [ref=e303] [cursor=pointer]: 于
+        - button "字 物" [ref=e304] [cursor=pointer]: 物
+        - text: ，
+        - button "字 死" [ref=e305] [cursor=pointer]: 死
+        - button "字 于" [ref=e306] [cursor=pointer]: 于
+        - button "字 物" [ref=e307] [cursor=pointer]: 物
+        - text: ，
+        - button "字 机" [ref=e308] [cursor=pointer]: 机
+        - button "字 在" [ref=e309] [cursor=pointer]: 在
+        - button "字 于" [ref=e310] [cursor=pointer]: 于
+        - button "字 目" [ref=e311] [cursor=pointer]: 目
+        - text: 。
+      - generic [ref=e312]:
+        - button "字 天" [ref=e313] [cursor=pointer]: 天
+        - button "字 之" [ref=e314] [cursor=pointer]: 之
+        - button "字 无" [ref=e315] [cursor=pointer]: 无
+        - button "字 恩" [ref=e316] [cursor=pointer]: 恩
+        - button "字 而" [ref=e317] [cursor=pointer]: 而
+        - button "字 大" [ref=e318] [cursor=pointer]: 大
+        - button "字 恩" [ref=e319] [cursor=pointer]: 恩
+        - button "字 生" [ref=e320] [cursor=pointer]: 生
+        - text: 。
+      - generic [ref=e321]:
+        - button "字 迅" [ref=e322] [cursor=pointer]: 迅
+        - button "字 雷" [ref=e323] [cursor=pointer]: 雷
+        - button "字 烈" [ref=e324] [cursor=pointer]: 烈
+        - button "字 风" [ref=e325] [cursor=pointer]: 风
+        - text: ，
+        - button "字 莫" [ref=e326] [cursor=pointer]: 莫
+        - button "字 不" [ref=e327] [cursor=pointer]: 不
+        - button "字 蠢" [ref=e328] [cursor=pointer]: 蠢
+        - button "字 然" [ref=e329] [cursor=pointer]: 然
+        - text: 。
+      - generic [ref=e330]:
+        - button "字 至" [ref=e331] [cursor=pointer]: 至
+        - button "字 乐" [ref=e332] [cursor=pointer]: 乐
+        - button "字 性" [ref=e333] [cursor=pointer]: 性
+        - button "字 余" [ref=e334] [cursor=pointer]: 余
+        - text: ，
+        - button "字 至" [ref=e335] [cursor=pointer]: 至
+        - button "字 静" [ref=e336] [cursor=pointer]: 静
+        - button "字 性" [ref=e337] [cursor=pointer]: 性
+        - button "字 廉" [ref=e338] [cursor=pointer]: 廉
+        - text: 。
+      - generic [ref=e339]:
+        - button "字 天" [ref=e340] [cursor=pointer]: 天
+        - button "字 之" [ref=e341] [cursor=pointer]: 之
+        - button "字 至" [ref=e342] [cursor=pointer]: 至
+        - button "字 私" [ref=e343] [cursor=pointer]: 私
+        - text: ，
+        - button "字 用" [ref=e344] [cursor=pointer]: 用
+        - button "字 之" [ref=e345] [cursor=pointer]: 之
+        - button "字 至" [ref=e346] [cursor=pointer]: 至
+        - button "字 公" [ref=e347] [cursor=pointer]: 公
+        - text: 。
+      - generic [ref=e348]:
+        - button "字 禽" [ref=e349] [cursor=pointer]: 禽
+        - button "字 之" [ref=e350] [cursor=pointer]: 之
+        - button "字 制" [ref=e351] [cursor=pointer]: 制
+        - button "字 在" [ref=e352] [cursor=pointer]: 在
+        - button "字 炁" [ref=e353] [cursor=pointer]: 炁
+        - text: 。
+      - generic [ref=e354]:
+        - button "字 生" [ref=e355] [cursor=pointer]: 生
+        - button "字 者" [ref=e356] [cursor=pointer]: 者
+        - button "字 死" [ref=e357] [cursor=pointer]: 死
+        - button "字 之" [ref=e358] [cursor=pointer]: 之
+        - button "字 根" [ref=e359] [cursor=pointer]: 根
+        - text: ，
+        - button "字 死" [ref=e360] [cursor=pointer]: 死
+        - button "字 者" [ref=e361] [cursor=pointer]: 者
+        - button "字 生" [ref=e362] [cursor=pointer]: 生
+        - button "字 之" [ref=e363] [cursor=pointer]: 之
+        - button "字 根" [ref=e364] [cursor=pointer]: 根
+        - text: 。
+      - generic [ref=e365]:
+        - button "字 恩" [ref=e366] [cursor=pointer]: 恩
+        - button "字 生" [ref=e367] [cursor=pointer]: 生
+        - button "字 于" [ref=e368] [cursor=pointer]: 于
+        - button "字 害" [ref=e369] [cursor=pointer]: 害
+        - text: ，
+        - button "字 害" [ref=e370] [cursor=pointer]: 害
+        - button "字 生" [ref=e371] [cursor=pointer]: 生
+        - button "字 于" [ref=e372] [cursor=pointer]: 于
+        - button "字 恩" [ref=e373] [cursor=pointer]: 恩
+        - text: 。
+      - generic [ref=e374]:
+        - button "字 愚" [ref=e375] [cursor=pointer]: 愚
+        - button "字 人" [ref=e376] [cursor=pointer]: 人
+        - button "字 以" [ref=e377] [cursor=pointer]: 以
+        - button "字 天" [ref=e378] [cursor=pointer]: 天
+        - button "字 地" [ref=e379] [cursor=pointer]: 地
+        - button "字 文" [ref=e380] [cursor=pointer]: 文
+        - button "字 理" [ref=e381] [cursor=pointer]: 理
+        - button "字 圣" [ref=e382] [cursor=pointer]: 圣
+        - text: ，
+        - button "字 我" [ref=e383] [cursor=pointer]: 我
+        - button "字 以" [ref=e384] [cursor=pointer]: 以
+        - button "字 时" [ref=e385] [cursor=pointer]: 时
+        - button "字 物" [ref=e386] [cursor=pointer]: 物
+        - button "字 文" [ref=e387] [cursor=pointer]: 文
+        - button "字 理" [ref=e388] [cursor=pointer]: 理
+        - button "字 哲" [ref=e389] [cursor=pointer]: 哲
+        - text: 。
+      - generic [ref=e390]:
+        - button "字 人" [ref=e391] [cursor=pointer]: 人
+        - button "字 以" [ref=e392] [cursor=pointer]: 以
+        - button "字 愚" [ref=e393] [cursor=pointer]: 愚
+        - button "字 虞" [ref=e394] [cursor=pointer]: 虞
+        - button "字 圣" [ref=e395] [cursor=pointer]: 圣
+        - text: ，
+        - button "字 我" [ref=e396] [cursor=pointer]: 我
+        - button "字 以" [ref=e397] [cursor=pointer]: 以
+        - button "字 不" [ref=e398] [cursor=pointer]: 不
+        - button "字 愚" [ref=e399] [cursor=pointer]: 愚
+        - button "字 虞" [ref=e400] [cursor=pointer]: 虞
+        - button "字 圣" [ref=e401] [cursor=pointer]: 圣
+        - text: ；
+        - button "字 人" [ref=e402] [cursor=pointer]: 人
+        - button "字 以" [ref=e403] [cursor=pointer]: 以
+        - button "字 奇" [ref=e404] [cursor=pointer]: 奇
+        - button "字 期" [ref=e405] [cursor=pointer]: 期
+        - button "字 圣" [ref=e406] [cursor=pointer]: 圣
+        - text: ，
+        - button "字 我" [ref=e407] [cursor=pointer]: 我
+        - button "字 以" [ref=e408] [cursor=pointer]: 以
+        - button "字 不" [ref=e409] [cursor=pointer]: 不
+        - button "字 奇" [ref=e410] [cursor=pointer]: 奇
+        - button "字 期" [ref=e411] [cursor=pointer]: 期
+        - button "字 圣" [ref=e412] [cursor=pointer]: 圣
+        - text: 。
+      - generic [ref=e413]:
+        - button "字 故" [ref=e414] [cursor=pointer]: 故
+        - button "字 曰" [ref=e415] [cursor=pointer]: 曰
+        - text: ：
+        - button "字 沉" [ref=e416] [cursor=pointer]: 沉
+        - button "字 水" [ref=e417] [cursor=pointer]: 水
+        - button "字 入" [ref=e418] [cursor=pointer]: 入
+        - button "字 火" [ref=e419] [cursor=pointer]: 火
+        - text: ，
+        - button "字 自" [ref=e420] [cursor=pointer]: 自
+        - button "字 取" [ref=e421] [cursor=pointer]: 取
+        - button "字 灭" [ref=e422] [cursor=pointer]: 灭
+        - button "字 亡" [ref=e423] [cursor=pointer]: 亡
+        - text: 。
+      - generic [ref=e424]:
+        - button "字 自" [ref=e425] [cursor=pointer]: 自
+        - button "字 然" [ref=e426] [cursor=pointer]: 然
+        - button "字 之" [ref=e427] [cursor=pointer]: 之
+        - button "字 道" [ref=e428] [cursor=pointer]: 道
+        - button "字 静" [ref=e429] [cursor=pointer]: 静
+        - text: ，
+        - button "字 故" [ref=e430] [cursor=pointer]: 故
+        - button "字 天" [ref=e431] [cursor=pointer]: 天
+        - button "字 地" [ref=e432] [cursor=pointer]: 地
+        - button "字 万" [ref=e433] [cursor=pointer]: 万
+        - button "字 物" [ref=e434] [cursor=pointer]: 物
+        - button "字 生" [ref=e435] [cursor=pointer]: 生
+        - text: 。
+      - generic [ref=e436]:
+        - button "字 天" [ref=e437] [cursor=pointer]: 天
+        - button "字 地" [ref=e438] [cursor=pointer]: 地
+        - button "字 之" [ref=e439] [cursor=pointer]: 之
+        - button "字 道" [ref=e440] [cursor=pointer]: 道
+        - button "字 浸" [ref=e441] [cursor=pointer]: 浸
+        - text: ，
+        - button "字 故" [ref=e442] [cursor=pointer]: 故
+        - button "字 阴" [ref=e443] [cursor=pointer]: 阴
+        - button "字 阳" [ref=e444] [cursor=pointer]: 阳
+        - button "字 胜" [ref=e445] [cursor=pointer]: 胜
+        - text: 。
+      - generic [ref=e446]:
+        - button "字 阴" [ref=e447] [cursor=pointer]: 阴
+        - button "字 阳" [ref=e448] [cursor=pointer]: 阳
+        - button "字 相" [ref=e449] [cursor=pointer]: 相
+        - button "字 推" [ref=e450] [cursor=pointer]: 推
+        - text: ，
+        - button "字 而" [ref=e451] [cursor=pointer]: 而
+        - button "字 变" [ref=e452] [cursor=pointer]: 变
+        - button "字 化" [ref=e453] [cursor=pointer]: 化
+        - button "字 顺" [ref=e454] [cursor=pointer]: 顺
+        - button "字 矣" [ref=e455] [cursor=pointer]: 矣
+        - text: 。
+      - generic [ref=e456]:
+        - button "字 是" [ref=e457] [cursor=pointer]: 是
+        - button "字 故" [ref=e458] [cursor=pointer]: 故
+        - button "字 圣" [ref=e459] [cursor=pointer]: 圣
+        - button "字 人" [ref=e460] [cursor=pointer]: 人
+        - button "字 知" [ref=e461] [cursor=pointer]: 知
+        - button "字 自" [ref=e462] [cursor=pointer]: 自
+        - button "字 然" [ref=e463] [cursor=pointer]: 然
+        - button "字 之" [ref=e464] [cursor=pointer]: 之
+        - button "字 道" [ref=e465] [cursor=pointer]: 道
+        - button "字 不" [ref=e466] [cursor=pointer]: 不
+        - button "字 可" [ref=e467] [cursor=pointer]: 可
+        - button "字 违" [ref=e468] [cursor=pointer]: 违
+        - text: ，
+        - button "字 因" [ref=e469] [cursor=pointer]: 因
+        - button "字 而" [ref=e470] [cursor=pointer]: 而
+        - button "字 制" [ref=e471] [cursor=pointer]: 制
+        - button "字 之" [ref=e472] [cursor=pointer]: 之
+        - button "字 至" [ref=e473] [cursor=pointer]: 至
+        - button "字 静" [ref=e474] [cursor=pointer]: 静
+        - button "字 之" [ref=e475] [cursor=pointer]: 之
+        - button "字 道" [ref=e476] [cursor=pointer]: 道
+        - text: 。
+      - generic [ref=e477]:
+        - button "字 律" [ref=e478] [cursor=pointer]: 律
+        - button "字 历" [ref=e479] [cursor=pointer]: 历
+        - button "字 所" [ref=e480] [cursor=pointer]: 所
+        - button "字 不" [ref=e481] [cursor=pointer]: 不
+        - button "字 能" [ref=e482] [cursor=pointer]: 能
+        - button "字 契" [ref=e483] [cursor=pointer]: 契
+        - text: 。
+      - generic [ref=e484]:
+        - button "字 爰" [ref=e485] [cursor=pointer]: 爰
+        - button "字 有" [ref=e486] [cursor=pointer]: 有
+        - button "字 奇" [ref=e487] [cursor=pointer]: 奇
+        - button "字 器" [ref=e488] [cursor=pointer]: 器
+        - text: ，
+        - button "字 是" [ref=e489] [cursor=pointer]: 是
+        - button "字 生" [ref=e490] [cursor=pointer]: 生
+        - button "字 万" [ref=e491] [cursor=pointer]: 万
+        - button "字 象" [ref=e492] [cursor=pointer]: 象
+        - text: ，
+        - button "字 八" [ref=e493] [cursor=pointer]: 八
+        - button "字 卦" [ref=e494] [cursor=pointer]: 卦
+        - button "字 甲" [ref=e495] [cursor=pointer]: 甲
+        - button "字 子" [ref=e496] [cursor=pointer]: 子
+        - text: ，
+        - button "字 神" [ref=e497] [cursor=pointer]: 神
+        - button "字 机" [ref=e498] [cursor=pointer]: 机
+        - button "字 鬼" [ref=e499] [cursor=pointer]: 鬼
+        - button "字 藏" [ref=e500] [cursor=pointer]: 藏
+        - text: 。
+      - generic [ref=e501]:
+        - button "字 阴" [ref=e502] [cursor=pointer]: 阴
+        - button "字 阳" [ref=e503] [cursor=pointer]: 阳
+        - button "字 相" [ref=e504] [cursor=pointer]: 相
+        - button "字 胜" [ref=e505] [cursor=pointer]: 胜
+        - button "字 之" [ref=e506] [cursor=pointer]: 之
+        - button "字 术" [ref=e507] [cursor=pointer]: 术
+        - text: ，
+        - button "字 昭" [ref=e508] [cursor=pointer]: 昭
+        - button "字 昭" [ref=e509] [cursor=pointer]: 昭
+        - button "字 乎" [ref=e510] [cursor=pointer]: 乎
+        - button "字 进" [ref=e511] [cursor=pointer]: 进
+        - button "字 于" [ref=e512] [cursor=pointer]: 于
+        - button "字 象" [ref=e513] [cursor=pointer]: 象
+        - button "字 矣" [ref=e514] [cursor=pointer]: 矣
+        - text: 。
+      - generic [ref=e515]: 公有领域
+  - article [ref=e518]:
+    - paragraph [ref=e519]: 这卷里出现最多的字是"之"，27 次；其次是"天"，16 次；再次是"入"，14 次。 它们一遍遍地写下来，每一次落笔的角度都不一样。 这就是为什么后世认它是楷书范本—— 不是因为它整齐，而是因为它在整齐里反复偏离。
+  - generic [ref=e520]:
+    - paragraph [ref=e521]: 古画 · guhua — 一个一次性的 web 作品系列， 专为某一卷具体的古代法帖量身打造。
+    - paragraph [ref=e522]:
+      - text: 原文：黄帝《阴符经》（公有领域）· 字数据：
+      - link "MakeMeAHanzi" [ref=e523] [cursor=pointer]:
+        - /url: https://github.com/skishore/makemeahanzi
+      - text: · 笔顺：
+      - link "hanzi-writer" [ref=e524] [cursor=pointer]:
+        - /url: https://hanziwriter.org
+      - text: · 字体：
+      - link "Noto Serif SC" [ref=e525] [cursor=pointer]:
+        - /url: https://fonts.google.com/noto/specimen/Noto+Serif+SC
