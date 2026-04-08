@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>临王献之飞鸟帖 · 褚遂良 · 古画</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../style.css?v=7" />
+  </head>
+  <body>
+    <main class="page">
+      <nav class="topnav">
+        <a class="topnav__back" href="../../">← 褚遂良 · 总览</a>
+      </nav>
+
+      <header class="masthead">
+        <p class="kicker">古画 · 书家 · 作品</p>
+        <h1 class="title">临王献之飞鸟帖</h1>
+        <p class="subtitle">楷书 · 纸本 · 22×47.4cm · 台北故宫博物院藏 · 传</p>
+      </header>
+
+      <article class="essay">
+        <p class="lede">帖末自署“臣褚遂良临”。21 行小楷。</p>
+        <p>王献之原帖记一段奇遇：他说自己二十四岁隐居林下时，有一只飞鸟“左手持帋，右手持笔”，送给他五百七十九个字——他凭这批字形练字，一周就学会了。当然这是典型的道家“天授”叙事，真假都不重要，重要的是王献之把这段奇遇写进了他给父亲的奏札里。</p>
+        <p>褚遂良把这段故事临成小楷，是一次文字 + 书法的双份样本：你既能看到他怎么临王献之，也能读到王献之是怎么在奏札里讲自己的故事。</p>
+      </article>
+
+      <section class="gallery gallery--cols" aria-label="作品图版">
+        <figure class="gallery__item">
+          <a href="/assets/works/feiniao/01.jpg" target="_blank" rel="noreferrer">
+            <img src="/assets/works/feiniao/01.jpg" loading="lazy" alt="临王献之飞鸟帖 局部" />
+          </a>
+          <figcaption>纸本局部 · 起首</figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <a href="/assets/works/feiniao/02.jpg" target="_blank" rel="noreferrer">
+            <img src="/assets/works/feiniao/02.jpg" loading="lazy" alt="临王献之飞鸟帖 局部" />
+          </a>
+          <figcaption>纸本局部 · 中段</figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <a href="/assets/works/feiniao/03.jpg" target="_blank" rel="noreferrer">
+            <img src="/assets/works/feiniao/03.jpg" loading="lazy" alt="临王献之飞鸟帖 局部" />
+          </a>
+          <figcaption>纸本局部 · 末段</figcaption>
+        </figure>
+      </section>
+
+      <article class="essay essay--after">
+        <p>
+          更多高清图与完整释文见
+          <a href="http://www.9610.com/csl/13.htm" target="_blank" rel="noreferrer">9610 书法空间 · 临王献之飞鸟帖</a>。
+        </p>
+      </article>
+
+      <footer class="colophon">
+        <p>
+          古画 · guhua — 一个一次性的 web 作品系列，
+          专为某一卷具体的古代法帖量身打造。
+        </p>
+        <p class="meta">
+          图片与作品资料：<a href="http://www.9610.com/csl/13.htm" target="_blank" rel="noreferrer">9610 书法空间 · 褚遂良</a> ·
+          字体：<a href="https://fonts.google.com/noto/specimen/Noto+Serif+SC" target="_blank" rel="noreferrer">Noto Serif SC</a>
+        </p>
+      </footer>
+    </main>
+
+    <script type="module">
+      import { loadDefaultSimplifiedChineseParser } from "https://cdn.jsdelivr.net/npm/budoux@0.8.1/+esm";
+      const parser = loadDefaultSimplifiedChineseParser();
+      document.querySelectorAll(".essay p, .gallery figcaption").forEach((el) => {
+        parser.applyToElement(el);
+      });
+    </script>
+  </body>
+</html>

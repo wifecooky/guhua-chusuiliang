@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>枯树赋 · 褚遂良 · 古画</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../style.css?v=7" />
+  </head>
+  <body>
+    <main class="page">
+      <nav class="topnav">
+        <a class="topnav__back" href="../../">← 褚遂良 · 总览</a>
+      </nav>
+
+      <header class="masthead">
+        <p class="kicker">古画 · 书家 · 作品</p>
+        <h1 class="title">枯树赋</h1>
+        <p class="subtitle">行书 · 墨拓册 · 贞观四年（630） · 日本三井纪念美术馆藏</p>
+      </header>
+
+      <article class="essay">
+        <p class="lede">褚遂良三十五岁所书。款题为燕国公于志宁所作。</p>
+        <p>全册 39 行 467 字。墨迹已佚，仅有碑刻拓本传世。用笔清劲飘逸，字势欹正相生。明人王世贞评：“掩映斐叠，极有好致……有美女婵娟，不胜罗绮之态。”</p>
+        <p>《枯树赋》原文是南北朝时期庾信羁留北方时写的——亡国之痛、乡关之思、羁旅之恨尽在其中。庾文褚书，双璧耀史：一个是亡国之人写的亡国之赋，一个是即将在权力更迭里死去的忠臣抄的那篇亡国之赋。</p>
+      </article>
+
+      <section class="gallery gallery--cols" aria-label="作品图版">
+        <figure class="gallery__item">
+          <a href="/assets/works/kushufu/01.jpg" target="_blank" rel="noreferrer">
+            <img src="/assets/works/kushufu/01.jpg" loading="lazy" alt="枯树赋 局部" />
+          </a>
+          <figcaption>拓本局部 · 一</figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <a href="/assets/works/kushufu/02.jpg" target="_blank" rel="noreferrer">
+            <img src="/assets/works/kushufu/02.jpg" loading="lazy" alt="枯树赋 局部" />
+          </a>
+          <figcaption>拓本局部 · 二</figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <a href="/assets/works/kushufu/03.jpg" target="_blank" rel="noreferrer">
+            <img src="/assets/works/kushufu/03.jpg" loading="lazy" alt="枯树赋 局部" />
+          </a>
+          <figcaption>拓本局部 · 三</figcaption>
+        </figure>
+      </section>
+
+      <article class="essay essay--after">
+        <p>
+          更多高清图与完整释文见
+          <a href="http://www.9610.com/csl/02.htm" target="_blank" rel="noreferrer">9610 书法空间 · 枯树赋</a>。
+        </p>
+      </article>
+
+      <footer class="colophon">
+        <p>
+          古画 · guhua — 一个一次性的 web 作品系列，
+          专为某一卷具体的古代法帖量身打造。
+        </p>
+        <p class="meta">
+          图片与作品资料：<a href="http://www.9610.com/csl/02.htm" target="_blank" rel="noreferrer">9610 书法空间 · 褚遂良</a> ·
+          字体：<a href="https://fonts.google.com/noto/specimen/Noto+Serif+SC" target="_blank" rel="noreferrer">Noto Serif SC</a>
+        </p>
+      </footer>
+    </main>
+
+    <script type="module">
+      import { loadDefaultSimplifiedChineseParser } from "https://cdn.jsdelivr.net/npm/budoux@0.8.1/+esm";
+      const parser = loadDefaultSimplifiedChineseParser();
+      document.querySelectorAll(".essay p, .gallery figcaption").forEach((el) => {
+        parser.applyToElement(el);
+      });
+    </script>
+  </body>
+</html>

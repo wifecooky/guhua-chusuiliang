@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>倪宽赞 · 褚遂良 · 古画</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../style.css?v=7" />
+  </head>
+  <body>
+    <main class="page">
+      <nav class="topnav">
+        <a class="topnav__back" href="../../">← 褚遂良 · 总览</a>
+      </nav>
+
+      <header class="masthead">
+        <p class="kicker">古画 · 书家 · 作品</p>
+        <h1 class="title">倪宽赞</h1>
+        <p class="subtitle">楷书 · 墨迹卷 · 25.6×576cm · 台北故宫博物院藏 · 传</p>
+      </header>
+
+      <article class="essay">
+        <p class="lede">传褚遂良书，素笺乌丝栏墨迹，近六米长卷。</p>
+        <p>是褚楷为数不多的墨迹本之一——另一本就是本站深度展开的《大字阴符经》。真伪历有争议：元代赵孟頫跋称“字里金生，行间玉润”，明代一派视为真迹；也有学者认为是后人仿作。</p>
+        <p>但无论真伪，它都保留了褚体墨迹最直接的笔触和运墨节奏，是研究褚体形态的重要参照——碑刻里丢失的墨色渐变、起笔收笔的实情，只有墨迹本里能看到。</p>
+      </article>
+
+      <section class="gallery gallery--cols" aria-label="作品图版">
+        <figure class="gallery__item">
+          <a href="/assets/works/nikuanzan/01.jpg" target="_blank" rel="noreferrer">
+            <img src="/assets/works/nikuanzan/01.jpg" loading="lazy" alt="倪宽赞 局部" />
+          </a>
+          <figcaption>全卷缩略</figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <a href="/assets/works/nikuanzan/02.jpg" target="_blank" rel="noreferrer">
+            <img src="/assets/works/nikuanzan/02.jpg" loading="lazy" alt="倪宽赞 局部" />
+          </a>
+          <figcaption>起首部分</figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <a href="/assets/works/nikuanzan/03.jpg" target="_blank" rel="noreferrer">
+            <img src="/assets/works/nikuanzan/03.jpg" loading="lazy" alt="倪宽赞 局部" />
+          </a>
+          <figcaption>中段细节</figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <a href="/assets/works/nikuanzan/04.jpg" target="_blank" rel="noreferrer">
+            <img src="/assets/works/nikuanzan/04.jpg" loading="lazy" alt="倪宽赞 局部" />
+          </a>
+          <figcaption>末段细节</figcaption>
+        </figure>
+      </section>
+
+      <article class="essay essay--after">
+        <p>
+          更多高清图与完整释文见
+          <a href="http://www.9610.com/csl/03.htm" target="_blank" rel="noreferrer">9610 书法空间 · 倪宽赞</a>。
+        </p>
+      </article>
+
+      <footer class="colophon">
+        <p>
+          古画 · guhua — 一个一次性的 web 作品系列，
+          专为某一卷具体的古代法帖量身打造。
+        </p>
+        <p class="meta">
+          图片与作品资料：<a href="http://www.9610.com/csl/03.htm" target="_blank" rel="noreferrer">9610 书法空间 · 褚遂良</a> ·
+          字体：<a href="https://fonts.google.com/noto/specimen/Noto+Serif+SC" target="_blank" rel="noreferrer">Noto Serif SC</a>
+        </p>
+      </footer>
+    </main>
+
+    <script type="module">
+      import { loadDefaultSimplifiedChineseParser } from "https://cdn.jsdelivr.net/npm/budoux@0.8.1/+esm";
+      const parser = loadDefaultSimplifiedChineseParser();
+      document.querySelectorAll(".essay p, .gallery figcaption").forEach((el) => {
+        parser.applyToElement(el);
+      });
+    </script>
+  </body>
+</html>

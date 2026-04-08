@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>小字阴符经 · 褚遂良 · 古画</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../style.css?v=7" />
+  </head>
+  <body>
+    <main class="page">
+      <nav class="topnav">
+        <a class="topnav__back" href="../../">← 褚遂良 · 总览</a>
+      </nav>
+
+      <header class="masthead">
+        <p class="kicker">古画 · 书家 · 作品</p>
+        <h1 class="title">小字阴符经</h1>
+        <p class="subtitle">刻本 · 越州石氏本 · 日本东京国立博物馆藏</p>
+      </header>
+
+      <article class="essay">
+        <p class="lede">与本站深度展开的《大字阴符经》同名不同本。</p>
+        <p>传褚遂良所书的《阴符经》尚有小楷和行书两种刻本流传，字迹皆很小，难窥庐山面目。这是越州石氏刻本系统里最常见的一种。</p>
+        <p>与大字本相比，小字本的疑伪程度更高——“同一部经，褚遂良写了几遍”这种说法在文献里就没有依据。更可能的情况是：大字本和小字本出自不同的学褚者之手，都被后人冠以褚名。但这一卷作为“褚体阴符经系谱”里的一份，值得和大字本并看——差异才是有意思的地方。</p>
+      </article>
+
+      <section class="gallery gallery--cols" aria-label="作品图版">
+        <figure class="gallery__item">
+          <a href="/assets/works/xiaoyfj/01.jpg" target="_blank" rel="noreferrer">
+            <img src="/assets/works/xiaoyfj/01.jpg" loading="lazy" alt="小字阴符经 局部" />
+          </a>
+          <figcaption>刻本局部 · 一</figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <a href="/assets/works/xiaoyfj/02.jpg" target="_blank" rel="noreferrer">
+            <img src="/assets/works/xiaoyfj/02.jpg" loading="lazy" alt="小字阴符经 局部" />
+          </a>
+          <figcaption>刻本局部 · 二</figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <a href="/assets/works/xiaoyfj/03.jpg" target="_blank" rel="noreferrer">
+            <img src="/assets/works/xiaoyfj/03.jpg" loading="lazy" alt="小字阴符经 局部" />
+          </a>
+          <figcaption>刻本局部 · 三</figcaption>
+        </figure>
+      </section>
+
+      <article class="essay essay--after">
+        <p>
+          更多高清图与完整释文见
+          <a href="http://www.9610.com/csl/08.htm" target="_blank" rel="noreferrer">9610 书法空间 · 小字阴符经</a>。
+        </p>
+      </article>
+
+      <footer class="colophon">
+        <p>
+          古画 · guhua — 一个一次性的 web 作品系列，
+          专为某一卷具体的古代法帖量身打造。
+        </p>
+        <p class="meta">
+          图片与作品资料：<a href="http://www.9610.com/csl/08.htm" target="_blank" rel="noreferrer">9610 书法空间 · 褚遂良</a> ·
+          字体：<a href="https://fonts.google.com/noto/specimen/Noto+Serif+SC" target="_blank" rel="noreferrer">Noto Serif SC</a>
+        </p>
+      </footer>
+    </main>
+
+    <script type="module">
+      import { loadDefaultSimplifiedChineseParser } from "https://cdn.jsdelivr.net/npm/budoux@0.8.1/+esm";
+      const parser = loadDefaultSimplifiedChineseParser();
+      document.querySelectorAll(".essay p, .gallery figcaption").forEach((el) => {
+        parser.applyToElement(el);
+      });
+    </script>
+  </body>
+</html>

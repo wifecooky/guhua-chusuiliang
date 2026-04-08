@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>孟法师碑 · 褚遂良 · 古画</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../style.css?v=7" />
+  </head>
+  <body>
+    <main class="page">
+      <nav class="topnav">
+        <a class="topnav__back" href="../../">← 褚遂良 · 总览</a>
+      </nav>
+
+      <header class="masthead">
+        <p class="kicker">古画 · 书家 · 作品</p>
+        <h1 class="title">孟法师碑</h1>
+        <p class="subtitle">楷书 · 墨拓 · 贞观十六年(642) · 日本三井纪念美术馆藏</p>
+      </header>
+
+      <article class="essay">
+        <p class="lede">全称《京师至德观主孟法师碑》。岑文本撰文，万文昭刻。</p>
+        <p>原碑久佚，仅清代李宗瀚藏唐拓本传世。二十面，每面四行满行九字，凡 769 字，今存日本三井听冰阁。此碑运笔多隶法，与《伊阙佛龛》相近——是褚氏早年风格的又一个样本。</p>
+        <p>明人王世贞评：“波拂转折处，无毫发遗恨，真墨池中至宝也。”王世懋跋：“质若敦彝，雅若天球……精神烨烨，妙得八分古意。”这两段评语点出了它最核心的性格：古朴，但不板滞。</p>
+      </article>
+
+      <section class="gallery gallery--cols" aria-label="作品图版">
+        <figure class="gallery__item">
+          <a href="/assets/works/mengfashi/01.jpg" target="_blank" rel="noreferrer">
+            <img src="/assets/works/mengfashi/01.jpg" loading="lazy" alt="孟法师碑 局部" />
+          </a>
+          <figcaption>拓本局部 · 起首</figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <a href="/assets/works/mengfashi/02.jpg" target="_blank" rel="noreferrer">
+            <img src="/assets/works/mengfashi/02.jpg" loading="lazy" alt="孟法师碑 局部" />
+          </a>
+          <figcaption>拓本局部 · 中段</figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <a href="/assets/works/mengfashi/03.jpg" target="_blank" rel="noreferrer">
+            <img src="/assets/works/mengfashi/03.jpg" loading="lazy" alt="孟法师碑 局部" />
+          </a>
+          <figcaption>拓本局部 · 末段</figcaption>
+        </figure>
+      </section>
+
+      <article class="essay essay--after">
+        <p>
+          更多高清图与完整释文见
+          <a href="http://www.9610.com/csl/05.htm" target="_blank" rel="noreferrer">9610 书法空间 · 孟法师碑</a>。
+        </p>
+      </article>
+
+      <footer class="colophon">
+        <p>
+          古画 · guhua — 一个一次性的 web 作品系列，
+          专为某一卷具体的古代法帖量身打造。
+        </p>
+        <p class="meta">
+          图片与作品资料：<a href="http://www.9610.com/csl/05.htm" target="_blank" rel="noreferrer">9610 书法空间 · 褚遂良</a> ·
+          字体：<a href="https://fonts.google.com/noto/specimen/Noto+Serif+SC" target="_blank" rel="noreferrer">Noto Serif SC</a>
+        </p>
+      </footer>
+    </main>
+
+    <script type="module">
+      import { loadDefaultSimplifiedChineseParser } from "https://cdn.jsdelivr.net/npm/budoux@0.8.1/+esm";
+      const parser = loadDefaultSimplifiedChineseParser();
+      document.querySelectorAll(".essay p, .gallery figcaption").forEach((el) => {
+        parser.applyToElement(el);
+      });
+    </script>
+  </body>
+</html>

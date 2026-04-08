@@ -11,15 +11,30 @@
 
 ```
 guhua/
-├── index.html               # 褚遂良总览 + 作品年表
+├── index.html                   # 褚遂良总览 + 17 件作品年表
 ├── yinfujing/
-│   └── index.html           # 大字阴符经 字解码 交互卷轴
-├── main.js                  # 阴符经数据 + 渲染 + 交互（仅 /yinfujing/ 使用）
-├── style.css                # 共享样式
+│   └── index.html               # 大字阴符经 字解码 交互卷轴（深度页）
+├── works/                       # 9 件其他作品的作品页
+│   ├── yanta/index.html         # 雁塔圣教序（653）
+│   ├── kushufu/index.html       # 枯树赋（630）
+│   ├── nikuanzan/index.html     # 倪宽赞（传）
+│   ├── yique/index.html         # 伊阙佛龛碑（641）
+│   ├── mengfashi/index.html     # 孟法师碑（642）
+│   ├── fangxuanling/index.html  # 房玄龄碑（652）
+│   ├── xiaoyfj/index.html       # 小字阴符经（越州石氏本）
+│   ├── feiniao/index.html       # 临王献之飞鸟帖（传）
+│   └── peiyi/index.html         # 裴艺碑（649）
+├── main.js                      # 阴符经数据 + 渲染 + 交互（仅 /yinfujing/ 使用）
+├── style.css                    # 共享样式
 ├── README.md
 └── assets/
-    └── yfj-leaves/          # 阴符经 24 开真迹彩版
-        └── 01.jpg ... 24.jpg
+    ├── yfj-leaves/              # 阴符经 24 开真迹彩版
+    │   └── 01.jpg ... 24.jpg
+    └── works/                   # 9 作品 × ~3 张代表图 = 26 张
+        ├── yanta/01.jpg ... 03.jpg
+        ├── kushufu/01.jpg ... 03.jpg
+        ├── nikuanzan/01.jpg ... 04.jpg
+        └── ...
 ```
 
 ## 数据来源
@@ -43,9 +58,11 @@ guhua/
 叶恭绰 / 沈尹默 / 潘伯鹰认为是真；启功 / 徐无闻认为是伪托或同时期高手仿褚。
 本项目照旧署名褚遂良，并在书家侧写段落里明确提及，不做学术裁决。
 
-**其他作品**：总览页的时间线里，**9件**链接到 9610 对应子页（外链），**阴符经**链接到 `/yinfujing/`
-本站深度版，另有 **7 件** 9610 仅在索引列出无专页的作品，以 "dim" 状态标出不链接。
-Phase 2 将考虑把这 9 件中的部分本地化为独立子页。
+**作品页**：17 件作品中，**10 件**已做本地页面：
+- 阴符经做了字级交互深度页 `/yinfujing/`
+- 其余 9 件在 `/works/<slug>/`，每页含短文 + 3-4 张 9610 彩版代表图 + 返回导航 + 9610 二次资料链接
+- 另 **7 件** 9610 仅在索引提及、无专页的作品，以 "dim" 态标在时间线末尾不链接
+- 所有作品页短文由项目自撰整合，引用 9610 页上的历代书评
 
 ## 数据来源更新约定
 

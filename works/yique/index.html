@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>伊阙佛龛碑 · 褚遂良 · 古画</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../style.css?v=7" />
+  </head>
+  <body>
+    <main class="page">
+      <nav class="topnav">
+        <a class="topnav__back" href="../../">← 褚遂良 · 总览</a>
+      </nav>
+
+      <header class="masthead">
+        <p class="kicker">古画 · 书家 · 作品</p>
+        <h1 class="title">伊阙佛龛碑</h1>
+        <p class="subtitle">楷书 · 摩崖刻石 · 贞观十五年（641）</p>
+      </header>
+
+      <article class="essay">
+        <p class="lede">褚遂良四十六岁所书。岑文本撰文，刻在龙门石窟。</p>
+        <p>此为褚氏中年笔，端庄奇伟，气韵广严博大——与晚年那种“婵娟婀娜”的轻柔感迥异其趣。清代刘熙载评：“兼有欧、虞之胜。”梁巘说这是“中年笔也，平正刚健，法本欧阳，多参八分”。</p>
+        <p>此时的褚遂良还在欧阳询和虞世南的影响之下，还没完全长出自己的面目。正是因为这种“未完全形成”的状态，这件作品反而格外扎实——后来那种轻提重按的弹性，就是从这种底子上长出来的。</p>
+      </article>
+
+      <section class="gallery gallery--cols" aria-label="作品图版">
+        <figure class="gallery__item">
+          <a href="/assets/works/yique/01.jpg" target="_blank" rel="noreferrer">
+            <img src="/assets/works/yique/01.jpg" loading="lazy" alt="伊阙佛龛碑 局部" />
+          </a>
+          <figcaption>拓片局部 · 一</figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <a href="/assets/works/yique/02.jpg" target="_blank" rel="noreferrer">
+            <img src="/assets/works/yique/02.jpg" loading="lazy" alt="伊阙佛龛碑 局部" />
+          </a>
+          <figcaption>拓片局部 · 二</figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <a href="/assets/works/yique/03.jpg" target="_blank" rel="noreferrer">
+            <img src="/assets/works/yique/03.jpg" loading="lazy" alt="伊阙佛龛碑 局部" />
+          </a>
+          <figcaption>拓片局部 · 三</figcaption>
+        </figure>
+      </section>
+
+      <article class="essay essay--after">
+        <p>
+          更多高清图与完整释文见
+          <a href="http://www.9610.com/csl/04.htm" target="_blank" rel="noreferrer">9610 书法空间 · 伊阙佛龛碑</a>。
+        </p>
+      </article>
+
+      <footer class="colophon">
+        <p>
+          古画 · guhua — 一个一次性的 web 作品系列，
+          专为某一卷具体的古代法帖量身打造。
+        </p>
+        <p class="meta">
+          图片与作品资料：<a href="http://www.9610.com/csl/04.htm" target="_blank" rel="noreferrer">9610 书法空间 · 褚遂良</a> ·
+          字体：<a href="https://fonts.google.com/noto/specimen/Noto+Serif+SC" target="_blank" rel="noreferrer">Noto Serif SC</a>
+        </p>
+      </footer>
+    </main>
+
+    <script type="module">
+      import { loadDefaultSimplifiedChineseParser } from "https://cdn.jsdelivr.net/npm/budoux@0.8.1/+esm";
+      const parser = loadDefaultSimplifiedChineseParser();
+      document.querySelectorAll(".essay p, .gallery figcaption").forEach((el) => {
+        parser.applyToElement(el);
+      });
+    </script>
+  </body>
+</html>

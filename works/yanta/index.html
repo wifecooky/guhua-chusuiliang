@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>雁塔圣教序 · 褚遂良 · 古画</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../style.css?v=7" />
+  </head>
+  <body>
+    <main class="page">
+      <nav class="topnav">
+        <a class="topnav__back" href="../../">← 褚遂良 · 总览</a>
+      </nav>
+
+      <header class="masthead">
+        <p class="kicker">古画 · 书家 · 作品</p>
+        <h1 class="title">雁塔圣教序</h1>
+        <p class="subtitle">楷书 · 宋拓本 · 永徽四年（653） · 日本东京国立博物馆藏</p>
+      </header>
+
+      <article class="essay">
+        <p class="lede">褚遂良五十八岁所书。公认的晚年代表作，褚体最成熟的碑刻。</p>
+        <p>立于唐永徽四年。此碑最有“褚家之法”——结字比欧、虞舒展，笔法变化也多。明人盛时泰评王羲之的《圣教序》“如干狐聚裘，痕迹俱无”，而褚遂良这本“如孤蚕吐丝，文章具在”——王以无痕胜，褚以显形胜。</p>
+        <p>清代包世臣说得最到位：“从左玩至右，则字字相迎；从右看至左，则笔笔相背。”这句话几乎是所有学褚的人都背过的。</p>
+      </article>
+
+      <section class="gallery gallery--cols" aria-label="作品图版">
+        <figure class="gallery__item">
+          <a href="/assets/works/yanta/01.jpg" target="_blank" rel="noreferrer">
+            <img src="/assets/works/yanta/01.jpg" loading="lazy" alt="雁塔圣教序 局部" />
+          </a>
+          <figcaption>碑文局部 · 开端</figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <a href="/assets/works/yanta/02.jpg" target="_blank" rel="noreferrer">
+            <img src="/assets/works/yanta/02.jpg" loading="lazy" alt="雁塔圣教序 局部" />
+          </a>
+          <figcaption>碑文局部 · 中段</figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <a href="/assets/works/yanta/03.jpg" target="_blank" rel="noreferrer">
+            <img src="/assets/works/yanta/03.jpg" loading="lazy" alt="雁塔圣教序 局部" />
+          </a>
+          <figcaption>碑文局部 · 末段</figcaption>
+        </figure>
+      </section>
+
+      <article class="essay essay--after">
+        <p>
+          更多高清图与完整释文见
+          <a href="http://www.9610.com/csl/01.htm" target="_blank" rel="noreferrer">9610 书法空间 · 雁塔圣教序</a>。
+        </p>
+      </article>
+
+      <footer class="colophon">
+        <p>
+          古画 · guhua — 一个一次性的 web 作品系列，
+          专为某一卷具体的古代法帖量身打造。
+        </p>
+        <p class="meta">
+          图片与作品资料：<a href="http://www.9610.com/csl/01.htm" target="_blank" rel="noreferrer">9610 书法空间 · 褚遂良</a> ·
+          字体：<a href="https://fonts.google.com/noto/specimen/Noto+Serif+SC" target="_blank" rel="noreferrer">Noto Serif SC</a>
+        </p>
+      </footer>
+    </main>
+
+    <script type="module">
+      import { loadDefaultSimplifiedChineseParser } from "https://cdn.jsdelivr.net/npm/budoux@0.8.1/+esm";
+      const parser = loadDefaultSimplifiedChineseParser();
+      document.querySelectorAll(".essay p, .gallery figcaption").forEach((el) => {
+        parser.applyToElement(el);
+      });
+    </script>
+  </body>
+</html>

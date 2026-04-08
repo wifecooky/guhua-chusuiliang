@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>裴艺碑 · 褚遂良 · 古画</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../style.css?v=7" />
+  </head>
+  <body>
+    <main class="page">
+      <nav class="topnav">
+        <a class="topnav__back" href="../../">← 褚遂良 · 总览</a>
+      </nav>
+
+      <header class="masthead">
+        <p class="kicker">古画 · 书家 · 作品</p>
+        <h1 class="title">裴艺碑</h1>
+        <p class="subtitle">楷书 · 363×111cm · 贞观二十三年（649） · 陕西昭陵博物馆藏</p>
+      </header>
+
+      <article class="essay">
+        <p class="lede">又称《晋州刺史顺义公碑》《顺义公碑》。上官仪撰文。</p>
+        <p>碑文残破，裴艺事迹已不可考——今天我们只知道他曾任晋州刺史、被赠顺义公，其余全无。但撰文的上官仪值得一提：此时他还是贞观朝的文臣，十几年后他会因反对武则天而被杀。</p>
+        <p>和褚遂良一样，上官仪也是死在那场权力更迭里的——褚遂良外放爱州而死，上官仪因起草废后诏书被赐死，前后相差不过十几年。这块碑，是两位日后殉政的人留下的共同作品。</p>
+      </article>
+
+      <section class="gallery" aria-label="作品图版">
+        <figure class="gallery__item">
+          <a href="/assets/works/peiyi/01.jpg" target="_blank" rel="noreferrer">
+            <img src="/assets/works/peiyi/01.jpg" loading="lazy" alt="裴艺碑 局部" />
+          </a>
+          <figcaption>碑文局部</figcaption>
+        </figure>
+      </section>
+
+      <article class="essay essay--after">
+        <p>
+          更多高清图与完整释文见
+          <a href="http://www.9610.com/csl/14.htm" target="_blank" rel="noreferrer">9610 书法空间 · 裴艺碑</a>。
+        </p>
+      </article>
+
+      <footer class="colophon">
+        <p>
+          古画 · guhua — 一个一次性的 web 作品系列，
+          专为某一卷具体的古代法帖量身打造。
+        </p>
+        <p class="meta">
+          图片与作品资料：<a href="http://www.9610.com/csl/14.htm" target="_blank" rel="noreferrer">9610 书法空间 · 褚遂良</a> ·
+          字体：<a href="https://fonts.google.com/noto/specimen/Noto+Serif+SC" target="_blank" rel="noreferrer">Noto Serif SC</a>
+        </p>
+      </footer>
+    </main>
+
+    <script type="module">
+      import { loadDefaultSimplifiedChineseParser } from "https://cdn.jsdelivr.net/npm/budoux@0.8.1/+esm";
+      const parser = loadDefaultSimplifiedChineseParser();
+      document.querySelectorAll(".essay p, .gallery figcaption").forEach((el) => {
+        parser.applyToElement(el);
+      });
+    </script>
+  </body>
+</html>
