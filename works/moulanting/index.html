@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>摹王羲之兰亭序 · 褚遂良 · 古画</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../style.css?v=7" />
+  </head>
+  <body>
+    <main class="page">
+      <nav class="topnav">
+        <a class="topnav__back" href="../../">← 褚遂良 · 总览</a>
+      </nav>
+
+      <header class="masthead">
+        <p class="kicker">古画 · 书家 · 作品</p>
+        <h1 class="title">摹王羲之兰亭序</h1>
+        <p class="subtitle">兰亭八柱第二本 · 纸本 · 24×88.5cm · 北京故宫博物院藏</p>
+      </header>
+
+      <article class="essay">
+        <p class="lede">王羲之《兰亭序》真迹已失，传世皆为摹本。这是其中“褚遂良摹本”那一种。</p>
+        <p>清乾隆四十四年（1779），乾隆把四件他眼里最重要的《兰亭序》摹本刻在了同一座八角形石柱上，史称“兰亭八柱”。八柱原立于圆明园的坐石临流亭——后来圆明园被英法联军烧毁，柱石流散，今天存于北京中山公园。八柱里第一本是虞世南摹本，第二本是<strong>褚遂良摹本</strong>，第三本是冯承素“神龙本”。</p>
+        <p>褚遂良摹本的特征是：比冯承素本更规整，笔画的抑扬没那么大；相比虞世南本又更挺拔。它反映的是褚体的骨架在兰亭序那种行书里的投影——一个一生写楷的人去临王羲之的行书，笔下总会不自觉地站直。</p>
+        <p>历代学者一直在争论：这些“传褚摹本”真的是褚亲笔吗？还是唐宋之间某位学褚的书家所做？没有定论。但无论真伪，这本都代表了“兰亭在褚家笔下的样子”——这本身就是一个研究对象。</p>
+      </article>
+
+      <article class="essay essay--after">
+        <p>
+          本站未引用高清图版。9610 书法空间的褚遂良专页仅在索引中列出此件，
+          无详细子页。如需深入查看原作图版，请访问
+          <a href="http://www.9610.com/csl/" target="_blank" rel="noreferrer">9610 书法空间 · 褚遂良专页</a>
+          或所藏博物馆官网。
+        </p>
+      </article>
+
+      <footer class="colophon">
+        <p>
+          古画 · guhua — 一个一次性的 web 作品系列，
+          专为某一卷具体的古代法帖量身打造。
+        </p>
+        <p class="meta">
+          正文为项目自撰整合 ·
+          作品索引来源：<a href="http://www.9610.com/csl/" target="_blank" rel="noreferrer">9610 书法空间 · 褚遂良</a> ·
+          字体：<a href="https://fonts.google.com/noto/specimen/Noto+Serif+SC" target="_blank" rel="noreferrer">Noto Serif SC</a>
+        </p>
+      </footer>
+    </main>
+
+    <script type="module">
+      import { loadDefaultSimplifiedChineseParser } from "https://cdn.jsdelivr.net/npm/budoux@0.8.1/+esm";
+      const parser = loadDefaultSimplifiedChineseParser();
+      document.querySelectorAll(".essay p").forEach((el) => {
+        parser.applyToElement(el);
+      });
+    </script>
+  </body>
+</html>

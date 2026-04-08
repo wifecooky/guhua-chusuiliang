@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>临王羲之长风帖 · 褚遂良 · 古画</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../style.css?v=7" />
+  </head>
+  <body>
+    <main class="page">
+      <nav class="topnav">
+        <a class="topnav__back" href="../../">← 褚遂良 · 总览</a>
+      </nav>
+
+      <header class="masthead">
+        <p class="kicker">古画 · 书家 · 作品</p>
+        <h1 class="title">临王羲之长风帖</h1>
+        <p class="subtitle">草书 · 纸本 · 27.5×40.9cm · 台北故宫博物院藏 · 传</p>
+      </header>
+
+      <article class="essay">
+        <p class="lede">褚遂良的草书非常罕见——他主要身份是楷书大家。</p>
+        <p>王羲之《长风帖》原作已佚，传世所有的版本都是摹本或临本。褚遂良这件《临长风帖》就是其中一种——他把王羲之的草书用自己的笔临了一遍。</p>
+        <p>褚遂良的草书为什么罕见？因为他的主要工作是书写碑刻——碑刻全是楷书。他的职位（起居郎、谏议大夫、中书令）也要求他写庄重的字，不是文人之间的游戏草书。所以传世的褚草书屈指可数，而且真伪都不太可靠。</p>
+        <p>一个写楷的人临草书，总会留下一些“楷气”——字和字之间的连接不完全流畅，每个字的重心还是要稳。把这件《临长风帖》和他的楷书连着看，能看出楷如何在草里“漏出来”——风格是骨头，你让它跳舞它也站着。</p>
+      </article>
+
+      <article class="essay essay--after">
+        <p>
+          本站未引用高清图版。9610 书法空间的褚遂良专页仅在索引中列出此件，
+          无详细子页。如需深入查看原作图版，请访问
+          <a href="http://www.9610.com/csl/" target="_blank" rel="noreferrer">9610 书法空间 · 褚遂良专页</a>
+          或所藏博物馆官网。
+        </p>
+      </article>
+
+      <footer class="colophon">
+        <p>
+          古画 · guhua — 一个一次性的 web 作品系列，
+          专为某一卷具体的古代法帖量身打造。
+        </p>
+        <p class="meta">
+          正文为项目自撰整合 ·
+          作品索引来源：<a href="http://www.9610.com/csl/" target="_blank" rel="noreferrer">9610 书法空间 · 褚遂良</a> ·
+          字体：<a href="https://fonts.google.com/noto/specimen/Noto+Serif+SC" target="_blank" rel="noreferrer">Noto Serif SC</a>
+        </p>
+      </footer>
+    </main>
+
+    <script type="module">
+      import { loadDefaultSimplifiedChineseParser } from "https://cdn.jsdelivr.net/npm/budoux@0.8.1/+esm";
+      const parser = loadDefaultSimplifiedChineseParser();
+      document.querySelectorAll(".essay p").forEach((el) => {
+        parser.applyToElement(el);
+      });
+    </script>
+  </body>
+</html>

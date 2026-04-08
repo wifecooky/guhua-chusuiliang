@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>同洲圣教序 · 褚遂良 · 古画</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../style.css?v=7" />
+  </head>
+  <body>
+    <main class="page">
+      <nav class="topnav">
+        <a class="topnav__back" href="../../">← 褚遂良 · 总览</a>
+      </nav>
+
+      <header class="masthead">
+        <p class="kicker">古画 · 书家 · 作品</p>
+        <h1 class="title">同洲圣教序</h1>
+        <p class="subtitle">楷书 · 龙朔三年（663） · 西安碑林博物馆藏</p>
+      </header>
+
+      <article class="essay">
+        <p class="lede">和《雁塔圣教序》同一篇文本，但立碑时褚遂良已经死了五年。</p>
+        <p>文本完全相同——都是唐太宗亲撰的《大唐三藏圣教序》。但两件作品的命运相差十年：《雁塔圣教序》653 年立于长安慈恩寺大雁塔下，是褚遂良亲笔所书的那本；《同州圣教序》663 年立于同州（今陕西大荔），此时褚遂良已经死在爱州五年。</p>
+        <p>那这块碑是谁书的？历代公认是“依褚遂良旧稿刻石”——也就是说，石工手里拿的是褚生前留下的一份书稿，他们照着这份稿子刻下来。所以严格说，《同州圣教序》不是褚遂良的书，而是褚遂良书 + 石工的刀共同造就的碑。</p>
+        <p>和《雁塔圣教序》并看有意思：前者是褚亲笔的刻石，后者是褚底稿的“二次转录”。两件同文的碑，能帮我们看到“褚体”从笔到刀的那道转换线。</p>
+      </article>
+
+      <article class="essay essay--after">
+        <p>
+          本站未引用高清图版。9610 书法空间的褚遂良专页仅在索引中列出此件，
+          无详细子页。如需深入查看原作图版，请访问
+          <a href="http://www.9610.com/csl/" target="_blank" rel="noreferrer">9610 书法空间 · 褚遂良专页</a>
+          或所藏博物馆官网。
+        </p>
+      </article>
+
+      <footer class="colophon">
+        <p>
+          古画 · guhua — 一个一次性的 web 作品系列，
+          专为某一卷具体的古代法帖量身打造。
+        </p>
+        <p class="meta">
+          正文为项目自撰整合 ·
+          作品索引来源：<a href="http://www.9610.com/csl/" target="_blank" rel="noreferrer">9610 书法空间 · 褚遂良</a> ·
+          字体：<a href="https://fonts.google.com/noto/specimen/Noto+Serif+SC" target="_blank" rel="noreferrer">Noto Serif SC</a>
+        </p>
+      </footer>
+    </main>
+
+    <script type="module">
+      import { loadDefaultSimplifiedChineseParser } from "https://cdn.jsdelivr.net/npm/budoux@0.8.1/+esm";
+      const parser = loadDefaultSimplifiedChineseParser();
+      document.querySelectorAll(".essay p").forEach((el) => {
+        parser.applyToElement(el);
+      });
+    </script>
+  </body>
+</html>

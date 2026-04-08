@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>临兰亭序 · 褚遂良 · 古画</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../style.css?v=7" />
+  </head>
+  <body>
+    <main class="page">
+      <nav class="topnav">
+        <a class="topnav__back" href="../../">← 褚遂良 · 总览</a>
+      </nav>
+
+      <header class="masthead">
+        <p class="kicker">古画 · 书家 · 作品</p>
+        <h1 class="title">临兰亭序</h1>
+        <p class="subtitle">领字从山本 · 黄绢本 · 24.3×70.2cm · 台北故宫博物院藏（兰千山馆寄存）</p>
+      </header>
+
+      <article class="essay">
+        <p class="lede">又一件传褚摹的兰亭。以特定字的异体写法命名。</p>
+        <p>这本的名字来自一个细节：卷中的“领”字写作“山”部+“页”，而不是更常见的“令”部。这种异体字的写法能帮助鉴定摹本所属的系统——《兰亭序》在南北朝到唐之间被不断临摹，不同系统的摹本在这些特殊字上会保持一致，成为后代鉴定时的锚点。</p>
+        <p>黄绢本相比纸本保存更差——绢会氧化变黄，字迹也会随之晕化。此本今日所见的褐黄色并非原色，而是一千年氧化的累计结果。墨色变淡，但纸绢的纹理反而因岁月而更清楚。</p>
+        <p>这本现藏台北故宫，由林百里的兰千山馆寄存。作为传褚本里的一件，它和兰亭八柱第二本等构成了“传褚兰亭”的一个小系谱。能说的不多，但把这几件放在一起看，就能知道“同一个书家临同一个帖”在历代被理解成了多少种模样。</p>
+      </article>
+
+      <article class="essay essay--after">
+        <p>
+          本站未引用高清图版。9610 书法空间的褚遂良专页仅在索引中列出此件，
+          无详细子页。如需深入查看原作图版，请访问
+          <a href="http://www.9610.com/csl/" target="_blank" rel="noreferrer">9610 书法空间 · 褚遂良专页</a>
+          或所藏博物馆官网。
+        </p>
+      </article>
+
+      <footer class="colophon">
+        <p>
+          古画 · guhua — 一个一次性的 web 作品系列，
+          专为某一卷具体的古代法帖量身打造。
+        </p>
+        <p class="meta">
+          正文为项目自撰整合 ·
+          作品索引来源：<a href="http://www.9610.com/csl/" target="_blank" rel="noreferrer">9610 书法空间 · 褚遂良</a> ·
+          字体：<a href="https://fonts.google.com/noto/specimen/Noto+Serif+SC" target="_blank" rel="noreferrer">Noto Serif SC</a>
+        </p>
+      </footer>
+    </main>
+
+    <script type="module">
+      import { loadDefaultSimplifiedChineseParser } from "https://cdn.jsdelivr.net/npm/budoux@0.8.1/+esm";
+      const parser = loadDefaultSimplifiedChineseParser();
+      document.querySelectorAll(".essay p").forEach((el) => {
+        parser.applyToElement(el);
+      });
+    </script>
+  </body>
+</html>

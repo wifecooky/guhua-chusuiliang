@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>潭府帖 · 褚遂良 · 古画</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../style.css?v=7" />
+  </head>
+  <body>
+    <main class="page">
+      <nav class="topnav">
+        <a class="topnav__back" href="../../">← 褚遂良 · 总览</a>
+      </nav>
+
+      <header class="masthead">
+        <p class="kicker">古画 · 书家 · 作品</p>
+        <h1 class="title">潭府帖</h1>
+        <p class="subtitle">宋拓本 · 显庆元年（656） · 收入《淳化阁帖》</p>
+      </header>
+
+      <article class="essay">
+        <p class="lede">褚遂良晚年的一件短帖，收入北宋《淳化阁帖》。</p>
+        <p>《淳化阁帖》是北宋淳化三年（992）由王著奉宋太宗命编刻的十卷法帖集，把历代名家的墨迹刻成石版传世——是宋代以前书法存世最重要的一个底本库。褚遂良的几件行草短帖都经它保存下来，《潭府帖》是其中之一。</p>
+        <p>显庆元年（656）是褚遂良晚年——两年后他就要死在爱州流放地。这一年他五十八岁，刚被贬为桂州都督不久。《潭府帖》虽只是一件寻常的书信短帖，但写下的时间正是他人生坡度向下的最后一段。</p>
+        <p>帖的内容是一次私信往来，不涉及朝堂大事。这种“日常的笔触”反而最难得——因为最能看到一个书家不经设计的笔性。</p>
+      </article>
+
+      <article class="essay essay--after">
+        <p>
+          本站未引用高清图版。9610 书法空间的褚遂良专页仅在索引中列出此件，
+          无详细子页。如需深入查看原作图版，请访问
+          <a href="http://www.9610.com/csl/" target="_blank" rel="noreferrer">9610 书法空间 · 褚遂良专页</a>
+          或所藏博物馆官网。
+        </p>
+      </article>
+
+      <footer class="colophon">
+        <p>
+          古画 · guhua — 一个一次性的 web 作品系列，
+          专为某一卷具体的古代法帖量身打造。
+        </p>
+        <p class="meta">
+          正文为项目自撰整合 ·
+          作品索引来源：<a href="http://www.9610.com/csl/" target="_blank" rel="noreferrer">9610 书法空间 · 褚遂良</a> ·
+          字体：<a href="https://fonts.google.com/noto/specimen/Noto+Serif+SC" target="_blank" rel="noreferrer">Noto Serif SC</a>
+        </p>
+      </footer>
+    </main>
+
+    <script type="module">
+      import { loadDefaultSimplifiedChineseParser } from "https://cdn.jsdelivr.net/npm/budoux@0.8.1/+esm";
+      const parser = loadDefaultSimplifiedChineseParser();
+      document.querySelectorAll(".essay p").forEach((el) => {
+        parser.applyToElement(el);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>小楷灵宝经 · 褚遂良 · 古画</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../style.css?v=7" />
+  </head>
+  <body>
+    <main class="page">
+      <nav class="topnav">
+        <a class="topnav__back" href="../../">← 褚遂良 · 总览</a>
+      </nav>
+
+      <header class="masthead">
+        <p class="kicker">古画 · 书家 · 作品</p>
+        <h1 class="title">小楷灵宝经</h1>
+        <p class="subtitle">墨拓 · 日本三井纪念美术馆藏 · 听冰阁旧藏本</p>
+      </header>
+
+      <article class="essay">
+        <p class="lede">褚遂良为数不多的小楷道经之一。</p>
+        <p>灵宝经是道教灵宝派的经典——和《阴符经》一样，都是道家系统里的重要文本。唐代的道经抄本往往以小楷为之——字小，工整，适合经典庄严的气氛。</p>
+        <p>褚遂良写过多少道经难以考证。这件《小楷灵宝经》的墨拓今藏日本三井听冰阁——和他的《枯树赋》《孟法师碑》同属三井家的收藏。三井家是明治到昭和期间日本最大的中国书画收藏家之一，手里握着一批极重要的褚遂良作品。</p>
+        <p>小楷和大字是两种完全不同的体力：小楷要凝神于毫厘之间，每一笔都不能有大动作；大字要挥洒于寸许之内，讲究起落的节奏。同一个书家在两种字径下会呈现两种面貌——《小楷灵宝经》如果是真迹，就是褚遂良“小”的那一面。</p>
+      </article>
+
+      <article class="essay essay--after">
+        <p>
+          本站未引用高清图版。9610 书法空间的褚遂良专页仅在索引中列出此件，
+          无详细子页。如需深入查看原作图版，请访问
+          <a href="http://www.9610.com/csl/" target="_blank" rel="noreferrer">9610 书法空间 · 褚遂良专页</a>
+          或所藏博物馆官网。
+        </p>
+      </article>
+
+      <footer class="colophon">
+        <p>
+          古画 · guhua — 一个一次性的 web 作品系列，
+          专为某一卷具体的古代法帖量身打造。
+        </p>
+        <p class="meta">
+          正文为项目自撰整合 ·
+          作品索引来源：<a href="http://www.9610.com/csl/" target="_blank" rel="noreferrer">9610 书法空间 · 褚遂良</a> ·
+          字体：<a href="https://fonts.google.com/noto/specimen/Noto+Serif+SC" target="_blank" rel="noreferrer">Noto Serif SC</a>
+        </p>
+      </footer>
+    </main>
+
+    <script type="module">
+      import { loadDefaultSimplifiedChineseParser } from "https://cdn.jsdelivr.net/npm/budoux@0.8.1/+esm";
+      const parser = loadDefaultSimplifiedChineseParser();
+      document.querySelectorAll(".essay p").forEach((el) => {
+        parser.applyToElement(el);
+      });
+    </script>
+  </body>
+</html>
