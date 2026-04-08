@@ -57,6 +57,62 @@
         </p>
       </article>
 
+      <!-- 书家侧写 -->
+      <article class="bio" aria-label="关于褚遂良">
+        <header class="bio__head">
+          <p class="bio__kicker">书家侧写</p>
+          <h2 class="bio__title">褚遂良</h2>
+          <p class="bio__dates">596 – 658 · 唐</p>
+        </header>
+
+        <p>
+          褚遂良是初唐四大家之一——另三位是欧阳询、虞世南、薛稷。
+          他出身河南阳翟的士族，父亲褚亮是隋末唐初有名的文士。
+          他早年师从史陵学书，后又受虞世南影响，
+          一路上从王羲之的帖里汲取骨架，从欧阳询的碑里学法度。
+          到四十多岁出仕唐太宗朝，已经是当时最被信任的一批文臣之一——
+          太宗临终前，是他和长孙无忌一起接受遗诏辅政的。
+        </p>
+
+        <p>
+          他的楷书有一种少见的气质——细、瘦、带弹性。
+          后人评他"字里金生，行间玉润，法则温雅，美丽多方"，
+          又说他的笔画"如美人婵娟，似不胜罗绮"——
+          看起来柔，落在纸上却是挺的。
+          他把篆书和隶书里的古拙气偷偷藏进楷书的结构里，
+          所以同样是法度，欧阳询是刀锋，褚遂良是弓弦。
+          《雁塔圣教序》（653）是他五十八岁的碑刻，
+          公认的晚年代表作——而《大字阴符经》如果是真迹，
+          写下的时间比那还要晚，几乎就在生命的最后两三年里。
+        </p>
+
+        <p>
+          这卷《阴符经》的真伪，学界争了一千多年。
+          叶恭绰、沈尹默、潘伯鹰相信它是真迹；
+          启功、徐无闻则认为是后人伪托或同时期高手仿褚。
+          但无论是不是他亲笔，这卷里那种"轻提重按都收在一根线里"的气息，
+          就是"褚体"的气息——
+          即使是伪作，也是在褚遂良那套笔法里完成的。
+          从这个意义上说，它至少是一份"褚的回声"。
+        </p>
+
+        <p>
+          658 年，褚遂良死在流放地爱州（今越南清化）。
+          三年前，他在朝堂上拦下了高宗立武则天为后的诏命——
+          据《新唐书》，他当场把笏板摔在地上、解下朝冠叩头至流血，
+          说："还陛下笏，乞归田里。"
+          这一跪没能拦住武则天，却让他自己从宰相一路被贬到岭南之南，
+          再也没能回到长安。这卷《阴符经》无论真伪，
+          都写在一个人即将失去一切的时候——
+          所以它读起来才那么轻，轻得像是一根要断的弦。
+        </p>
+
+        <p class="bio__source">
+          更完整的褚遂良作品年表与高清图版，见
+          <a href="http://www.9610.com/csl/" target="_blank" rel="noreferrer">9610 书法空间 · 褚遂良专页</a>。
+        </p>
+      </article>
+
       <footer class="colophon">
         <p>
           古画 · guhua — 一个一次性的 web 作品系列，
@@ -78,7 +134,7 @@
     <script type="module">
       import { loadDefaultSimplifiedChineseParser } from "https://cdn.jsdelivr.net/npm/budoux@0.8.1/+esm";
       const parser = loadDefaultSimplifiedChineseParser();
-      document.querySelectorAll(".essay p").forEach((el) => {
+      document.querySelectorAll(".essay p, .bio p").forEach((el) => {
         parser.applyToElement(el);
       });
     </script>

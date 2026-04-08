@@ -366,9 +366,8 @@ a:hover { text-decoration-color: var(--accent); }
   box-shadow:
     0 -8px 24px -8px rgba(58, 40, 23, 0.18),
     0 4px 12px rgba(58, 40, 23, 0.12);
-  /* 占画心约 55% 高度 */
-  max-height: clamp(220px, 32vh, 340px);
-  overflow-y: auto;
+  /* 不设 max-height / 不滚动 —— 让面板按内容自然撑开，
+     从 bottom 向上延伸，真迹图 + 文本 + 注释整体可见 */
   font-size: clamp(13px, 1.5vw, 15px);
   line-height: 1.8;
   display: none;
@@ -483,6 +482,66 @@ a:hover { text-decoration-color: var(--accent); }
 .yfj-panel__todo {
   color: var(--ink-faint);
   font-style: italic;
+}
+
+/* ============================================
+   书家侧写
+   ============================================ */
+
+.bio {
+  max-width: 680px;
+  margin: clamp(64px, 10vh, 120px) auto 0;
+  padding-top: clamp(32px, 6vh, 56px);
+  border-top: 1px solid var(--rule);
+  font-size: clamp(15px, 1.8vw, 18px);
+  line-height: 1.85;
+  color: var(--ink-soft);
+}
+.bio__head {
+  text-align: center;
+  margin-bottom: clamp(32px, 6vh, 56px);
+}
+.bio__kicker {
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin: 0 0 14px;
+}
+.bio__title {
+  font-size: clamp(26px, 4vw, 36px);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin: 0 0 8px;
+  color: var(--ink);
+  line-height: 1.2;
+}
+.bio__dates {
+  font-size: 13px;
+  font-style: italic;
+  color: var(--ink-faint);
+  letter-spacing: 0.15em;
+  margin: 0;
+}
+.bio p {
+  margin: 0 0 1.2em;
+  text-align: justify;
+  hyphens: auto;
+}
+.bio__source {
+  margin-top: clamp(24px, 4vh, 40px);
+  padding-top: clamp(16px, 3vh, 24px);
+  border-top: 1px dashed var(--rule);
+  font-size: 13px;
+  color: var(--ink-faint);
+  font-style: italic;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .bio { font-size: 16px; }
+  .bio p { text-align: left; }
+  .bio__title { font-size: 26px; }
 }
 
 /* ----- 页脚 ----- */
