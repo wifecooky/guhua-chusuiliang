@@ -227,7 +227,10 @@
      这样 .yfj 横向滚动时浮层会跟着字一起移动。 */
   function mountStrokeOverlay(ch) {
     if (typeof HanziWriter === "undefined") return;
-    const size = 120;
+    /* 浮层大小：以字位的实际尺寸为基准放大约 4 倍，
+       桌面端 char ~28px → 浮层 ~112px，mobile char ~22px → 浮层 ~88px */
+    const charSize = Math.max(ch.offsetWidth, ch.offsetHeight);
+    const size = Math.max(72, Math.min(140, charSize * 4));
     const overlay = el("div", "yfj-stroke-overlay");
     const oid = `stroke-overlay-${Date.now()}`;
     overlay.id = oid;
