@@ -25,36 +25,36 @@
       </header>
 
       <article class="essay">
-        <p class="lede">褚遂良五十八岁所书。公认的晚年代表作，褚体最成熟的碑刻。</p>
-        <p>立于唐永徽四年。此碑最有“褚家之法”——结字比欧、虞舒展，笔法变化也多。明人盛时泰评王羲之的《圣教序》“如干狐聚裘，痕迹俱无”，而褚遂良这本“如孤蚕吐丝，文章具在”——王以无痕胜，褚以显形胜。</p>
-        <p>清代包世臣说得最到位：“从左玩至右，则字字相迎；从右看至左，则笔笔相背。”这句话几乎是所有学褚的人都背过的。</p>
+        <p class="lede">
+          褚遂良五十八岁所书。公认的晚年代表作，褚体最成熟的碑刻。
+        </p>
+        <p>
+          碑文是唐太宗李世民亲撰的《大唐三藏圣教序》——
+          为玄奘法师西行十七年带回的 657 部佛经作序。
+          全文四段：立天地阴阳之框、叙佛教东来、写玄奘孤征西去、
+          最后归到"升坠在人"的劝世。
+          <strong>每一句都可以点。</strong>
+          点字 → 这一句的释文、注解、对应一张 9610 彩版一起浮出来。
+        </p>
       </article>
 
-      <section class="gallery gallery--cols" aria-label="作品图版">
-        <figure class="gallery__item">
-          <a href="/assets/works/yanta/01.jpg" target="_blank" rel="noreferrer">
-            <img src="/assets/works/yanta/01.jpg" loading="lazy" alt="雁塔圣教序 局部" />
-          </a>
-          <figcaption>碑文局部 · 开端</figcaption>
-        </figure>
-        <figure class="gallery__item">
-          <a href="/assets/works/yanta/02.jpg" target="_blank" rel="noreferrer">
-            <img src="/assets/works/yanta/02.jpg" loading="lazy" alt="雁塔圣教序 局部" />
-          </a>
-          <figcaption>碑文局部 · 中段</figcaption>
-        </figure>
-        <figure class="gallery__item">
-          <a href="/assets/works/yanta/03.jpg" target="_blank" rel="noreferrer">
-            <img src="/assets/works/yanta/03.jpg" loading="lazy" alt="雁塔圣教序 局部" />
-          </a>
-          <figcaption>碑文局部 · 末段</figcaption>
-        </figure>
-      </section>
+      <!-- 卷轴：竖排，从右向左读 -->
+      <div class="scroll" aria-label="《雁塔圣教序》· 卷轴形式 · 可点击释义">
+        <div class="scroll__rod scroll__rod--top" aria-hidden="true"></div>
+        <div class="scroll__silk scroll__silk--top" aria-hidden="true"></div>
+        <section id="yfj" class="yfj"></section>
+        <div class="scroll__silk scroll__silk--bottom" aria-hidden="true"></div>
+        <div class="scroll__rod scroll__rod--bottom" aria-hidden="true"></div>
+        <aside id="yfj-panel" class="yfj-panel" aria-live="polite"></aside>
+      </div>
 
       <article class="essay essay--after">
         <p>
-          更多高清图与完整释文见
-          <a href="http://www.9610.com/csl/01.htm" target="_blank" rel="noreferrer">9610 书法空间 · 雁塔圣教序</a>。
+          清代包世臣评这卷："从左玩至右，则字字相迎；
+          从右看至左，则笔笔相背。"
+          明人盛时泰比王羲之的《圣教序》"如干狐聚裘，痕迹俱无"，
+          而褚遂良这本"如孤蚕吐丝，文章具在"——
+          王以无痕胜，褚以显形胜。
         </p>
       </article>
 
@@ -64,18 +64,26 @@
           专为某一卷具体的古代法帖量身打造。
         </p>
         <p class="meta">
-          图片与作品资料：<a href="http://www.9610.com/csl/01.htm" target="_blank" rel="noreferrer">9610 书法空间 · 褚遂良</a> ·
+          原文：唐太宗《大唐三藏圣教序》（公有领域）·
+          真迹彩版：<a href="http://www.9610.com/csl/01.htm" target="_blank" rel="noreferrer">9610 书法空间</a> ·
+          字数据：<a href="https://github.com/skishore/makemeahanzi" target="_blank" rel="noreferrer">MakeMeAHanzi</a> ·
+          笔顺：<a href="https://hanziwriter.org" target="_blank" rel="noreferrer">hanzi-writer</a> ·
           字体：<a href="https://fonts.google.com/noto/specimen/Noto+Serif+SC" target="_blank" rel="noreferrer">Noto Serif SC</a>
         </p>
       </footer>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.7.2/dist/hanzi-writer.min.js"></script>
+    <!-- BudouX：给散文段落断词 -->
     <script type="module">
       import { loadDefaultSimplifiedChineseParser } from "https://cdn.jsdelivr.net/npm/budoux@0.8.1/+esm";
       const parser = loadDefaultSimplifiedChineseParser();
-      document.querySelectorAll(".essay p, .gallery figcaption").forEach((el) => {
+      document.querySelectorAll(".essay p").forEach((el) => {
         parser.applyToElement(el);
       });
     </script>
+    <!-- 作品配置 → 卷轴库 -->
+    <script src="../../data/yanta-data.js?v=7"></script>
+    <script src="../../main.js?v=7"></script>
   </body>
 </html>
