@@ -3,66 +3,52 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>古画 · 字解码 · 褚遂良《阴符经》</title>
+    <title>褚遂良 · 初唐四家 · 古画</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./style.css?v=5" />
+    <link rel="stylesheet" href="./style.css?v=6" />
   </head>
   <body>
     <main class="page">
       <header class="masthead">
-        <p class="kicker">古画 · 字解码 · 第一篇</p>
-        <h1 class="title">褚遂良《阴符经》</h1>
-        <p class="subtitle">461 个字，可点。一卷在道家典籍与楷书法度之间游走的墨迹</p>
+        <p class="kicker">古画 · 书家 · 第一篇</p>
+        <h1 class="title">褚遂良</h1>
+        <p class="subtitle">596 – 658 · 唐 · 初唐四家之一</p>
       </header>
 
       <article class="essay">
         <p class="lede">
-          公元 658 年前后，褚遂良在生命的最后几年，写下了这卷《阴符经》。
-          全卷四百余字，是他楷书最成熟的体段——
-          法度森严却带着那种独属于他的、轻而薄的气质，
-          像是一支细笔在纸上提住了气息，舍不得落下。
-        </p>
-
-        <p>
-          下面是全文。<strong>每一个字都可以点。</strong>
-          点开后，那一句的释文会从下面长出来。
-          《阴符经》写得极短极绕，
-          一句话往往要顶住《道德经》一整章——
-          所以读它最好的方式不是逐字，而是逐句。
+          褚遂良是一位在法度里长出柔韧的人——
+          他的楷书被评为"如美人婵娟，似不胜罗绮"，
+          看起来柔，落在纸上却是挺的。
+          本站以他传世的一卷《大字阴符经》为切口，
+          做了一次"点字读帖"的尝试；
+          其余作品则按年次列在下方。
         </p>
       </article>
 
-      <!-- 卷轴：竖排，从右向左读 -->
-      <div class="scroll" aria-label="《阴符经》全文 · 卷轴形式 · 可点击释义">
-        <div class="scroll__rod scroll__rod--top" aria-hidden="true"></div>
-        <div class="scroll__silk scroll__silk--top" aria-hidden="true"></div>
-        <section id="yfj" class="yfj"></section>
-        <div class="scroll__silk scroll__silk--bottom" aria-hidden="true"></div>
-        <div class="scroll__rod scroll__rod--bottom" aria-hidden="true"></div>
-        <!-- 释文面板：浮层吸附在画心底部 -->
-        <aside id="yfj-panel" class="yfj-panel" aria-live="polite"></aside>
-      </div>
-
-      <article class="essay essay--after">
-        <p>
-          这卷里出现最多的字是"之"，27 次；其次是"天"，16 次；再次是"入"，14 次。
-          它们一遍遍地写下来，每一次落笔的角度都不一样。
-          这就是为什么后世认它是楷书范本——
-          不是因为它整齐，而是因为它在整齐里反复偏离。
-        </p>
-      </article>
+      <!-- 阴符经 · 深度入口 -->
+      <a class="feature" href="./yinfujing/">
+        <div class="feature__badge">本站深度</div>
+        <div class="feature__body">
+          <h2 class="feature__title">《大字阴符经》· 字解码</h2>
+          <p class="feature__desc">
+            461 个字，按句可点。点字 → 释文 + 注解 + 真迹对照。
+            全卷竖排卷轴，从右到左读。
+          </p>
+          <span class="feature__cta">进入字帖 →</span>
+        </div>
+      </a>
 
       <!-- 书家侧写 -->
       <article class="bio" aria-label="关于褚遂良">
         <header class="bio__head">
           <p class="bio__kicker">书家侧写</p>
-          <h2 class="bio__title">褚遂良</h2>
-          <p class="bio__dates">596 – 658 · 唐</p>
+          <h2 class="bio__title">一个在法度里被折断的人</h2>
         </header>
 
         <p>
@@ -87,7 +73,7 @@
         </p>
 
         <p>
-          这卷《阴符经》的真伪，学界争了一千多年。
+          《大字阴符经》的真伪，学界争了一千多年。
           叶恭绰、沈尹默、潘伯鹰相信它是真迹；
           启功、徐无闻则认为是后人伪托或同时期高手仿褚。
           但无论是不是他亲笔，这卷里那种"轻提重按都收在一根线里"的气息，
@@ -106,12 +92,232 @@
           都写在一个人即将失去一切的时候——
           所以它读起来才那么轻，轻得像是一根要断的弦。
         </p>
-
-        <p class="bio__source">
-          更完整的褚遂良作品年表与高清图版，见
-          <a href="http://www.9610.com/csl/" target="_blank" rel="noreferrer">9610 书法空间 · 褚遂良专页</a>。
-        </p>
       </article>
+
+      <!-- 作品年表 -->
+      <section class="works" aria-label="褚遂良作品年表">
+        <header class="works__head">
+          <p class="bio__kicker">作品年表</p>
+          <h2 class="bio__title">传世十七件</h2>
+          <p class="works__note">
+            按年次排。九件有明确纪年，八件为"传"或无纪年，附于末尾。
+            其中《大字阴符经》本站已做字级解读，
+            其余十件在 9610 书法空间有整理（见右栏链接）。
+          </p>
+        </header>
+
+        <ol class="timeline">
+
+          <!-- 已系年 9 件 -->
+          <li class="timeline__item">
+            <span class="timeline__year">630</span>
+            <div class="timeline__content">
+              <h3 class="timeline__title">枯树赋</h3>
+              <p class="timeline__meta">行书 · 墨拓册 · 贞观四年 · 日本三井纪念美术馆藏</p>
+              <p class="timeline__note">
+                款题为燕国公（于志宁）书。庾信原文作于南北朝羁留北方时，
+                亡国之痛、乡关之思、羁旅之恨尽在其中——庾文褚书，双璧耀史。
+              </p>
+              <a class="timeline__link" href="http://www.9610.com/csl/02.htm" target="_blank" rel="noreferrer">9610 书法空间 →</a>
+            </div>
+          </li>
+
+          <li class="timeline__item">
+            <span class="timeline__year">641</span>
+            <div class="timeline__content">
+              <h3 class="timeline__title">伊阙佛龛碑</h3>
+              <p class="timeline__meta">楷书 · 摩崖刻石 · 贞观十五年 · 国家图书馆藏拓</p>
+              <p class="timeline__note">
+                岑文本撰文。褚遂良中年笔，端庄奇伟，与晚年的婵娟婀娜很不同。
+              </p>
+              <a class="timeline__link" href="http://www.9610.com/csl/04.htm" target="_blank" rel="noreferrer">9610 书法空间 →</a>
+            </div>
+          </li>
+
+          <li class="timeline__item">
+            <span class="timeline__year">642</span>
+            <div class="timeline__content">
+              <h3 class="timeline__title">孟法师碑</h3>
+              <p class="timeline__meta">楷书 · 墨拓 · 贞观十六年 · 日本三井纪念美术馆藏</p>
+              <p class="timeline__note">
+                全称《京师至德观主孟法师碑》。原碑久佚，仅清代李宗瀚藏唐拓本传世。
+                运笔多隶法，质朴如敦彝，是褚氏早年之作。
+              </p>
+              <a class="timeline__link" href="http://www.9610.com/csl/05.htm" target="_blank" rel="noreferrer">9610 书法空间 →</a>
+            </div>
+          </li>
+
+          <li class="timeline__item">
+            <span class="timeline__year">649</span>
+            <div class="timeline__content">
+              <h3 class="timeline__title">裴艺碑</h3>
+              <p class="timeline__meta">楷书 · 363×111cm · 贞观二十三年 · 陕西昭陵博物馆藏</p>
+              <p class="timeline__note">
+                又称《晋州刺史顺义公碑》。上官仪撰文。碑文残破，裴艺事迹已不可考。
+              </p>
+              <a class="timeline__link" href="http://www.9610.com/csl/14.htm" target="_blank" rel="noreferrer">9610 书法空间 →</a>
+            </div>
+          </li>
+
+          <li class="timeline__item timeline__item--dim">
+            <span class="timeline__year">649</span>
+            <div class="timeline__content">
+              <h3 class="timeline__title">文皇哀册</h3>
+              <p class="timeline__meta">行书 · 墨拓 · 贞观二十三年 · 日本私人藏</p>
+              <p class="timeline__note">
+                9610 书法空间索引列出但无详细页面。
+              </p>
+            </div>
+          </li>
+
+          <li class="timeline__item">
+            <span class="timeline__year">652</span>
+            <div class="timeline__content">
+              <h3 class="timeline__title">房玄龄碑</h3>
+              <p class="timeline__meta">楷书 · 清拓本 · 永徽三年 · 国家图书馆藏</p>
+              <p class="timeline__note">
+                梁启超旧藏。二千余字仅存三百余字，在陕西礼泉。
+                一扫此前欧字向左前方倾斜的感觉——开始独立于欧。
+              </p>
+              <a class="timeline__link" href="http://www.9610.com/csl/07.htm" target="_blank" rel="noreferrer">9610 书法空间 →</a>
+            </div>
+          </li>
+
+          <li class="timeline__item">
+            <span class="timeline__year">653</span>
+            <div class="timeline__content">
+              <h3 class="timeline__title">雁塔圣教序</h3>
+              <p class="timeline__meta">楷书 · 宋拓本 · 永徽四年 · 日本东京国立博物馆藏</p>
+              <p class="timeline__note">
+                褚遂良五十八岁所书，公认的晚年代表作、褚体最成熟的碑刻。
+                "字字相迎，笔笔相背"——包世臣的评语几乎是全中国学褚的人都背过的。
+              </p>
+              <a class="timeline__link" href="http://www.9610.com/csl/01.htm" target="_blank" rel="noreferrer">9610 书法空间 →</a>
+            </div>
+          </li>
+
+          <li class="timeline__item timeline__item--dim">
+            <span class="timeline__year">656</span>
+            <div class="timeline__content">
+              <h3 class="timeline__title">潭府帖</h3>
+              <p class="timeline__meta">宋拓本 · 显庆元年 · 淳化阁帖</p>
+              <p class="timeline__note">
+                9610 书法空间索引列出但无详细页面。
+              </p>
+            </div>
+          </li>
+
+          <li class="timeline__item timeline__item--dim">
+            <span class="timeline__year">663</span>
+            <div class="timeline__content">
+              <h3 class="timeline__title">同洲圣教序</h3>
+              <p class="timeline__meta">龙朔三年（褚遂良身后五年）· 西安碑林博物馆藏</p>
+              <p class="timeline__note">
+                褚遂良 658 年死于爱州，此碑在他身后五年才立。
+                9610 书法空间索引列出但无详细页面。
+              </p>
+            </div>
+          </li>
+
+          <li class="timeline__divider" aria-hidden="true">
+            <span>以下为"传"或无明确纪年</span>
+          </li>
+
+          <!-- 传世未系年 -->
+          <li class="timeline__item timeline__item--featured">
+            <span class="timeline__year">—</span>
+            <div class="timeline__content">
+              <h3 class="timeline__title">大字阴符经 <span class="timeline__tag">传</span></h3>
+              <p class="timeline__meta">楷书 · 墨迹 · 21×394cm · 美国旧金山亚洲艺术馆藏</p>
+              <p class="timeline__note">
+                461 字 24 开。真伪千年公案。本站做了字级解读，可点任一字读释文、看真迹。
+              </p>
+              <a class="timeline__link timeline__link--strong" href="./yinfujing/">进入字帖 →</a>
+            </div>
+          </li>
+
+          <li class="timeline__item">
+            <span class="timeline__year">—</span>
+            <div class="timeline__content">
+              <h3 class="timeline__title">倪宽赞 <span class="timeline__tag">传</span></h3>
+              <p class="timeline__meta">楷书 · 墨迹 · 25.6×576cm · 台北故宫博物院藏</p>
+              <p class="timeline__note">
+                素笺乌丝栏墨迹卷，是褚遂良传世楷书墨迹本中最重要的一种（与阴符经并列）。
+              </p>
+              <a class="timeline__link" href="http://www.9610.com/csl/03.htm" target="_blank" rel="noreferrer">9610 书法空间 →</a>
+            </div>
+          </li>
+
+          <li class="timeline__item">
+            <span class="timeline__year">—</span>
+            <div class="timeline__content">
+              <h3 class="timeline__title">小字阴符经 <span class="timeline__tag">越州石氏本</span></h3>
+              <p class="timeline__meta">刻本 · 日本东京国立博物馆藏</p>
+              <p class="timeline__note">
+                与大字阴符经同名，字迹极小，是另一套刻本系统。
+              </p>
+              <a class="timeline__link" href="http://www.9610.com/csl/08.htm" target="_blank" rel="noreferrer">9610 书法空间 →</a>
+            </div>
+          </li>
+
+          <li class="timeline__item">
+            <span class="timeline__year">—</span>
+            <div class="timeline__content">
+              <h3 class="timeline__title">临王献之飞鸟帖 <span class="timeline__tag">传</span></h3>
+              <p class="timeline__meta">楷书 · 纸本 · 22×47.4cm · 台北故宫博物院藏</p>
+              <p class="timeline__note">
+                褚遂良临王献之。帖末自署"臣褚遂良临"。
+              </p>
+              <a class="timeline__link" href="http://www.9610.com/csl/13.htm" target="_blank" rel="noreferrer">9610 书法空间 →</a>
+            </div>
+          </li>
+
+          <li class="timeline__item timeline__item--dim">
+            <span class="timeline__year">—</span>
+            <div class="timeline__content">
+              <h3 class="timeline__title">摹王羲之兰亭序 <span class="timeline__tag">兰亭八柱第二本</span></h3>
+              <p class="timeline__meta">纸本 · 24×88.5cm · 北京故宫博物院藏</p>
+              <p class="timeline__note">
+                9610 书法空间索引列出但无详细页面。
+              </p>
+            </div>
+          </li>
+
+          <li class="timeline__item timeline__item--dim">
+            <span class="timeline__year">—</span>
+            <div class="timeline__content">
+              <h3 class="timeline__title">临兰亭序 <span class="timeline__tag">领字从山本</span></h3>
+              <p class="timeline__meta">黄绢本 · 24.3×70.2cm · 台北故宫博物院（兰千山馆寄存）</p>
+              <p class="timeline__note">
+                9610 书法空间索引列出但无详细页面。
+              </p>
+            </div>
+          </li>
+
+          <li class="timeline__item timeline__item--dim">
+            <span class="timeline__year">—</span>
+            <div class="timeline__content">
+              <h3 class="timeline__title">小楷灵宝经</h3>
+              <p class="timeline__meta">墨拓 · 日本三井纪念美术馆藏（听冰阁旧藏本）</p>
+              <p class="timeline__note">
+                9610 书法空间索引列出但无详细页面。
+              </p>
+            </div>
+          </li>
+
+          <li class="timeline__item timeline__item--dim">
+            <span class="timeline__year">—</span>
+            <div class="timeline__content">
+              <h3 class="timeline__title">临王羲之长风帖 <span class="timeline__tag">传</span></h3>
+              <p class="timeline__meta">草书 · 纸本 · 27.5×40.9cm · 台北故宫博物院藏</p>
+              <p class="timeline__note">
+                9610 书法空间索引列出但无详细页面。
+              </p>
+            </div>
+          </li>
+
+        </ol>
+      </section>
 
       <footer class="colophon">
         <p>
@@ -119,9 +325,8 @@
           专为某一卷具体的古代法帖量身打造。
         </p>
         <p class="meta">
-          原文：黄帝《阴符经》（公有领域）·
-          真迹彩版：<a href="http://www.9610.com/csl/06.htm" target="_blank" rel="noreferrer">9610 书法空间</a> ·
-          原作藏：<a href="https://education.asianart.org/resources/scripture-of-the-hidden-talisman/" target="_blank" rel="noreferrer">Asian Art Museum, San Francisco</a> ·
+          人物资料与作品年表：<a href="http://www.9610.com/csl/" target="_blank" rel="noreferrer">9610 书法空间 · 褚遂良专页</a> ·
+          《大字阴符经》原作藏：<a href="https://education.asianart.org/resources/scripture-of-the-hidden-talisman/" target="_blank" rel="noreferrer">Asian Art Museum, San Francisco</a> ·
           字数据：<a href="https://github.com/skishore/makemeahanzi" target="_blank" rel="noreferrer">MakeMeAHanzi</a> ·
           笔顺：<a href="https://hanziwriter.org" target="_blank" rel="noreferrer">hanzi-writer</a> ·
           字体：<a href="https://fonts.google.com/noto/specimen/Noto+Serif+SC" target="_blank" rel="noreferrer">Noto Serif SC</a>
@@ -129,15 +334,13 @@
       </footer>
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.7.2/dist/hanzi-writer.min.js"></script>
     <!-- BudouX：给散文段落断词 -->
     <script type="module">
       import { loadDefaultSimplifiedChineseParser } from "https://cdn.jsdelivr.net/npm/budoux@0.8.1/+esm";
       const parser = loadDefaultSimplifiedChineseParser();
-      document.querySelectorAll(".essay p, .bio p").forEach((el) => {
+      document.querySelectorAll(".essay p, .bio p, .timeline__note, .feature__desc, .works__note").forEach((el) => {
         parser.applyToElement(el);
       });
     </script>
-    <script src="./main.js?v=5"></script>
   </body>
 </html>

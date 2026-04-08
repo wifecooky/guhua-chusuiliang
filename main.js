@@ -276,7 +276,8 @@
     const num = String(leaf).padStart(2, "0");
     const img = document.createElement("img");
     img.className = "yfj-panel__leaf-img";
-    img.src = `./assets/yfj-leaves/${num}.jpg`;
+    /* 绝对路径：/index.html 和 /yinfujing/index.html 共用这个 main.js */
+    img.src = `/assets/yfj-leaves/${num}.jpg`;
     img.alt = `褚遂良《阴符经》第 ${leaf} 开真迹`;
     img.loading = "lazy";
     /* 点击图片在新窗口看大图 */

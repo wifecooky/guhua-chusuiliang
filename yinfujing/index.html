@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>褚遂良《大字阴符经》· 字解码 · 古画</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../style.css?v=6" />
+  </head>
+  <body>
+    <main class="page">
+      <nav class="topnav">
+        <a class="topnav__back" href="../">← 褚遂良 · 总览</a>
+      </nav>
+
+      <header class="masthead">
+        <p class="kicker">古画 · 字解码 · 第一篇</p>
+        <h1 class="title">褚遂良《阴符经》</h1>
+        <p class="subtitle">461 个字，可点。一卷在道家典籍与楷书法度之间游走的墨迹</p>
+      </header>
+
+      <article class="essay">
+        <p class="lede">
+          公元 658 年前后，褚遂良在生命的最后几年，写下了这卷《阴符经》。
+          全卷四百余字，是他楷书最成熟的体段——
+          法度森严却带着那种独属于他的、轻而薄的气质，
+          像是一支细笔在纸上提住了气息，舍不得落下。
+        </p>
+
+        <p>
+          下面是全文。<strong>每一个字都可以点。</strong>
+          点开后，那一句的释文会从下面长出来。
+          《阴符经》写得极短极绕，
+          一句话往往要顶住《道德经》一整章——
+          所以读它最好的方式不是逐字，而是逐句。
+        </p>
+      </article>
+
+      <!-- 卷轴：竖排，从右向左读 -->
+      <div class="scroll" aria-label="《阴符经》全文 · 卷轴形式 · 可点击释义">
+        <div class="scroll__rod scroll__rod--top" aria-hidden="true"></div>
+        <div class="scroll__silk scroll__silk--top" aria-hidden="true"></div>
+        <section id="yfj" class="yfj"></section>
+        <div class="scroll__silk scroll__silk--bottom" aria-hidden="true"></div>
+        <div class="scroll__rod scroll__rod--bottom" aria-hidden="true"></div>
+        <!-- 释文面板：浮层吸附在画心底部 -->
+        <aside id="yfj-panel" class="yfj-panel" aria-live="polite"></aside>
+      </div>
+
+      <article class="essay essay--after">
+        <p>
+          这卷里出现最多的字是"之"，27 次；其次是"天"，16 次；再次是"入"，14 次。
+          它们一遍遍地写下来，每一次落笔的角度都不一样。
+          这就是为什么后世认它是楷书范本——
+          不是因为它整齐，而是因为它在整齐里反复偏离。
+        </p>
+        <p>
+          关于褚遂良其人、其书、其死，以及这卷的真伪争议，
+          见 <a href="../">总览页的书家侧写</a>。
+        </p>
+      </article>
+
+      <footer class="colophon">
+        <p>
+          古画 · guhua — 一个一次性的 web 作品系列，
+          专为某一卷具体的古代法帖量身打造。
+        </p>
+        <p class="meta">
+          原文：黄帝《阴符经》（公有领域）·
+          真迹彩版：<a href="http://www.9610.com/csl/06.htm" target="_blank" rel="noreferrer">9610 书法空间</a> ·
+          原作藏：<a href="https://education.asianart.org/resources/scripture-of-the-hidden-talisman/" target="_blank" rel="noreferrer">Asian Art Museum, San Francisco</a> ·
+          字数据：<a href="https://github.com/skishore/makemeahanzi" target="_blank" rel="noreferrer">MakeMeAHanzi</a> ·
+          笔顺：<a href="https://hanziwriter.org" target="_blank" rel="noreferrer">hanzi-writer</a> ·
+          字体：<a href="https://fonts.google.com/noto/specimen/Noto+Serif+SC" target="_blank" rel="noreferrer">Noto Serif SC</a>
+        </p>
+      </footer>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.7.2/dist/hanzi-writer.min.js"></script>
+    <!-- BudouX：给散文段落断词 -->
+    <script type="module">
+      import { loadDefaultSimplifiedChineseParser } from "https://cdn.jsdelivr.net/npm/budoux@0.8.1/+esm";
+      const parser = loadDefaultSimplifiedChineseParser();
+      document.querySelectorAll(".essay p").forEach((el) => {
+        parser.applyToElement(el);
+      });
+    </script>
+    <script src="../main.js?v=6"></script>
+  </body>
+</html>

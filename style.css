@@ -552,6 +552,264 @@ a:hover { text-decoration-color: var(--accent); }
   .bio__title { font-size: 26px; }
 }
 
+/* ============================================
+   总览页专用：顶部导航 · 深度入口卡 · 作品年表
+   ============================================ */
+
+/* 顶部返回导航（用在 /yinfujing/ 页） */
+.topnav {
+  max-width: 680px;
+  margin: 0 auto clamp(24px, 4vh, 40px);
+  padding: 0;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+}
+.topnav__back {
+  color: var(--ink-faint);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+.topnav__back:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* 深度入口卡（阴符经 featured） */
+.feature {
+  display: block;
+  max-width: 680px;
+  margin: clamp(32px, 6vh, 56px) auto;
+  padding: clamp(24px, 4vw, 36px) clamp(28px, 5vw, 44px);
+  background: linear-gradient(135deg,
+    rgba(237, 230, 216, 0.8) 0%,
+    rgba(232, 220, 196, 0.6) 100%);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--accent);
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.feature:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px -12px rgba(58, 40, 23, 0.22);
+}
+.feature__badge {
+  position: absolute;
+  top: clamp(18px, 3vw, 28px);
+  right: clamp(22px, 4vw, 36px);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 4px 10px;
+  border-radius: 2px;
+}
+.feature__title {
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 12px;
+  letter-spacing: 0.04em;
+}
+.feature__desc {
+  margin: 0 0 16px;
+  color: var(--ink-soft);
+  line-height: 1.8;
+  font-size: clamp(14px, 1.6vw, 16px);
+}
+.feature__cta {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* 作品年表 */
+.works {
+  max-width: 680px;
+  margin: clamp(64px, 10vh, 120px) auto 0;
+  padding-top: clamp(32px, 6vh, 56px);
+  border-top: 1px solid var(--rule);
+}
+.works__head {
+  text-align: center;
+  margin-bottom: clamp(40px, 7vh, 72px);
+}
+.works__note {
+  max-width: 520px;
+  margin: clamp(16px, 3vh, 24px) auto 0;
+  font-size: clamp(13px, 1.5vw, 15px);
+  line-height: 1.8;
+  color: var(--ink-faint);
+  font-style: italic;
+}
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+/* 纵向时间线 */
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: clamp(48px, 8vw, 72px);
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: var(--rule);
+}
+
+.timeline__item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(16px, 3vw, 28px);
+  padding: clamp(18px, 3vh, 28px) 0;
+  transition: opacity 0.2s;
+}
+.timeline__item--dim {
+  opacity: 0.55;
+}
+.timeline__item--featured {
+  background: rgba(139, 26, 26, 0.03);
+  border-radius: 2px;
+  padding-left: clamp(12px, 2vw, 20px);
+  padding-right: clamp(12px, 2vw, 20px);
+  margin: 0 clamp(-12px, -2vw, -20px);
+}
+
+.timeline__year {
+  flex: 0 0 auto;
+  width: clamp(50px, 8vw, 72px);
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 700;
+  color: var(--ink);
+  font-family: "Noto Serif SC", "Songti SC", serif;
+  padding-top: 2px;
+  letter-spacing: 0.04em;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  background: var(--paper);
+  padding: 4px 0;
+}
+.timeline__item--dim .timeline__year {
+  color: var(--ink-faint);
+}
+
+.timeline__content {
+  flex: 1;
+  min-width: 0;
+}
+.timeline__title {
+  font-size: clamp(17px, 2.1vw, 21px);
+  font-weight: 700;
+  margin: 0 0 6px;
+  color: var(--ink);
+  line-height: 1.4;
+}
+.timeline__tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  color: var(--ink-faint);
+  border: 1px solid var(--rule);
+  padding: 2px 8px;
+  border-radius: 2px;
+  vertical-align: middle;
+  margin-left: 8px;
+}
+.timeline__meta {
+  margin: 0 0 8px;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: var(--ink-faint);
+}
+.timeline__note {
+  margin: 0 0 10px;
+  font-size: clamp(13px, 1.5vw, 15px);
+  line-height: 1.75;
+  color: var(--ink-soft);
+}
+.timeline__link {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--rule);
+  transition: color 0.2s, border-color 0.2s;
+}
+.timeline__link:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+.timeline__link--strong {
+  color: var(--accent);
+  font-weight: 500;
+  border-bottom-color: var(--accent);
+}
+
+/* 分组分隔（已系年 vs 未系年） */
+.timeline__divider {
+  list-style: none;
+  margin: clamp(20px, 4vh, 36px) 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--ink-faint);
+  text-transform: none;
+}
+.timeline__divider::before,
+.timeline__divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+  margin: 0 clamp(12px, 2vw, 20px);
+}
+.timeline__divider span {
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .feature {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .feature__badge {
+    position: static;
+    display: inline-block;
+    margin-bottom: 14px;
+  }
+
+  .timeline::before {
+    left: 28px;
+  }
+  .timeline__item {
+    padding: 18px 0;
+    gap: 12px;
+  }
+  .timeline__year {
+    width: 48px;
+    font-size: 14px;
+  }
+  .timeline__title {
+    font-size: 17px;
+  }
+  .timeline__note {
+    font-size: 14px;
+  }
+}
+
 /* ----- 页脚 ----- */
 .colophon {
   margin-top: clamp(64px, 10vh, 120px);
