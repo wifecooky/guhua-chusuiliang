@@ -825,6 +825,80 @@ a:hover { text-decoration-color: var(--accent); }
 }
 
 /* ============================================
+   Lightbox 全局图片预览
+   ============================================ */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 15, 10, 0.94);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  cursor: zoom-out;
+  padding: clamp(32px, 5vw, 64px);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.lightbox--open {
+  display: flex;
+  animation: lightbox-fade 0.24s ease-out;
+}
+@keyframes lightbox-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.lightbox__img {
+  max-width: min(95vw, 1400px);
+  max-height: 90vh;
+  object-fit: contain;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  cursor: default;
+  animation: lightbox-zoom 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes lightbox-zoom {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.lightbox__close {
+  position: absolute;
+  top: clamp(16px, 2vw, 28px);
+  right: clamp(16px, 2vw, 28px);
+  width: 44px;
+  height: 44px;
+  font-size: 28px;
+  line-height: 1;
+  background: transparent;
+  color: rgba(245, 241, 234, 0.85);
+  border: 1px solid rgba(245, 241, 234, 0.4);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  font-family: inherit;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.lightbox__close:hover {
+  background: rgba(245, 241, 234, 0.15);
+  color: #fff;
+  border-color: rgba(245, 241, 234, 0.7);
+}
+.lightbox__caption {
+  position: absolute;
+  bottom: clamp(16px, 2vw, 28px);
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: rgba(245, 241, 234, 0.65);
+  font-size: 12px;
+  font-style: italic;
+  letter-spacing: 0.1em;
+  pointer-events: none;
+}
+
+/* ============================================
    作品页：Tier B 原文 + 释读阅读器
    ============================================ */
 

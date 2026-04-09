@@ -174,7 +174,7 @@
     img.src = `${LEAF_DIR}${num}.jpg`;
     img.alt = `${WORK_NAME} 第 ${leaf} 开`;
     img.loading = "lazy";
-    img.addEventListener("click", () => window.open(img.src, "_blank"));
+    /* 点击由全局 lightbox.js 接管（在当前页浮现大图，不开新页面） */
     stage.appendChild(img);
   }
 
