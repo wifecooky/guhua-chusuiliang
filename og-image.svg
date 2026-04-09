@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <pattern id="paper" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse">
+      <rect width="200" height="200" fill="#f5f1ea"/>
+      <circle cx="40" cy="50" r="1.5" fill="#e8dcc4" opacity="0.5"/>
+      <circle cx="150" cy="120" r="1.2" fill="#e8dcc4" opacity="0.4"/>
+      <circle cx="80" cy="170" r="1.3" fill="#e8dcc4" opacity="0.5"/>
+    </pattern>
+    <radialGradient id="paperVignette" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#ede6d8" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#d4c6a8" stop-opacity="0.5"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Paper background -->
+  <rect width="1200" height="630" fill="url(#paper)"/>
+  <rect width="1200" height="630" fill="url(#paperVignette)"/>
+
+  <!-- Top border (dark wood axis) -->
+  <rect x="0" y="0" width="1200" height="14" fill="#3a2817"/>
+  <rect x="0" y="616" width="1200" height="14" fill="#3a2817"/>
+
+  <!-- Silk under borders -->
+  <rect x="0" y="14" width="1200" height="28" fill="#c9a876"/>
+  <rect x="0" y="588" width="1200" height="28" fill="#c9a876"/>
+
+  <!-- 朱砂方印 "褚" - left side -->
+  <g transform="translate(180, 220)">
+    <rect x="0" y="0" width="180" height="180" rx="4" fill="#8b1a1a"/>
+    <rect x="6" y="6" width="168" height="168" rx="2" fill="none" stroke="rgba(255,248,240,0.3)" stroke-width="2"/>
+    <text x="90" y="148" font-family="PingFang SC, Hiragino Sans GB, Noto Serif SC, Songti SC, STSong, serif" font-size="140" font-weight="700" fill="#fff8f0" text-anchor="middle">褚</text>
+  </g>
+
+  <!-- Big title on the right -->
+  <text x="480" y="280"
+        font-family="PingFang SC, Hiragino Sans GB, Noto Serif SC, Songti SC, STSong, serif"
+        font-size="128" font-weight="700" fill="#1a1714" letter-spacing="20">
+    褚遂良
+  </text>
+
+  <!-- Subtitle line 1 -->
+  <text x="480" y="340"
+        font-family="PingFang SC, Hiragino Sans GB, Noto Serif SC, Songti SC, STSong, serif"
+        font-size="32" font-weight="400" fill="#44403c" letter-spacing="4">
+    596 – 658　·　初唐四家之一
+  </text>
+
+  <!-- Subtitle line 2 -->
+  <text x="480" y="400"
+        font-family="PingFang SC, Hiragino Sans GB, Noto Serif SC, Songti SC, STSong, serif"
+        font-size="28" font-weight="400" fill="#44403c" letter-spacing="2">
+    传世十七件作品 · 字解码卷轴字帖
+  </text>
+
+  <!-- Tagline (italic) -->
+  <text x="480" y="460"
+        font-family="PingFang SC, Hiragino Sans GB, Noto Serif SC, Songti SC, STSong, serif"
+        font-size="20" font-weight="400" fill="#8c8580" font-style="italic" letter-spacing="2">
+    "如美人婵娟，似不胜罗绮" — 看起来柔，落在纸上却是挺的
+  </text>
+
+  <!-- Small kicker at top right -->
+  <text x="1150" y="80"
+        font-family="PingFang SC, Hiragino Sans GB, Noto Serif SC, serif"
+        font-size="14" font-weight="400" fill="#8c8580" text-anchor="end" letter-spacing="6">
+    古画 · 书家 · 第一篇
+  </text>
+
+  <!-- URL at bottom -->
+  <text x="600" y="560"
+        font-family="PingFang SC, Hiragino Sans GB, Noto Serif SC, serif"
+        font-size="16" font-weight="400" fill="#8c8580" text-anchor="middle" letter-spacing="3">
+    wifecooky.github.io/guhua-chusuiliang
+  </text>
+</svg>

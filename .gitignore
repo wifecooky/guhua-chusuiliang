@@ -4,3 +4,4 @@
 .playwright-mcp/
 *.png
 !assets/*.png
+!og-image.png
