@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="2" fill="#8b1a1a"/>
+  <rect x="2" y="2" width="28" height="28" rx="1" fill="none" stroke="rgba(255,248,240,0.3)" stroke-width="1"/>
+  <text x="16" y="23" font-family="'Noto Serif SC','Songti SC',serif" font-size="22" font-weight="700" fill="#fff8f0" text-anchor="middle">褚</text>
+</svg>
