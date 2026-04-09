@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://wifecooky.github.io/guhua-chusuiliang/sitemap.xml
+Sitemap: https://chusuiliang.thewang.net/sitemap.xml
