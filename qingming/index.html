@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>清明上河图 · 北宋 张择端</title>
+<meta name="description" content="北宋张择端《清明上河图》高清横卷浏览，含分段解说。绢本设色，纵24.8cm，横528.7cm，现藏北京故宫博物院。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root,
+[data-theme="dark"] {
+  --bg:           #1a1a1a;
+  --bg-elevated:  #2a2520;
+  --bg-card:      #252220;
+  --text:         #c8b88a;
+  --text-sec:     #999;
+  --text-dim:     #666;
+  --accent:       #7a9e7e;
+  --accent-hover: #8ab88e;
+  --border:       rgba(255,255,255,0.08);
+  --shadow:       rgba(0,0,0,0.4);
+  --overlay:      rgba(0,0,0,0.7);
+}
+[data-theme="light"] {
+  --bg:           #f0ebe3;
+  --bg-elevated:  rgba(255,255,255,0.6);
+  --bg-card:      #faf7f2;
+  --text:         #4a4540;
+  --text-sec:     #777;
+  --text-dim:     #aaa;
+  --accent:       #6b8e6b;
+  --accent-hover: #5a7d5a;
+  --border:       rgba(0,0,0,0.08);
+  --shadow:       rgba(0,0,0,0.1);
+  --overlay:      rgba(0,0,0,0.5);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Noto Serif SC", "Songti SC", serif;
+  min-height: 100vh;
+  transition: background .3s, color .3s;
+  line-height: 1.8;
+}
+
+/* ── topbar ── */
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 24px;
+  background: var(--bg-elevated);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(16px);
+}
+.topbar-left { display: flex; align-items: baseline; gap: 10px; }
+.topbar h1 { font-size: 1.15rem; font-weight: 700; letter-spacing: .05em; }
+.topbar .subtitle { color: var(--text-sec); font-size: .85rem; }
+.topbar-right { display: flex; align-items: center; gap: 8px; }
+.icon-btn {
+  background: none; border: 1px solid var(--border);
+  color: var(--text); font-size: 1.1rem;
+  width: 34px; height: 34px; border-radius: 50%;
+  cursor: pointer; transition: .15s;
+  display: flex; align-items: center; justify-content: center;
+}
+.icon-btn:hover { background: var(--border); }
+.icon-btn.playing {
+  color: var(--accent);
+  border-color: var(--accent);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .6; }
+}
+
+/* ── hero ── */
+.hero {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 48px 24px 32px;
+  text-align: center;
+}
+.hero h2 {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: .1em;
+  margin-bottom: 8px;
+}
+.hero .era {
+  font-size: 1rem;
+  color: var(--text-sec);
+  margin-bottom: 24px;
+}
+.hero p {
+  font-size: .95rem;
+  color: var(--text-sec);
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 2;
+}
+.meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 20px;
+  margin-top: 20px;
+  font-size: .85rem;
+  color: var(--text-dim);
+}
+.meta-row span { color: var(--text); }
+
+/* ── viewer section ── */
+.viewer-section {
+  margin-top: 12px;
+  position: relative;
+}
+.viewer-hint {
+  text-align: center;
+  font-size: .8rem;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+  transition: opacity .3s;
+}
+
+.scroll-viewer {
+  position: relative; max-width: 100%;
+  overflow-x: auto; overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  background: #111;
+  cursor: grab;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+[data-theme="light"] .scroll-viewer { background: #d8d0c4; }
+.scroll-viewer:active { cursor: grabbing; }
+
+.scroll-track {
+  display: flex;
+  height: clamp(220px, 45vh, 520px);
+  will-change: transform;
+  position: relative;
+}
+.scroll-track img {
+  display: block; height: 100%; flex-shrink: 0;
+}
+.scroll-track img.placeholder { background: #222; }
+[data-theme="light"] .scroll-track img.placeholder { background: #ccc; }
+
+/* ── start overlay ── */
+.start-overlay {
+  position: fixed; inset: 0; z-index: 9999;
+  background: var(--bg);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  transition: opacity .8s ease;
+}
+.start-overlay.hidden { opacity: 0; pointer-events: none; }
+.start-overlay h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: .15em;
+  margin-bottom: 8px;
+}
+.start-overlay .sub {
+  color: var(--text-sec);
+  font-size: 1rem;
+  margin-bottom: 40px;
+}
+.start-btn {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  background: none;
+  color: var(--accent);
+  font-size: 2rem;
+  cursor: pointer;
+  transition: .3s;
+  display: flex; align-items: center; justify-content: center;
+}
+.start-btn:hover {
+  background: var(--accent);
+  color: #fff;
+  transform: scale(1.1);
+}
+.start-note {
+  margin-top: 16px;
+  font-size: .8rem;
+  color: var(--text-dim);
+}
+
+/* ── annotations (markers on scroll) ── */
+.annotation-markers {
+  position: absolute; top: 0; left: 0;
+  height: 100%; width: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+.anno-marker {
+  position: absolute;
+  top: 8px;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: .75rem; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  pointer-events: auto;
+  cursor: pointer;
+  box-shadow: 0 2px 8px var(--shadow);
+  transition: transform .15s;
+  z-index: 11;
+}
+.anno-marker:hover { transform: scale(1.2); }
+
+/* tooltip */
+.anno-tip {
+  position: absolute;
+  top: 42px; left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 16px;
+  width: 220px;
+  box-shadow: 0 4px 20px var(--shadow);
+  font-size: .82rem;
+  line-height: 1.7;
+  color: var(--text);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .2s;
+  z-index: 20;
+}
+.anno-marker:hover .anno-tip,
+.anno-marker.active .anno-tip {
+  opacity: 1;
+  pointer-events: auto;
+}
+.anno-tip strong {
+  display: block;
+  font-size: .9rem;
+  margin-bottom: 4px;
+  color: var(--accent);
+}
+
+/* ── narration balloon (古风气泡) ── */
+.narration {
+  position: fixed;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  z-index: 200;
+  max-width: 520px;
+  width: 90vw;
+  padding: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .6s ease, transform .6s ease;
+}
+.narration.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+.narration-inner {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  padding: 20px 24px;
+  box-shadow: 0 8px 32px var(--shadow);
+  /* 古风装饰边框 */
+  outline: 1px solid var(--border);
+  outline-offset: 4px;
+}
+.narration-inner::before {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  pointer-events: none;
+}
+.narration-num {
+  position: absolute;
+  top: -14px; left: 50%;
+  transform: translateX(-50%);
+  width: 28px; height: 28px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .8rem; font-weight: 700;
+}
+.narration h4 {
+  text-align: center;
+  font-size: 1.1rem;
+  letter-spacing: .1em;
+  margin-bottom: 8px;
+  margin-top: 4px;
+}
+.narration p {
+  font-size: .88rem;
+  color: var(--text-sec);
+  line-height: 1.9;
+  text-align: center;
+}
+.narration-progress {
+  margin-top: 12px;
+  height: 2px;
+  background: var(--border);
+  border-radius: 1px;
+  overflow: hidden;
+}
+.narration-progress-bar {
+  height: 100%;
+  background: var(--accent);
+  width: 0%;
+  transition: width linear;
+}
+
+/* ── minimap ── */
+.minimap-wrap {
+  max-width: 860px; margin: 12px auto; padding: 0 24px;
+  position: relative; cursor: pointer;
+}
+.minimap {
+  width: 100%; height: 32px;
+  object-fit: cover; border-radius: 4px;
+  opacity: .45; display: block;
+}
+.minimap-ind {
+  position: absolute; top: 0; height: 32px;
+  background: var(--accent); opacity: .3;
+  border-radius: 4px; pointer-events: none;
+  transition: left .05s linear, width .05s linear;
+}
+
+/* ── scroll controls ── */
+.scroll-controls {
+  display: flex; justify-content: center; gap: 8px;
+  margin-top: 12px;
+}
+.ctrl-btn {
+  padding: 6px 16px;
+  border: 1px solid var(--border); border-radius: 20px;
+  background: none; color: var(--text-sec);
+  font-family: inherit; font-size: .8rem;
+  cursor: pointer; transition: .15s;
+}
+.ctrl-btn:hover { color: var(--text); border-color: var(--accent); }
+.ctrl-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+/* ── content sections ── */
+.content {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* three parts */
+.parts {
+  margin-top: 48px;
+}
+.parts h3 {
+  font-size: 1.2rem;
+  margin-bottom: 24px;
+  text-align: center;
+  letter-spacing: .08em;
+}
+.parts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.part-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  transition: border-color .2s;
+  cursor: pointer;
+}
+.part-card:hover { border-color: var(--accent); }
+.part-card .num {
+  font-size: .75rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin-bottom: 6px;
+}
+.part-card h4 { font-size: 1rem; margin-bottom: 8px; }
+.part-card p { font-size: .85rem; color: var(--text-sec); line-height: 1.8; }
+
+/* scenes */
+.scenes { margin-top: 48px; }
+.scenes h3 {
+  font-size: 1.2rem;
+  margin-bottom: 24px;
+  text-align: center;
+  letter-spacing: .08em;
+}
+.scene-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+.scene-item {
+  display: flex; gap: 14px; align-items: flex-start;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  cursor: pointer;
+  transition: border-color .2s;
+}
+.scene-item:hover { border-color: var(--accent); }
+.scene-idx {
+  flex-shrink: 0;
+  width: 28px; height: 28px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .8rem; font-weight: 700;
+}
+.scene-body h4 { font-size: .95rem; margin-bottom: 4px; }
+.scene-body p { font-size: .82rem; color: var(--text-sec); line-height: 1.7; }
+.scene-body .pos { font-size: .75rem; color: var(--text-dim); margin-top: 4px; }
+
+/* about */
+.about { margin-top: 48px; }
+.about h3 {
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+  text-align: center;
+  letter-spacing: .08em;
+}
+.about-body {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px;
+  font-size: .9rem;
+  color: var(--text-sec);
+  line-height: 2;
+}
+.about-body p + p { margin-top: 12px; }
+
+/* ── footer ── */
+footer {
+  max-width: 860px;
+  margin: 56px auto 32px;
+  padding: 24px;
+  text-align: center;
+  font-size: .78rem;
+  color: var(--text-dim);
+  border-top: 1px solid var(--border);
+}
+footer a { color: var(--accent); text-decoration: none; }
+
+/* ── responsive ── */
+@media (max-width: 768px) {
+  .topbar { padding: 10px 16px; }
+  .hero { padding: 32px 16px 24px; }
+  .content, .minimap-wrap { padding: 0 16px; }
+  .scroll-track { height: clamp(160px, 32vh, 300px); }
+  .parts-grid { grid-template-columns: 1fr; }
+  .scene-list { grid-template-columns: 1fr; }
+  .topbar .subtitle { display: none; }
+  .anno-tip { width: 180px; font-size: .78rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Start overlay: user click unlocks audio -->
+<div class="start-overlay" id="start-overlay">
+  <h2>清明上河图</h2>
+  <div class="sub">北宋 · 张择端</div>
+  <button class="start-btn" id="start-btn" aria-label="开始浏览">▶</button>
+  <div class="start-note">点击开始 · 含背景音乐</div>
+</div>
+
+<header class="topbar">
+  <div class="topbar-left">
+    <h1>清明上河图</h1>
+    <span class="subtitle">北宋 · 张择端</span>
+  </div>
+  <div class="topbar-right">
+    <button class="icon-btn" id="btn-music" onclick="toggleMusic()" aria-label="背景音乐" title="背景音乐">♪</button>
+    <button class="icon-btn" id="btn-play" onclick="toggleAutoScroll()" aria-label="自动播放" title="自动播放">▶</button>
+    <button class="icon-btn" onclick="toggleTheme()" aria-label="切换主题" id="theme-btn"></button>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <h2>清明上河图</h2>
+  <div class="era">北宋 · 张择端 · 约 1120 年</div>
+  <p>中国十大传世名画之一。以长卷形式生动记录了北宋都城汴京（今河南开封）清明时节的城市面貌和各阶层人民的生活状况，是北宋城市经济繁荣的见证。</p>
+  <div class="meta-row">
+    <div>质地 <span>绢本设色</span></div>
+    <div>尺寸 <span>纵24.8cm × 横528.7cm</span></div>
+    <div>现藏 <span>北京故宫博物院</span></div>
+    <div>人物 <span>500余人</span></div>
+  </div>
+</section>
+
+<!-- Viewer -->
+<section class="viewer-section">
+  <p class="viewer-hint" id="hint">← 拖拽 · 滚轮 · 触屏滑动浏览全卷 →</p>
+  <div class="scroll-viewer" id="viewer">
+    <div class="scroll-track" id="track"></div>
+    <div class="annotation-markers" id="markers"></div>
+  </div>
+</section>
+
+<!-- Narration balloon -->
+<div class="narration" id="narration">
+  <div class="narration-inner">
+    <div class="narration-num" id="narr-num">1</div>
+    <h4 id="narr-title">驴队驮炭</h4>
+    <p id="narr-desc">卷首第一组人物，炭贩赶驴进城</p>
+    <div class="narration-progress"><div class="narration-progress-bar" id="narr-bar"></div></div>
+  </div>
+</div>
+
+<div class="minimap-wrap" id="minimap-wrap">
+  <img class="minimap" src="assets/qingming/thumb.jpg" alt="缩略导航">
+  <div class="minimap-ind" id="minimap-ind"></div>
+</div>
+
+<div class="scroll-controls">
+  <button class="ctrl-btn" onclick="scrollToPos(0)">卷首</button>
+  <button class="ctrl-btn" onclick="scrollToPos(0.33)">虹桥</button>
+  <button class="ctrl-btn" onclick="scrollToPos(0.62)">城门</button>
+  <button class="ctrl-btn" onclick="scrollToPos(1)">卷尾</button>
+</div>
+
+<!-- Content -->
+<div class="content">
+
+  <!-- Three parts -->
+  <section class="parts">
+    <h3>全卷三段</h3>
+    <div class="parts-grid">
+      <div class="part-card" onclick="scrollToPos(0.05)">
+        <div class="num">首段</div>
+        <h4>汴京郊野</h4>
+        <p>茅檐低伏，阡陌纵横。疏林薄雾中，一队驮炭驴从小径远远走来，柳溪旁茅舍掩映，农人荷锄而归。画面由远及近，由静入动——张择端用最安静的乡村开篇，缓缓引人入画。</p>
+      </div>
+      <div class="part-card" onclick="scrollToPos(0.35)">
+        <div class="num">中段</div>
+        <h4>汴河虹桥</h4>
+        <p>全卷高潮所在。一座「状如飞虹」的木结构拱桥横跨汴河，桥上车马如梭、商贩密集，桥下一艘漕船放倒桅杆穿过桥孔，艄工紧张操作，两岸围观者呼喊指点——全画最紧张精彩的一幕。</p>
+      </div>
+      <div class="part-card" onclick="scrollToPos(0.7)">
+        <div class="num">末段</div>
+        <h4>城内市井</h4>
+        <p>进入城门后，商店鳞次栉比，行人身份各异——绅士、官吏、仆役、贩夫、走卒、车轿夫、作坊工人、说书艺人、理发匠、医生……五百余人穿插着各种情节，组织得有条不紊。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key scenes -->
+  <section class="scenes">
+    <h3>画中名场面</h3>
+    <div class="scene-list">
+      <div class="scene-item" onclick="scrollToPos(0.08)">
+        <div class="scene-idx">1</div>
+        <div class="scene-body">
+          <h4>驴队驮炭</h4>
+          <p>卷首第一组人物。十头毛驴驮着满篓木炭沿小径进城。清明虽至，汴京仍需取暖用炭。学者据此推断当年气候异常偏冷，与北宋末年的气候记录吻合。</p>
+          <div class="pos">位置：卷首</div>
+        </div>
+      </div>
+      <div class="scene-item" onclick="scrollToPos(0.18)">
+        <div class="scene-idx">2</div>
+        <div class="scene-body">
+          <h4>柳溪茅舍与香椿摊</h4>
+          <p>汴河支流旁，垂柳茅舍，春意初发。路边摊贩出售红色束状植物——学者考证为香椿，清明前后特有的时令菜蔬。另有麦芽糖贩五处出现，全画中至少五人在敲制售卖，文献记载这正是「清明节令食品」。</p>
+          <div class="pos">位置：约 1/5 处</div>
+        </div>
+      </div>
+      <div class="scene-item" onclick="scrollToPos(0.25)">
+        <div class="scene-idx">3</div>
+        <div class="scene-body">
+          <h4>望火楼 · 无人值守</h4>
+          <p>高高的望火楼本是城市消防体系的核心——楼上日夜有人瞭望，发现火情即刻报警。然而画中望火楼空无一人，楼下的军巡铺也大门紧闭。张择端以此暗示：这座繁华都城的安全体系已经形同虚设。</p>
+          <div class="pos">位置：约 1/4 处</div>
+        </div>
+      </div>
+      <div class="scene-item" onclick="scrollToPos(0.30)">
+        <div class="scene-idx">4</div>
+        <div class="scene-body">
+          <h4>船帮祭水神</h4>
+          <p>一艘靠岸的货船上，船帮吊着供品祭祀水神。北宋风俗：走陆路祭路神，走水路祭水神。船主货物安全抵达后答谢神灵。此细节反映了汴河商贸的繁忙和民间信仰的鲜活。</p>
+          <div class="pos">位置：约 1/3 前</div>
+        </div>
+      </div>
+      <div class="scene-item" onclick="scrollToPos(0.38)">
+        <div class="scene-idx">5</div>
+        <div class="scene-body">
+          <h4>虹桥险情</h4>
+          <p>全卷最经典的一幕。一艘大型漕船逆流过桥，桅杆未及时放倒，即将撞上桥身。船上数十人慌忙拉绳放杆，桥上围观者大声呼喊指点，两岸行人驻足观望。桥面上同时发生文官与武官的仪仗冲突——秩序的崩溃在此处达到顶点。</p>
+          <div class="pos">位置：约 1/3 处（全卷高潮）</div>
+        </div>
+      </div>
+      <div class="scene-item" onclick="scrollToPos(0.50)">
+        <div class="scene-idx">6</div>
+        <div class="scene-body">
+          <h4>赵太丞家药铺</h4>
+          <p>桥头一家大药铺，招牌写着「赵太丞家」——太丞是朝廷医官品级，说明这家店主曾任宫中御医，退休后开铺行医。门前竖着「治酒所伤真方集香丸」的广告幌子。这是画中最清晰的商业招牌之一，展现了北宋医疗商业的成熟。</p>
+          <div class="pos">位置：卷中</div>
+        </div>
+      </div>
+      <div class="scene-item" onclick="scrollToPos(0.62)">
+        <div class="scene-idx">7</div>
+        <div class="scene-body">
+          <h4>城门驼队 · 无兵把守</h4>
+          <p>高大的城门楼下，一队骆驼正缓缓通过——它们来自西域，连接着丝绸之路的贸易网络。最令人触目的是：城门无一兵一卒把守。张择端有意为之，以画谏君：都城守备已形同虚设。不到二十年后靖康之变爆发，汴京正是从城门失守开始沦陷。</p>
+          <div class="pos">位置：约 2/3 处</div>
+        </div>
+      </div>
+      <div class="scene-item" onclick="scrollToPos(0.78)">
+        <div class="scene-idx">8</div>
+        <div class="scene-body">
+          <h4>街巷百业与「解」字铺</h4>
+          <p>城内大街店铺鳞次栉比。一个角落挂着「解」字招牌——这是为科举考生算命的摊位。北宋清明节后即举行全国科考，专为考生算命的人有好几千。围在摊位前的都是三十岁左右的儒生，焦虑地等待命运的答案。</p>
+          <div class="pos">位置：约 3/4 处</div>
+        </div>
+      </div>
+      <div class="scene-item" onclick="scrollToPos(0.92)">
+        <div class="scene-idx">9</div>
+        <div class="scene-body">
+          <h4>大宅深院</h4>
+          <p>卷尾渐入富贵之家。高墙大院，花木扶疏，仆从出入——与卷首的乡野茅舍形成首尾呼应。从田园到市井再到豪门，一幅画卷尽收北宋社会的全貌。</p>
+          <div class="pos">位置：卷尾</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Data -->
+  <section class="about">
+    <h3>画中数据</h3>
+    <div class="about-body">
+      <div class="meta-row" style="justify-content:flex-start; gap:16px 32px; font-size:.9rem;">
+        <div>人物 <span>814 人</span></div>
+        <div>船只 <span>28 艘</span></div>
+        <div>动物 <span>60 只</span></div>
+        <div>建筑 <span>30 座</span></div>
+        <div>车辆 <span>20 辆</span></div>
+        <div>轿子 <span>8 顶</span></div>
+        <div>树木 <span>170 棵</span></div>
+        <div>女性 <span>约 20 人</span></div>
+      </div>
+      <p style="margin-top:12px;">画中仅有约 20 名女性出现。除社会地位较低的劳动妇女外，其余女性必须有男性陪同才出现在户外——这精确反映了北宋都市的性别秩序。</p>
+    </div>
+  </section>
+
+  <!-- Author -->
+  <section class="about">
+    <h3>画者 · 张择端</h3>
+    <div class="about-body">
+      <p>张择端（约 1085—1145），字正道，东武（今山东诸城）人。出身儒学世家，名取自孟子思想，字号源于《礼经》。青年时赴汴京参加科举，屡试不第，转而投入绘画。以界画（建筑画）见长，尤擅舟车、市井、城郭、桥径，终获宋徽宗赏识，入翰林图画院为宫廷画师。</p>
+      <p>《清明上河图》是其唯一传世之作。用笔兼工带写，设色淡雅，构图采用「鸟瞰式全景法」与「散点透视法」，突破传统焦点透视的限制——观者的视线可以沿着河流从上游平缓地游移到下游，如同亲临其境。</p>
+    </div>
+  </section>
+
+  <!-- Hidden message -->
+  <section class="about">
+    <h3>盛世危图 · 以画谏君</h3>
+    <div class="about-body">
+      <p>表面上，这幅画展现了一个充满生机的商业都会。但深入观看会发现，张择端以极其细致的笔触记录了一系列令人不安的社会隐患：</p>
+      <p><strong>望火楼无人值守</strong> — 城市消防系统的中枢空无一人，楼下军巡铺大门紧闭。<br>
+      <strong>城门无兵把守</strong> — 国都城门形同虚设，骆驼队自由出入。<br>
+      <strong>军纪松懈</strong> — 多名士兵在各处打瞌睡或无所事事。<br>
+      <strong>交通失序</strong> — 虹桥上文武仪仗冲突，街道上各类车队人群互相挤撞。<br>
+      <strong>商业侵道</strong> — 摊贩占据官道，棚户搭进河道。</p>
+      <p>学者认为，这些并非随意的生活细节，而是张择端有意安排的「谏言」——以写实之笔向宋徽宗呈现太平表象下的制度危机。然而宋徽宗看后并未警醒，仅题签「清明上河图」五字，赏赐他人。不到二十年，靖康之变爆发，汴京沦陷，北宋灭亡。</p>
+      <p>正如后世评论：「这不是一幅歌颂盛世的画，而是一份对即将崩溃的社会秩序的深刻诊断。」</p>
+    </div>
+  </section>
+
+  <!-- Title debate -->
+  <section class="about">
+    <h3>「清明」之辩</h3>
+    <div class="about-body">
+      <p>围绕画名中的「清明」二字，学术界争论数百年：</p>
+      <p><strong>清明节说</strong> — 主流观点。画中可见香椿、麦芽糖等清明节令食品，柳树新绿，符合农历三月初的时令特征。科举考试也在清明后举行，画中考生聚集算命摊前的场景与此吻合。</p>
+      <p><strong>政治清明说</strong> — 另一派学者认为「清明」不是指节日，而是颂扬「政治清明」的太平盛世。但如果联系画中暗藏的种种危机细节，这个解读反而构成了一种深刻的反讽。</p>
+      <p>两种解读或许并不矛盾：张择端选择清明节这个时间窗口来描绘汴京，既是写实的季节记录，也是对「清明」二字的双关运用。</p>
+    </div>
+  </section>
+
+  <!-- Provenance -->
+  <section class="about">
+    <h3>千年流传</h3>
+    <div class="about-body">
+      <p>《清明上河图》的流传经历本身就是一部传奇：</p>
+      <p><strong>北宋</strong> — 张择端画成后献给宋徽宗，徽宗题签后赏赐他人。<br>
+      <strong>金代</strong> — 北宋灭亡后流入金人手中。后幅有金人张著题跋，是现存最早的关于此画的文字记录。<br>
+      <strong>元明</strong> — 辗转于私人收藏家之间，几度散佚又重现。仇英在明代据此创作了著名的明仿本。<br>
+      <strong>清代</strong> — 入宫内府收藏。乾隆年间命宫廷画师绘制「清院本」，长达 1152.8 厘米，是历代最长版本。<br>
+      <strong>近代</strong> — 末代皇帝溥仪以「赏赐」名义将此画携出宫外，后辗转至东北。1945 年日本投降后被发现，最终入藏北京故宫博物院。</p>
+      <p>后幅存有金代张著、明代吴宽等 13 家题记，钤印 96 方。现为国家一级文物，禁止出境展览。</p>
+    </div>
+  </section>
+
+</div>
+
+<audio id="bgm" loop preload="none">
+  <source src="assets/bgm.mp3" type="audio/mpeg">
+</audio>
+
+<footer>
+  图源：<a href="https://commons.wikimedia.org/wiki/File:Alongtheriver_QingMing.jpg" target="_blank">Wikimedia Commons</a>
+  ｜ 背景音乐：管平湖《流水》· 古琴（<a href="https://archive.org/details/guan-pinghu-liushui-flowing-water" target="_blank">Internet Archive</a>）
+  <br>原画 38,414 × 1,800 px · 瓦片化横卷浏览
+</footer>
+
+<script>
+/* ── Theme ── */
+(function () {
+  const html = document.documentElement;
+  const saved = localStorage.getItem("qm-theme");
+  const sys = matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+  html.dataset.theme = saved || sys;
+  updateBtn();
+  function updateBtn() {
+    const b = document.getElementById("theme-btn");
+    if (b) b.textContent = html.dataset.theme === "dark" ? "\u2600" : "\uD83C\uDF19";
+  }
+  window.toggleTheme = function () {
+    html.dataset.theme = html.dataset.theme === "dark" ? "light" : "dark";
+    localStorage.setItem("qm-theme", html.dataset.theme);
+    updateBtn();
+  };
+})();
+
+/* ── Background Music ── */
+(function () {
+  const audio = document.getElementById("bgm");
+  const btn = document.getElementById("btn-music");
+  audio.volume = 0.35;
+
+  window.toggleMusic = function () {
+    if (audio.paused) {
+      audio.play().then(() => {
+        btn.classList.add("playing");
+        btn.textContent = "♫";
+      }).catch(() => {
+        // autoplay blocked — ignore silently
+      });
+    } else {
+      audio.pause();
+      btn.classList.remove("playing");
+      btn.textContent = "♪";
+    }
+  };
+
+  // Fade in when auto-scroll starts
+  window.startMusicWithScroll = function () {
+    if (audio.paused) {
+      audio.volume = 0;
+      audio.play().then(() => {
+        btn.classList.add("playing");
+        btn.textContent = "♫";
+        // Fade in over 2 seconds
+        let v = 0;
+        const fade = setInterval(() => {
+          v += 0.02;
+          if (v >= 0.35) { audio.volume = 0.35; clearInterval(fade); return; }
+          audio.volume = v;
+        }, 60);
+      }).catch(() => {});
+    }
+  };
+})();
+
+/* ── Tile config ── */
+const TILE_COUNT = 38;
+const TILE_WIDTHS = [
+  1024,1024,1024,1024,1024,1024,1024,1024,1024,1024,
+  1024,1024,1024,1024,1024,1024,1024,1024,1024,1024,
+  1024,1024,1024,1024,1024,1024,1024,1024,1024,1024,
+  1024,1024,1024,1024,1024,1024,1024,526
+];
+const IMG_H = 1800;
+const TOTAL_W = TILE_WIDTHS.reduce((a, b) => a + b, 0);
+
+/* ── Annotations ── */
+const ANNOS = [
+  { pct: 0.08, num: 1, title: "驴队驮炭",
+    short: "卷首第一组人物，炭贩赶驴进城",
+    full: "卷首第一组人物。十头毛驴驮满木炭沿小径进城。清明虽至仍需烧炭取暖——学者据此推断当年气候异常偏寒。" },
+  { pct: 0.18, num: 2, title: "香椿与麦芽糖",
+    short: "清明时令食品，确定了画作的季节",
+    full: "路边摊贩售卖红色香椿和麦芽糖，两种清明节令食品。全画至少五处出现麦芽糖贩——这是确定「清明」为节气而非政治寓意的关键证据。" },
+  { pct: 0.25, num: 3, title: "望火楼 · 空无一人",
+    short: "消防中枢无人值守，暗示制度荒废",
+    full: "望火楼是城市消防系统的中枢，本应日夜有人瞭望。然而画中望火楼空无一人，军巡铺大门紧闭。张择端以此暗示这座繁华都城的安全体系已然瘫痪。" },
+  { pct: 0.30, num: 4, title: "船帮祭水神",
+    short: "货船靠岸，船帮吊供品答谢水神",
+    full: "北宋风俗：走陆路祭路神，走水路祭水神。一艘靠岸货船上，船帮吊着供品祭神——货物安全运达后的谢恩。此细节反映了汴河商贸的繁忙和民间信仰的鲜活。" },
+  { pct: 0.38, num: 5, title: "虹桥险情",
+    short: "全卷高潮——漕船险撞桥身",
+    full: "全卷最紧张的一幕。大型漕船逆流过桥，桅杆未及时放倒，即将撞上桥身。船工慌忙拉绳，桥上行人呼喊指点。桥面上同时发生文武仪仗冲突——秩序的崩溃在此达到顶点。" },
+  { pct: 0.50, num: 6, title: "赵太丞家药铺",
+    short: "御医退休开铺，北宋医疗商业的缩影",
+    full: "桥头一家大药铺招牌写着「赵太丞家」。太丞是朝廷医官品级，店主为退休御医。门前竖着「治酒所伤真方集香丸」广告——北宋医疗商业已相当成熟。" },
+  { pct: 0.62, num: 7, title: "城门驼队 · 无兵把守",
+    short: "丝路驼队穿过无人守卫的国都城门",
+    full: "来自西域的骆驼队缓行穿过城门——连接着丝绸之路的贸易网络。然而城门无一兵一卒把守。不到二十年后靖康之变爆发，汴京正是从城门失守开始沦陷。" },
+  { pct: 0.78, num: 8, title: "考生算命",
+    short: "清明后即科考，儒生焦虑候命",
+    full: "一处挂着「解」字招牌的算命摊前，三十岁上下的儒生围聚焦虑等待。北宋清明节后举行全国科考，为考生算命的人有好几千——应试焦虑千年不变。" },
+  { pct: 0.92, num: 9, title: "大宅深院",
+    short: "卷尾富贵人家，与卷首乡野呼应",
+    full: "卷尾渐入富贵之家。高墙大院，花木扶疏，仆从出入。与卷首的乡野茅舍首尾呼应——从田园到市井再到豪门，一幅画卷尽收北宋社会全貌。" },
+];
+const PAUSE_DURATION = 7000; // 每个解说点停留 7 秒
+
+/* ── Render tiles ── */
+function renderTiles() {
+  const track = document.getElementById("track");
+  track.innerHTML = "";
+  const trackH = track.clientHeight || 400;
+
+  for (let i = 0; i < TILE_COUNT; i++) {
+    const img = document.createElement("img");
+    img.alt = `清明上河图 第${i+1}段`;
+    img.dataset.src = `assets/qingming/tiles/tile_${String(i).padStart(3, "0")}.jpg`;
+    img.dataset.idx = i;
+    img.style.width = Math.round(trackH * TILE_WIDTHS[i] / IMG_H) + "px";
+    img.className = "placeholder";
+    track.appendChild(img);
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const img = e.target;
+      img.src = img.dataset.src;
+      img.removeAttribute("data-src");
+      img.classList.remove("placeholder");
+      observer.unobserve(img);
+    });
+  }, {
+    root: document.getElementById("viewer"),
+    rootMargin: "0px 200% 0px 200%"
+  });
+
+  document.querySelectorAll("#track img").forEach(img => observer.observe(img));
+
+  // Place annotation markers
+  placeMarkers(trackH);
+}
+
+function placeMarkers(trackH) {
+  const markers = document.getElementById("markers");
+  markers.innerHTML = "";
+  const totalPx = TILE_WIDTHS.reduce((a, w) => a + Math.round(trackH * w / IMG_H), 0);
+
+  ANNOS.forEach(a => {
+    const m = document.createElement("div");
+    m.className = "anno-marker";
+    m.style.left = (a.pct * totalPx) + "px";
+    m.textContent = a.num;
+
+    const tip = document.createElement("div");
+    tip.className = "anno-tip";
+    tip.innerHTML = `<strong>${a.title}</strong>${a.short}`;
+    m.appendChild(tip);
+
+    m.addEventListener("click", e => {
+      e.stopPropagation();
+      // toggle active
+      document.querySelectorAll(".anno-marker.active").forEach(x => x.classList.remove("active"));
+      m.classList.toggle("active");
+    });
+
+    markers.appendChild(m);
+  });
+}
+
+/* ── Scroll to position ── */
+window.scrollToPos = function (pct) {
+  const el = document.getElementById("viewer");
+  const target = pct * (el.scrollWidth - el.clientWidth);
+  el.scrollTo({ left: target, behavior: "smooth" });
+  stopAutoScroll();
+};
+
+/* ── Drag to scroll ── */
+(function () {
+  const el = document.getElementById("viewer");
+  let down = false, startX, sl;
+  el.addEventListener("mousedown", e => {
+    if (e.target.closest(".anno-marker")) return;
+    down = true; startX = e.pageX; sl = el.scrollLeft;
+  });
+  el.addEventListener("mouseleave", () => down = false);
+  el.addEventListener("mouseup", () => down = false);
+  el.addEventListener("mousemove", e => {
+    if (!down) return;
+    e.preventDefault();
+    el.scrollLeft = sl - (e.pageX - startX);
+  });
+})();
+
+/* ── Minimap ── */
+(function () {
+  const viewer = document.getElementById("viewer");
+  const ind = document.getElementById("minimap-ind");
+  const wrap = document.getElementById("minimap-wrap");
+
+  function update() {
+    if (!viewer.scrollWidth) return;
+    const ratio = viewer.clientWidth / viewer.scrollWidth;
+    const wrapW = wrap.clientWidth - 48;
+    ind.style.width = Math.max(12, ratio * wrapW) + "px";
+    ind.style.left = (24 + (viewer.scrollLeft / viewer.scrollWidth) * wrapW) + "px";
+  }
+  viewer.addEventListener("scroll", update);
+  window.addEventListener("resize", update);
+  setTimeout(update, 300);
+
+  wrap.addEventListener("click", e => {
+    const rect = wrap.getBoundingClientRect();
+    const pct = (e.clientX - rect.left - 24) / (rect.width - 48);
+    scrollToPos(Math.max(0, Math.min(1, pct)));
+  });
+})();
+
+/* ── Auto-scroll with narration pauses ── */
+let autoScrollId = null;
+let isAutoPlaying = false;
+let isPaused = false;      // paused at annotation
+let pauseTimer = null;
+let visitedAnnos = new Set();
+
+const narration = document.getElementById("narration");
+const narrNum   = document.getElementById("narr-num");
+const narrTitle = document.getElementById("narr-title");
+const narrDesc  = document.getElementById("narr-desc");
+const narrBar   = document.getElementById("narr-bar");
+
+function showNarration(anno) {
+  narrNum.textContent = anno.num;
+  narrTitle.textContent = anno.title;
+  narrDesc.textContent = anno.full;
+  narrBar.style.transition = "none";
+  narrBar.style.width = "0%";
+  narration.classList.add("visible");
+  // animate progress bar
+  requestAnimationFrame(() => {
+    narrBar.style.transition = `width ${PAUSE_DURATION}ms linear`;
+    narrBar.style.width = "100%";
+  });
+}
+
+function hideNarration() {
+  narration.classList.remove("visible");
+}
+
+function startAutoScroll() {
+  const el = document.getElementById("viewer");
+  const total = el.scrollWidth - el.clientWidth;
+  if (total <= 0) return;
+  isAutoPlaying = true;
+  isPaused = false;
+  document.getElementById("btn-play").textContent = "⏸";
+  document.getElementById("hint").style.opacity = "0";
+
+  // 120 seconds to traverse full scroll (slower)
+  const speed = total / 120;
+  let last = performance.now();
+
+  function step(now) {
+    if (isPaused) {
+      last = now; // reset dt so no jump after pause
+      autoScrollId = requestAnimationFrame(step);
+      return;
+    }
+    const dt = now - last;
+    last = now;
+    el.scrollLeft += speed * dt / 1000;
+
+    // Check if we hit an annotation point
+    const currentPct = el.scrollLeft / total;
+    for (const anno of ANNOS) {
+      if (visitedAnnos.has(anno.num)) continue;
+      if (currentPct >= anno.pct - 0.005 && currentPct <= anno.pct + 0.02) {
+        // Hit this annotation — pause and show narration
+        visitedAnnos.add(anno.num);
+        isPaused = true;
+        showNarration(anno);
+        // Highlight the marker
+        const marker = document.querySelector(`.anno-marker:nth-child(${anno.num})`);
+        if (marker) marker.classList.add("active");
+
+        pauseTimer = setTimeout(() => {
+          hideNarration();
+          if (marker) marker.classList.remove("active");
+          isPaused = false;
+        }, PAUSE_DURATION);
+        break;
+      }
+    }
+
+    if (el.scrollLeft >= total) {
+      el.scrollLeft = total;
+      stopAutoScroll();
+      return;
+    }
+    autoScrollId = requestAnimationFrame(step);
+  }
+  autoScrollId = requestAnimationFrame(step);
+}
+
+function stopAutoScroll() {
+  if (autoScrollId) { cancelAnimationFrame(autoScrollId); autoScrollId = null; }
+  if (pauseTimer) { clearTimeout(pauseTimer); pauseTimer = null; }
+  isAutoPlaying = false;
+  isPaused = false;
+  document.getElementById("btn-play").textContent = "▶";
+  document.getElementById("hint").style.opacity = "1";
+  hideNarration();
+}
+
+window.toggleAutoScroll = function () {
+  if (isAutoPlaying) {
+    stopAutoScroll();
+  } else {
+    visitedAnnos.clear();
+    startAutoScroll();
+  }
+};
+
+// User interaction stops auto-scroll
+["mousedown", "touchstart", "wheel"].forEach(evt => {
+  document.getElementById("viewer").addEventListener(evt, e => {
+    if (isAutoPlaying && !e.target.closest(".anno-marker")) stopAutoScroll();
+  });
+});
+
+/* ── Resize ── */
+let resizeTimer;
+window.addEventListener("resize", () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(renderTiles, 200);
+});
+
+/* ── Init ── */
+renderTiles();
+
+// Start overlay: click to begin experience (unlocks audio)
+document.getElementById("start-btn").addEventListener("click", function () {
+  const overlay = document.getElementById("start-overlay");
+  overlay.classList.add("hidden");
+  setTimeout(() => overlay.remove(), 800);
+
+  // Start music (user gesture = autoplay allowed)
+  const audio = document.getElementById("bgm");
+  audio.volume = 0;
+  audio.play().then(() => {
+    document.getElementById("btn-music").classList.add("playing");
+    document.getElementById("btn-music").textContent = "♫";
+    // Fade in
+    let v = 0;
+    const fade = setInterval(() => {
+      v += 0.01;
+      if (v >= 0.35) { audio.volume = 0.35; clearInterval(fade); return; }
+      audio.volume = v;
+    }, 50);
+  }).catch(() => {});
+
+  // Start auto-scroll
+  setTimeout(startAutoScroll, 600);
+});
+</script>
+</body>
+</html>
