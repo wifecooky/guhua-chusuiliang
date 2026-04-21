@@ -3,8 +3,57 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>清明上河图 · 北宋 张择端</title>
-<meta name="description" content="北宋张择端《清明上河图》高清横卷浏览，含分段解说。绢本设色，纵24.8cm，横528.7cm，现藏北京故宫博物院。">
+<title>清明上河图 · 高清横卷浏览 · 北宋张择端</title>
+<meta name="description" content="北宋张择端《清明上河图》38414px高清横卷在线浏览，9处名场面解说，自动滚动导览。绢本设色，528.7cm，现藏故宫博物院。">
+<meta name="keywords" content="清明上河图,张择端,北宋,故宫博物院,高清,横卷浏览,汴京,虹桥,中国画,传世名画">
+<link rel="canonical" href="https://qmhst.thewang.net/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://qmhst.thewang.net/">
+<meta property="og:title" content="清明上河图 · 高清横卷沉浸式浏览">
+<meta property="og:description" content="北宋张择端《清明上河图》38414px高清瓦片化横卷浏览，9处名场面自动导览解说，含古琴背景音乐。">
+<meta property="og:image" content="https://qmhst.thewang.net/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="清明上河图">
+<meta property="og:locale" content="zh_CN">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://qmhst.thewang.net/">
+<meta name="twitter:title" content="清明上河图 · 高清横卷沉浸式浏览">
+<meta name="twitter:description" content="北宋张择端《清明上河图》38414px高清横卷浏览，9处名场面解说，自动滚动导览。">
+<meta name="twitter:image" content="https://qmhst.thewang.net/assets/og-image.jpg">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "清明上河图 · 高清横卷浏览",
+  "description": "北宋张择端《清明上河图》高清横卷在线浏览，含9处名场面分段解说",
+  "url": "https://qmhst.thewang.net/",
+  "about": {
+    "@type": "VisualArtwork",
+    "name": "清明上河图",
+    "creator": { "@type": "Person", "name": "张择端" },
+    "dateCreated": "约1120年",
+    "artMedium": "绢本设色",
+    "width": { "@type": "Distance", "name": "528.7cm" },
+    "height": { "@type": "Distance", "name": "24.8cm" },
+    "locationCreated": { "@type": "Place", "name": "北宋汴京" },
+    "contentLocation": { "@type": "Place", "name": "北京故宫博物院" }
+  }
+}
+</script>
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
 <style>
@@ -151,46 +200,50 @@ body {
 .scroll-track img.placeholder { background: #222; }
 [data-theme="light"] .scroll-track img.placeholder { background: #ccc; }
 
-/* ── start overlay ── */
+/* ── start overlay (on top of scroll image) ── */
 .start-overlay {
-  position: fixed; inset: 0; z-index: 9999;
-  background: var(--bg);
+  position: absolute; inset: 0; z-index: 50;
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
   text-align: center;
+  background: var(--overlay);
+  backdrop-filter: blur(2px);
   transition: opacity .8s ease;
 }
 .start-overlay.hidden { opacity: 0; pointer-events: none; }
 .start-overlay h2 {
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
   letter-spacing: .15em;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
+  color: #f0ebe3;
+  text-shadow: 0 2px 12px rgba(0,0,0,.5);
 }
 .start-overlay .sub {
-  color: var(--text-sec);
-  font-size: 1rem;
-  margin-bottom: 40px;
+  color: rgba(255,255,255,.6);
+  font-size: .95rem;
+  margin-bottom: 32px;
 }
 .start-btn {
-  width: 80px; height: 80px;
+  width: 72px; height: 72px;
   border-radius: 50%;
-  border: 2px solid var(--accent);
-  background: none;
-  color: var(--accent);
-  font-size: 2rem;
+  border: 2px solid rgba(255,255,255,.5);
+  background: rgba(255,255,255,.1);
+  color: #fff;
+  font-size: 1.8rem;
   cursor: pointer;
   transition: .3s;
   display: flex; align-items: center; justify-content: center;
+  backdrop-filter: blur(8px);
 }
 .start-btn:hover {
   background: var(--accent);
-  color: #fff;
+  border-color: var(--accent);
   transform: scale(1.1);
 }
 .start-note {
-  margin-top: 16px;
-  font-size: .8rem;
-  color: var(--text-dim);
+  margin-top: 14px;
+  font-size: .78rem;
+  color: rgba(255,255,255,.45);
 }
 
 /* ── annotations (markers on scroll) ── */
@@ -202,7 +255,6 @@ body {
 }
 .anno-marker {
   position: absolute;
-  top: 8px;
   width: 28px; height: 28px;
   border-radius: 50%;
   background: var(--accent);
@@ -217,76 +269,90 @@ body {
 }
 .anno-marker:hover { transform: scale(1.2); }
 
-/* tooltip */
-.anno-tip {
-  position: absolute;
-  top: 42px; left: 50%;
-  transform: translateX(-50%);
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 12px 16px;
-  width: 220px;
-  box-shadow: 0 4px 20px var(--shadow);
-  font-size: .82rem;
-  line-height: 1.7;
-  color: var(--text);
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity .2s;
-  z-index: 20;
+/* tooltip removed — unified into narr-layer callout */
+
+/* ── narration: focus dot + polyline + ancient frame ── */
+@keyframes focus-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(122,158,126,.7); }
+  70%  { box-shadow: 0 0 0 14px rgba(122,158,126,0); }
+  100% { box-shadow: 0 0 0 0 rgba(122,158,126,0); }
 }
-.anno-marker:hover .anno-tip,
-.anno-marker.active .anno-tip {
-  opacity: 1;
-  pointer-events: auto;
-}
-.anno-tip strong {
-  display: block;
-  font-size: .9rem;
-  margin-bottom: 4px;
+.anno-marker.narr-focus {
+  animation: focus-pulse 1.6s ease-out infinite;
+  z-index: 15;
+  background: #fff;
   color: var(--accent);
+  border: 2px solid var(--accent);
 }
 
-/* ── narration balloon (古风气泡) ── */
-.narration {
+/* narration layer — fixed overlay aligned to viewer */
+.narr-layer {
   position: fixed;
-  bottom: 60px;
-  left: 50%;
-  transform: translateX(-50%) translateY(20px);
-  z-index: 200;
-  max-width: 520px;
-  width: 90vw;
-  padding: 0;
-  opacity: 0;
   pointer-events: none;
-  transition: opacity .6s ease, transform .6s ease;
+  z-index: 200;
+  overflow: visible;
 }
-.narration.visible {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
+.narr-layer svg {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+}
+.narr-layer svg polyline {
+  stroke: var(--accent);
+  stroke-width: 1;
+  stroke-dasharray: 6 4;
+  opacity: 0;
+  transition: opacity .5s .1s;
+}
+.narr-layer svg circle {
+  fill: var(--accent);
+  opacity: 0;
+  transition: opacity .4s;
+}
+.narr-layer.visible svg polyline,
+.narr-layer.visible svg circle { opacity: 1; }
+
+/* ancient-style narration box */
+.narr-box {
+  position: absolute;
   pointer-events: auto;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity .6s .2s, transform .6s .2s;
 }
-.narration-inner {
+.narr-layer.visible .narr-box {
+  opacity: 1;
+  transform: translateY(0);
+}
+.narr-frame {
   position: relative;
   background: var(--bg-card);
   border: 1px solid var(--accent);
-  border-radius: 4px;
-  padding: 20px 24px;
+  padding: 22px 24px 16px;
+  min-width: 260px;
+  max-width: 360px;
   box-shadow: 0 8px 32px var(--shadow);
-  /* 古风装饰边框 */
-  outline: 1px solid var(--border);
-  outline-offset: 4px;
 }
-.narration-inner::before {
+/* inner decorative border */
+.narr-frame::before {
   content: "";
   position: absolute;
-  inset: 3px;
+  inset: 5px;
   border: 1px solid var(--border);
-  border-radius: 2px;
   pointer-events: none;
 }
-.narration-num {
+/* corner ornaments — four corners */
+.narr-corner {
+  position: absolute;
+  width: 10px; height: 10px;
+  border-color: var(--accent);
+  border-style: solid;
+}
+.narr-corner.tl { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
+.narr-corner.tr { top: -1px; right: -1px; border-width: 2px 2px 0 0; }
+.narr-corner.bl { bottom: -1px; left: -1px; border-width: 0 0 2px 2px; }
+.narr-corner.br { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+
+.narr-num {
   position: absolute;
   top: -14px; left: 50%;
   transform: translateX(-50%);
@@ -297,27 +363,27 @@ body {
   display: flex; align-items: center; justify-content: center;
   font-size: .8rem; font-weight: 700;
 }
-.narration h4 {
+.narr-frame h4 {
   text-align: center;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   letter-spacing: .1em;
   margin-bottom: 8px;
-  margin-top: 4px;
+  margin-top: 2px;
+  color: var(--text);
 }
-.narration p {
-  font-size: .88rem;
+.narr-frame p {
+  font-size: .85rem;
   color: var(--text-sec);
   line-height: 1.9;
   text-align: center;
 }
-.narration-progress {
+.narr-bar-wrap {
   margin-top: 12px;
   height: 2px;
   background: var(--border);
-  border-radius: 1px;
   overflow: hidden;
 }
-.narration-progress-bar {
+.narr-bar {
   height: 100%;
   background: var(--accent);
   width: 0%;
@@ -464,6 +530,83 @@ footer {
 }
 footer a { color: var(--accent); text-decoration: none; }
 
+/* ── immersive mode ── */
+body.immersive { overflow: hidden; }
+body.immersive .topbar,
+body.immersive .hero,
+body.immersive .viewer-hint,
+body.immersive .minimap-wrap,
+body.immersive .scroll-controls,
+body.immersive .content,
+body.immersive footer {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  visibility: hidden;
+}
+body.immersive .viewer-section {
+  position: fixed; inset: 0; z-index: 500;
+  margin: 0;
+}
+body.immersive .scroll-viewer {
+  height: 100vh !important;
+  border: none;
+}
+body.immersive .scroll-track {
+  height: 100vh !important;
+}
+body.immersive .narr-layer {
+  z-index: 600 !important;
+}
+/* immersive controls — top-right floating bar */
+.immersive-controls {
+  display: none;
+  position: fixed;
+  top: 16px; right: 16px;
+  z-index: 700;
+  gap: 8px;
+  align-items: center;
+}
+body.immersive .immersive-controls { display: flex; }
+.imm-btn {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.25);
+  background: rgba(0,0,0,.45);
+  color: rgba(255,255,255,.7);
+  font-size: 1.1rem;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: .2s;
+  display: flex; align-items: center; justify-content: center;
+}
+.imm-btn:hover {
+  background: rgba(0,0,0,.7);
+  color: #fff;
+  transform: scale(1.1);
+}
+.imm-btn.playing {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* immersive minimap — bottom of screen */
+.immersive-progress {
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  z-index: 600;
+  background: rgba(255,255,255,.08);
+}
+.immersive-progress-bar {
+  height: 100%;
+  background: var(--accent);
+  width: 0%;
+  transition: width .3s linear;
+}
+body.immersive .immersive-progress { display: block; }
+
 /* ── responsive ── */
 @media (max-width: 768px) {
   .topbar { padding: 10px 16px; }
@@ -473,19 +616,13 @@ footer a { color: var(--accent); text-decoration: none; }
   .parts-grid { grid-template-columns: 1fr; }
   .scene-list { grid-template-columns: 1fr; }
   .topbar .subtitle { display: none; }
-  .anno-tip { width: 180px; font-size: .78rem; }
+  .narr-frame { min-width: 200px; padding: 18px 16px 14px; }
+  .narr-frame h4 { font-size: .95rem; }
+  .narr-frame p { font-size: .8rem; }
 }
 </style>
 </head>
 <body>
-
-<!-- Start overlay: user click unlocks audio -->
-<div class="start-overlay" id="start-overlay">
-  <h2>清明上河图</h2>
-  <div class="sub">北宋 · 张择端</div>
-  <button class="start-btn" id="start-btn" aria-label="开始浏览">▶</button>
-  <div class="start-note">点击开始 · 含背景音乐</div>
-</div>
 
 <header class="topbar">
   <div class="topbar-left">
@@ -516,20 +653,18 @@ footer a { color: var(--accent); text-decoration: none; }
 <section class="viewer-section">
   <p class="viewer-hint" id="hint">← 拖拽 · 滚轮 · 触屏滑动浏览全卷 →</p>
   <div class="scroll-viewer" id="viewer">
-    <div class="scroll-track" id="track"></div>
-    <div class="annotation-markers" id="markers"></div>
+    <div class="scroll-track" id="track">
+      <div class="annotation-markers" id="markers"></div>
+    </div>
+    <!-- Start overlay on top of scroll -->
+    <div class="start-overlay" id="start-overlay">
+      <h2>清明上河图</h2>
+      <div class="sub">北宋 · 张择端</div>
+      <button class="start-btn" id="start-btn" aria-label="开始浏览">▶</button>
+      <div class="start-note">点击开始 · 含背景音乐</div>
+    </div>
   </div>
 </section>
-
-<!-- Narration balloon -->
-<div class="narration" id="narration">
-  <div class="narration-inner">
-    <div class="narration-num" id="narr-num">1</div>
-    <h4 id="narr-title">驴队驮炭</h4>
-    <p id="narr-desc">卷首第一组人物，炭贩赶驴进城</p>
-    <div class="narration-progress"><div class="narration-progress-bar" id="narr-bar"></div></div>
-  </div>
-</div>
 
 <div class="minimap-wrap" id="minimap-wrap">
   <img class="minimap" src="assets/qingming/thumb.jpg" alt="缩略导航">
@@ -537,10 +672,10 @@ footer a { color: var(--accent); text-decoration: none; }
 </div>
 
 <div class="scroll-controls">
-  <button class="ctrl-btn" onclick="scrollToPos(0)">卷首</button>
-  <button class="ctrl-btn" onclick="scrollToPos(0.33)">虹桥</button>
-  <button class="ctrl-btn" onclick="scrollToPos(0.62)">城门</button>
-  <button class="ctrl-btn" onclick="scrollToPos(1)">卷尾</button>
+  <button class="ctrl-btn" onclick="scrollToPos(0.95)">卷首</button>
+  <button class="ctrl-btn" onclick="scrollToPos(0.49)">虹桥</button>
+  <button class="ctrl-btn" onclick="scrollToPos(0.20)">城门</button>
+  <button class="ctrl-btn" onclick="scrollToPos(0.05)">卷尾</button>
 </div>
 
 <!-- Content -->
@@ -550,17 +685,17 @@ footer a { color: var(--accent); text-decoration: none; }
   <section class="parts">
     <h3>全卷三段</h3>
     <div class="parts-grid">
-      <div class="part-card" onclick="scrollToPos(0.05)">
+      <div class="part-card" onclick="scrollToPos(0.90)">
         <div class="num">首段</div>
         <h4>汴京郊野</h4>
         <p>茅檐低伏，阡陌纵横。疏林薄雾中，一队驮炭驴从小径远远走来，柳溪旁茅舍掩映，农人荷锄而归。画面由远及近，由静入动——张择端用最安静的乡村开篇，缓缓引人入画。</p>
       </div>
-      <div class="part-card" onclick="scrollToPos(0.35)">
+      <div class="part-card" onclick="scrollToPos(0.49)">
         <div class="num">中段</div>
         <h4>汴河虹桥</h4>
         <p>全卷高潮所在。一座「状如飞虹」的木结构拱桥横跨汴河，桥上车马如梭、商贩密集，桥下一艘漕船放倒桅杆穿过桥孔，艄工紧张操作，两岸围观者呼喊指点——全画最紧张精彩的一幕。</p>
       </div>
-      <div class="part-card" onclick="scrollToPos(0.7)">
+      <div class="part-card" onclick="scrollToPos(0.12)">
         <div class="num">末段</div>
         <h4>城内市井</h4>
         <p>进入城门后，商店鳞次栉比，行人身份各异——绅士、官吏、仆役、贩夫、走卒、车轿夫、作坊工人、说书艺人、理发匠、医生……五百余人穿插着各种情节，组织得有条不紊。</p>
@@ -572,7 +707,7 @@ footer a { color: var(--accent); text-decoration: none; }
   <section class="scenes">
     <h3>画中名场面</h3>
     <div class="scene-list">
-      <div class="scene-item" onclick="scrollToPos(0.08)">
+      <div class="scene-item" onclick="scrollToPos(0.946)">
         <div class="scene-idx">1</div>
         <div class="scene-body">
           <h4>驴队驮炭</h4>
@@ -580,7 +715,7 @@ footer a { color: var(--accent); text-decoration: none; }
           <div class="pos">位置：卷首</div>
         </div>
       </div>
-      <div class="scene-item" onclick="scrollToPos(0.18)">
+      <div class="scene-item" onclick="scrollToPos(0.813)">
         <div class="scene-idx">2</div>
         <div class="scene-body">
           <h4>柳溪茅舍与香椿摊</h4>
@@ -588,7 +723,7 @@ footer a { color: var(--accent); text-decoration: none; }
           <div class="pos">位置：约 1/5 处</div>
         </div>
       </div>
-      <div class="scene-item" onclick="scrollToPos(0.25)">
+      <div class="scene-item" onclick="scrollToPos(0.733)">
         <div class="scene-idx">3</div>
         <div class="scene-body">
           <h4>望火楼 · 无人值守</h4>
@@ -596,7 +731,7 @@ footer a { color: var(--accent); text-decoration: none; }
           <div class="pos">位置：约 1/4 处</div>
         </div>
       </div>
-      <div class="scene-item" onclick="scrollToPos(0.30)">
+      <div class="scene-item" onclick="scrollToPos(0.680)">
         <div class="scene-idx">4</div>
         <div class="scene-body">
           <h4>船帮祭水神</h4>
@@ -604,7 +739,7 @@ footer a { color: var(--accent); text-decoration: none; }
           <div class="pos">位置：约 1/3 前</div>
         </div>
       </div>
-      <div class="scene-item" onclick="scrollToPos(0.38)">
+      <div class="scene-item" onclick="scrollToPos(0.493)">
         <div class="scene-idx">5</div>
         <div class="scene-body">
           <h4>虹桥险情</h4>
@@ -612,7 +747,7 @@ footer a { color: var(--accent); text-decoration: none; }
           <div class="pos">位置：约 1/3 处（全卷高潮）</div>
         </div>
       </div>
-      <div class="scene-item" onclick="scrollToPos(0.50)">
+      <div class="scene-item" onclick="scrollToPos(0.440)">
         <div class="scene-idx">6</div>
         <div class="scene-body">
           <h4>赵太丞家药铺</h4>
@@ -620,7 +755,7 @@ footer a { color: var(--accent); text-decoration: none; }
           <div class="pos">位置：卷中</div>
         </div>
       </div>
-      <div class="scene-item" onclick="scrollToPos(0.62)">
+      <div class="scene-item" onclick="scrollToPos(0.200)">
         <div class="scene-idx">7</div>
         <div class="scene-body">
           <h4>城门驼队 · 无兵把守</h4>
@@ -628,7 +763,7 @@ footer a { color: var(--accent); text-decoration: none; }
           <div class="pos">位置：约 2/3 处</div>
         </div>
       </div>
-      <div class="scene-item" onclick="scrollToPos(0.78)">
+      <div class="scene-item" onclick="scrollToPos(0.093)">
         <div class="scene-idx">8</div>
         <div class="scene-body">
           <h4>街巷百业与「解」字铺</h4>
@@ -636,7 +771,7 @@ footer a { color: var(--accent); text-decoration: none; }
           <div class="pos">位置：约 3/4 处</div>
         </div>
       </div>
-      <div class="scene-item" onclick="scrollToPos(0.92)">
+      <div class="scene-item" onclick="scrollToPos(0.067)">
         <div class="scene-idx">9</div>
         <div class="scene-body">
           <h4>大宅深院</h4>
@@ -716,6 +851,33 @@ footer a { color: var(--accent); text-decoration: none; }
 
 </div>
 
+<!-- Narration layer: focus dot + polyline + ancient frame -->
+<div class="narr-layer" id="narr-layer">
+  <svg xmlns="http://www.w3.org/2000/svg">
+    <circle id="narr-dot" r="5" />
+    <polyline id="narr-line" fill="none" />
+  </svg>
+  <div class="narr-box" id="narr-box">
+    <div class="narr-frame">
+      <div class="narr-corner tl"></div>
+      <div class="narr-corner tr"></div>
+      <div class="narr-corner bl"></div>
+      <div class="narr-corner br"></div>
+      <div class="narr-num" id="narr-num">1</div>
+      <h4 id="narr-title"></h4>
+      <p id="narr-desc"></p>
+      <div class="narr-bar-wrap"><div class="narr-bar" id="narr-bar"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="immersive-controls" id="immersive-controls">
+  <button class="imm-btn" id="imm-play" onclick="toggleAutoScroll()" title="暂停/播放">⏸</button>
+  <button class="imm-btn" id="imm-music" onclick="toggleMusic()" title="音乐">♫</button>
+  <button class="imm-btn" id="imm-exit" title="退出沉浸模式">✕</button>
+</div>
+<div class="immersive-progress" id="immersive-progress"><div class="immersive-progress-bar" id="immersive-bar"></div></div>
+
 <audio id="bgm" loop preload="none">
   <source src="assets/bgm.mp3" type="audio/mpeg">
 </audio>
@@ -756,13 +918,13 @@ footer a { color: var(--accent); text-decoration: none; }
       audio.play().then(() => {
         btn.classList.add("playing");
         btn.textContent = "♫";
-      }).catch(() => {
-        // autoplay blocked — ignore silently
-      });
+        syncMusicBtns(true);
+      }).catch(() => {});
     } else {
       audio.pause();
       btn.classList.remove("playing");
       btn.textContent = "♪";
+      syncMusicBtns(false);
     }
   };
 
@@ -798,31 +960,32 @@ const TOTAL_W = TILE_WIDTHS.reduce((a, b) => a + b, 0);
 
 /* ── Annotations ── */
 const ANNOS = [
-  { pct: 0.08, num: 1, title: "驴队驮炭",
+  /* 画卷左端=城市(卷尾)，右端=乡村(卷首)。pct 基于瓦片逐帧校准。top 为场景在画面中的垂直位置。 */
+  { pct: 0.946, top: "35%", num: 1, title: "驴队驮炭",
     short: "卷首第一组人物，炭贩赶驴进城",
     full: "卷首第一组人物。十头毛驴驮满木炭沿小径进城。清明虽至仍需烧炭取暖——学者据此推断当年气候异常偏寒。" },
-  { pct: 0.18, num: 2, title: "香椿与麦芽糖",
+  { pct: 0.813, top: "25%", num: 2, title: "香椿与麦芽糖",
     short: "清明时令食品，确定了画作的季节",
     full: "路边摊贩售卖红色香椿和麦芽糖，两种清明节令食品。全画至少五处出现麦芽糖贩——这是确定「清明」为节气而非政治寓意的关键证据。" },
-  { pct: 0.25, num: 3, title: "望火楼 · 空无一人",
+  { pct: 0.733, top: "15%", num: 3, title: "望火楼 · 空无一人",
     short: "消防中枢无人值守，暗示制度荒废",
     full: "望火楼是城市消防系统的中枢，本应日夜有人瞭望。然而画中望火楼空无一人，军巡铺大门紧闭。张择端以此暗示这座繁华都城的安全体系已然瘫痪。" },
-  { pct: 0.30, num: 4, title: "船帮祭水神",
+  { pct: 0.680, top: "65%", num: 4, title: "船帮祭水神",
     short: "货船靠岸，船帮吊供品答谢水神",
     full: "北宋风俗：走陆路祭路神，走水路祭水神。一艘靠岸货船上，船帮吊着供品祭神——货物安全运达后的谢恩。此细节反映了汴河商贸的繁忙和民间信仰的鲜活。" },
-  { pct: 0.38, num: 5, title: "虹桥险情",
+  { pct: 0.493, top: "30%", num: 5, title: "虹桥险情",
     short: "全卷高潮——漕船险撞桥身",
     full: "全卷最紧张的一幕。大型漕船逆流过桥，桅杆未及时放倒，即将撞上桥身。船工慌忙拉绳，桥上行人呼喊指点。桥面上同时发生文武仪仗冲突——秩序的崩溃在此达到顶点。" },
-  { pct: 0.50, num: 6, title: "赵太丞家药铺",
+  { pct: 0.440, top: "20%", num: 6, title: "赵太丞家药铺",
     short: "御医退休开铺，北宋医疗商业的缩影",
     full: "桥头一家大药铺招牌写着「赵太丞家」。太丞是朝廷医官品级，店主为退休御医。门前竖着「治酒所伤真方集香丸」广告——北宋医疗商业已相当成熟。" },
-  { pct: 0.62, num: 7, title: "城门驼队 · 无兵把守",
+  { pct: 0.200, top: "25%", num: 7, title: "城门驼队 · 无兵把守",
     short: "丝路驼队穿过无人守卫的国都城门",
     full: "来自西域的骆驼队缓行穿过城门——连接着丝绸之路的贸易网络。然而城门无一兵一卒把守。不到二十年后靖康之变爆发，汴京正是从城门失守开始沦陷。" },
-  { pct: 0.78, num: 8, title: "考生算命",
+  { pct: 0.093, top: "30%", num: 8, title: "考生算命",
     short: "清明后即科考，儒生焦虑候命",
     full: "一处挂着「解」字招牌的算命摊前，三十岁上下的儒生围聚焦虑等待。北宋清明节后举行全国科考，为考生算命的人有好几千——应试焦虑千年不变。" },
-  { pct: 0.92, num: 9, title: "大宅深院",
+  { pct: 0.067, top: "20%", num: 9, title: "大宅深院",
     short: "卷尾富贵人家，与卷首乡野呼应",
     full: "卷尾渐入富贵之家。高墙大院，花木扶疏，仆从出入。与卷首的乡野茅舍首尾呼应——从田园到市井再到豪门，一幅画卷尽收北宋社会全貌。" },
 ];
@@ -831,7 +994,8 @@ const PAUSE_DURATION = 7000; // 每个解说点停留 7 秒
 /* ── Render tiles ── */
 function renderTiles() {
   const track = document.getElementById("track");
-  track.innerHTML = "";
+  // Remove only tile images, preserve #markers div
+  track.querySelectorAll(":scope > img").forEach(img => img.remove());
   const trackH = track.clientHeight || 400;
 
   for (let i = 0; i < TILE_COUNT; i++) {
@@ -873,18 +1037,17 @@ function placeMarkers(trackH) {
     const m = document.createElement("div");
     m.className = "anno-marker";
     m.style.left = (a.pct * totalPx) + "px";
+    m.style.top = a.top || "30%";
     m.textContent = a.num;
 
-    const tip = document.createElement("div");
-    tip.className = "anno-tip";
-    tip.innerHTML = `<strong>${a.title}</strong>${a.short}`;
-    m.appendChild(tip);
-
+    // Click marker → show unified narration callout (toggle)
     m.addEventListener("click", e => {
       e.stopPropagation();
-      // toggle active
-      document.querySelectorAll(".anno-marker.active").forEach(x => x.classList.remove("active"));
-      m.classList.toggle("active");
+      const wasActive = m.classList.contains("narr-focus");
+      hideNarration();
+      if (!wasActive) {
+        showNarration(a);
+      }
     });
 
     markers.appendChild(m);
@@ -894,10 +1057,19 @@ function placeMarkers(trackH) {
 /* ── Scroll to position ── */
 window.scrollToPos = function (pct) {
   const el = document.getElementById("viewer");
-  const target = pct * (el.scrollWidth - el.clientWidth);
+  // pct is position within total scroll width; center it in viewport
+  const targetCenter = pct * el.scrollWidth;
+  const target = Math.max(0, Math.min(el.scrollWidth - el.clientWidth, targetCenter - el.clientWidth / 2));
   el.scrollTo({ left: target, behavior: "smooth" });
-  stopAutoScroll();
+  if (isAutoPlaying) pauseAutoScroll();
 };
+
+/* ── Click viewer to dismiss narration ── */
+document.getElementById("viewer").addEventListener("click", e => {
+  if (!e.target.closest(".anno-marker") && !isAutoPlaying) {
+    hideNarration();
+  }
+});
 
 /* ── Drag to scroll ── */
 (function () {
@@ -944,10 +1116,28 @@ window.scrollToPos = function (pct) {
 let autoScrollId = null;
 let isAutoPlaying = false;
 let isPaused = false;      // paused at annotation
+let isUserPaused = false;  // user manually paused (can resume)
 let pauseTimer = null;
 let visitedAnnos = new Set();
 
-const narration = document.getElementById("narration");
+function syncPlayBtns(playing) {
+  const icon = playing ? "⏸" : "▶";
+  document.getElementById("btn-play").textContent = icon;
+  const imm = document.getElementById("imm-play");
+  if (imm) imm.textContent = icon;
+}
+function syncMusicBtns(playing) {
+  const imm = document.getElementById("imm-music");
+  if (imm) {
+    imm.textContent = playing ? "♫" : "♪";
+    imm.classList.toggle("playing", playing);
+  }
+}
+
+const narrLayer = document.getElementById("narr-layer");
+const narrDot   = document.getElementById("narr-dot");
+const narrLine  = document.getElementById("narr-line");
+const narrBox   = document.getElementById("narr-box");
 const narrNum   = document.getElementById("narr-num");
 const narrTitle = document.getElementById("narr-title");
 const narrDesc  = document.getElementById("narr-desc");
@@ -959,7 +1149,48 @@ function showNarration(anno) {
   narrDesc.textContent = anno.full;
   narrBar.style.transition = "none";
   narrBar.style.width = "0%";
-  narration.classList.add("visible");
+
+  // Position narr-layer to cover viewer area
+  const viewer = document.getElementById("viewer");
+  const vr = viewer.getBoundingClientRect();
+  narrLayer.style.left = vr.left + "px";
+  narrLayer.style.top  = vr.top + "px";
+  narrLayer.style.width  = vr.width + "px";
+  narrLayer.style.height = vr.height + "px";
+
+  const marker = document.querySelector(`.anno-marker:nth-child(${anno.num})`);
+
+  if (marker) {
+    marker.classList.add("narr-focus");
+    const mRect = marker.getBoundingClientRect();
+    // Focus dot: position relative to narr-layer (= viewer rect)
+    const fx = mRect.left - vr.left + mRect.width / 2;
+    const fy = mRect.top - vr.top + mRect.height;
+
+    // Box: bottom area of viewer, horizontally biased toward focus
+    const boxW = Math.min(340, vr.width * 0.85);
+    const boxCx = fx * 0.3 + (vr.width / 2) * 0.7;
+    const boxLeft = Math.max(12, Math.min(vr.width - boxW - 12, boxCx - boxW / 2));
+    const boxTop = vr.height * 0.58;
+
+    narrBox.style.left = boxLeft + "px";
+    narrBox.style.top = boxTop + "px";
+    narrBox.style.width = boxW + "px";
+
+    // Focus dot
+    narrDot.setAttribute("cx", fx);
+    narrDot.setAttribute("cy", fy);
+
+    // Polyline: dot → vertical → horizontal bend → box top center
+    const boxCenterX = boxLeft + boxW / 2;
+    const bendY = fy + (boxTop - fy) * 0.5;
+    narrLine.setAttribute("points",
+      `${fx},${fy + 6} ${fx},${bendY} ${boxCenterX},${bendY} ${boxCenterX},${boxTop - 16}`
+    );
+  }
+
+  narrLayer.classList.add("visible");
+
   // animate progress bar
   requestAnimationFrame(() => {
     narrBar.style.transition = `width ${PAUSE_DURATION}ms linear`;
@@ -968,7 +1199,9 @@ function showNarration(anno) {
 }
 
 function hideNarration() {
-  narration.classList.remove("visible");
+  narrLayer.classList.remove("visible");
+  // Remove focus class from all markers
+  document.querySelectorAll(".anno-marker.narr-focus").forEach(m => m.classList.remove("narr-focus"));
 }
 
 function startAutoScroll() {
@@ -977,48 +1210,55 @@ function startAutoScroll() {
   if (total <= 0) return;
   isAutoPlaying = true;
   isPaused = false;
-  document.getElementById("btn-play").textContent = "⏸";
+  syncPlayBtns(true);
   document.getElementById("hint").style.opacity = "0";
 
-  // 120 seconds to traverse full scroll (slower)
+  // Resume from current position (don't reset if already positioned)
+  if (!isUserPaused && el.scrollLeft < total * 0.9) {
+    el.scrollLeft = total;
+  }
+  isUserPaused = false;
+
+  // 120 seconds to traverse full scroll
   const speed = total / 120;
   let last = performance.now();
 
   function step(now) {
     if (isPaused) {
-      last = now; // reset dt so no jump after pause
+      last = now;
       autoScrollId = requestAnimationFrame(step);
       return;
     }
     const dt = now - last;
     last = now;
-    el.scrollLeft += speed * dt / 1000;
+    el.scrollLeft -= speed * dt / 1000;
 
-    // Check if we hit an annotation point
-    const currentPct = el.scrollLeft / total;
+    // Check if any annotation marker entered the viewport center zone
+    const vw = el.clientWidth;
+    const centerL = el.scrollLeft + vw * 0.25;
+    const centerR = el.scrollLeft + vw * 0.75;
     for (const anno of ANNOS) {
       if (visitedAnnos.has(anno.num)) continue;
-      if (currentPct >= anno.pct - 0.005 && currentPct <= anno.pct + 0.02) {
-        // Hit this annotation — pause and show narration
+      const marker = document.querySelector(`.anno-marker:nth-child(${anno.num})`);
+      if (!marker) continue;
+      const markerX = marker.offsetLeft;
+      if (markerX >= centerL && markerX <= centerR) {
         visitedAnnos.add(anno.num);
         isPaused = true;
         showNarration(anno);
-        // Highlight the marker
-        const marker = document.querySelector(`.anno-marker:nth-child(${anno.num})`);
-        if (marker) marker.classList.add("active");
 
         pauseTimer = setTimeout(() => {
           hideNarration();
-          if (marker) marker.classList.remove("active");
           isPaused = false;
         }, PAUSE_DURATION);
         break;
       }
     }
 
-    if (el.scrollLeft >= total) {
-      el.scrollLeft = total;
-      stopAutoScroll();
+    if (el.scrollLeft <= 0) {
+      el.scrollLeft = 0;
+      fullStop();
+      setTimeout(exitImmersive, 1500);
       return;
     }
     autoScrollId = requestAnimationFrame(step);
@@ -1026,29 +1266,47 @@ function startAutoScroll() {
   autoScrollId = requestAnimationFrame(step);
 }
 
-function stopAutoScroll() {
+// User pause — can resume from current position
+function pauseAutoScroll() {
   if (autoScrollId) { cancelAnimationFrame(autoScrollId); autoScrollId = null; }
   if (pauseTimer) { clearTimeout(pauseTimer); pauseTimer = null; }
   isAutoPlaying = false;
   isPaused = false;
-  document.getElementById("btn-play").textContent = "▶";
+  isUserPaused = true;
+  syncPlayBtns(false);
+  hideNarration();
+}
+
+// Full stop — next play starts from beginning
+function fullStop() {
+  if (autoScrollId) { cancelAnimationFrame(autoScrollId); autoScrollId = null; }
+  if (pauseTimer) { clearTimeout(pauseTimer); pauseTimer = null; }
+  isAutoPlaying = false;
+  isPaused = false;
+  isUserPaused = false;
+  syncPlayBtns(false);
   document.getElementById("hint").style.opacity = "1";
   hideNarration();
 }
 
 window.toggleAutoScroll = function () {
   if (isAutoPlaying) {
-    stopAutoScroll();
+    // Playing → pause
+    pauseAutoScroll();
+  } else if (isUserPaused) {
+    // Paused → resume from current position
+    startAutoScroll();
   } else {
+    // Stopped → replay from beginning
     visitedAnnos.clear();
     startAutoScroll();
   }
 };
 
-// User interaction stops auto-scroll
+// User interaction pauses auto-scroll (can resume with ▶)
 ["mousedown", "touchstart", "wheel"].forEach(evt => {
   document.getElementById("viewer").addEventListener(evt, e => {
-    if (isAutoPlaying && !e.target.closest(".anno-marker")) stopAutoScroll();
+    if (isAutoPlaying && !e.target.closest(".anno-marker") && !e.target.closest(".immersive-controls")) pauseAutoScroll();
   });
 });
 
@@ -1062,11 +1320,49 @@ window.addEventListener("resize", () => {
 /* ── Init ── */
 renderTiles();
 
+/* ── Immersive mode ── */
+function enterImmersive(scrollToStart) {
+  document.body.classList.add("immersive");
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    renderTiles();
+    if (scrollToStart) {
+      // Pre-position at right end (卷首) before auto-scroll begins
+      const v = document.getElementById("viewer");
+      v.scrollLeft = v.scrollWidth;
+    }
+  }));
+}
+
+function exitImmersive() {
+  document.body.classList.remove("immersive");
+  document.getElementById("immersive-bar").style.width = "0%";
+  fullStop();
+  requestAnimationFrame(() => requestAnimationFrame(renderTiles));
+}
+
+document.getElementById("imm-exit").addEventListener("click", exitImmersive);
+
+// Update immersive progress bar during scroll (right-to-left = 100% → 0%)
+document.getElementById("viewer").addEventListener("scroll", function () {
+  if (!document.body.classList.contains("immersive")) return;
+  const el = this;
+  const total = el.scrollWidth - el.clientWidth;
+  const pct = (1 - el.scrollLeft / total) * 100;
+  document.getElementById("immersive-bar").style.width = pct + "%";
+});
+
 // Start overlay: click to begin experience (unlocks audio)
 document.getElementById("start-btn").addEventListener("click", function () {
   const overlay = document.getElementById("start-overlay");
   overlay.classList.add("hidden");
   setTimeout(() => overlay.remove(), 800);
+
+  // Pre-scroll to right end before entering immersive (avoid flash of left side)
+  const viewer = document.getElementById("viewer");
+  viewer.scrollLeft = viewer.scrollWidth;
+
+  // Enter immersive mode (will re-render tiles and re-position to right end)
+  enterImmersive(true);
 
   // Start music (user gesture = autoplay allowed)
   const audio = document.getElementById("bgm");
@@ -1074,6 +1370,7 @@ document.getElementById("start-btn").addEventListener("click", function () {
   audio.play().then(() => {
     document.getElementById("btn-music").classList.add("playing");
     document.getElementById("btn-music").textContent = "♫";
+    syncMusicBtns(true);
     // Fade in
     let v = 0;
     const fade = setInterval(() => {
