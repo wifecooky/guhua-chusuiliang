@@ -707,7 +707,7 @@ body.immersive .immersive-progress { display: block; }
   <section class="scenes">
     <h3>画中名场面</h3>
     <div class="scene-list">
-      <div class="scene-item" onclick="scrollToPos(0.946)">
+      <div class="scene-item" onclick="scrollToPos(0.935)">
         <div class="scene-idx">1</div>
         <div class="scene-body">
           <h4>驴队驮炭</h4>
@@ -715,7 +715,7 @@ body.immersive .immersive-progress { display: block; }
           <div class="pos">位置：卷首</div>
         </div>
       </div>
-      <div class="scene-item" onclick="scrollToPos(0.813)">
+      <div class="scene-item" onclick="scrollToPos(0.810)">
         <div class="scene-idx">2</div>
         <div class="scene-body">
           <h4>柳溪茅舍与香椿摊</h4>
@@ -723,7 +723,7 @@ body.immersive .immersive-progress { display: block; }
           <div class="pos">位置：约 1/5 处</div>
         </div>
       </div>
-      <div class="scene-item" onclick="scrollToPos(0.733)">
+      <div class="scene-item" onclick="scrollToPos(0.640)">
         <div class="scene-idx">3</div>
         <div class="scene-body">
           <h4>望火楼 · 无人值守</h4>
@@ -731,7 +731,7 @@ body.immersive .immersive-progress { display: block; }
           <div class="pos">位置：约 1/4 处</div>
         </div>
       </div>
-      <div class="scene-item" onclick="scrollToPos(0.680)">
+      <div class="scene-item" onclick="scrollToPos(0.580)">
         <div class="scene-idx">4</div>
         <div class="scene-body">
           <h4>船帮祭水神</h4>
@@ -739,7 +739,7 @@ body.immersive .immersive-progress { display: block; }
           <div class="pos">位置：约 1/3 前</div>
         </div>
       </div>
-      <div class="scene-item" onclick="scrollToPos(0.493)">
+      <div class="scene-item" onclick="scrollToPos(0.500)">
         <div class="scene-idx">5</div>
         <div class="scene-body">
           <h4>虹桥险情</h4>
@@ -747,7 +747,7 @@ body.immersive .immersive-progress { display: block; }
           <div class="pos">位置：约 1/3 处（全卷高潮）</div>
         </div>
       </div>
-      <div class="scene-item" onclick="scrollToPos(0.440)">
+      <div class="scene-item" onclick="scrollToPos(0.460)">
         <div class="scene-idx">6</div>
         <div class="scene-body">
           <h4>赵太丞家药铺</h4>
@@ -755,7 +755,7 @@ body.immersive .immersive-progress { display: block; }
           <div class="pos">位置：卷中</div>
         </div>
       </div>
-      <div class="scene-item" onclick="scrollToPos(0.200)">
+      <div class="scene-item" onclick="scrollToPos(0.195)">
         <div class="scene-idx">7</div>
         <div class="scene-body">
           <h4>城门驼队 · 无兵把守</h4>
@@ -763,7 +763,7 @@ body.immersive .immersive-progress { display: block; }
           <div class="pos">位置：约 2/3 处</div>
         </div>
       </div>
-      <div class="scene-item" onclick="scrollToPos(0.093)">
+      <div class="scene-item" onclick="scrollToPos(0.100)">
         <div class="scene-idx">8</div>
         <div class="scene-body">
           <h4>街巷百业与「解」字铺</h4>
@@ -771,7 +771,7 @@ body.immersive .immersive-progress { display: block; }
           <div class="pos">位置：约 3/4 处</div>
         </div>
       </div>
-      <div class="scene-item" onclick="scrollToPos(0.067)">
+      <div class="scene-item" onclick="scrollToPos(0.050)">
         <div class="scene-idx">9</div>
         <div class="scene-body">
           <h4>大宅深院</h4>
@@ -960,32 +960,44 @@ const TOTAL_W = TILE_WIDTHS.reduce((a, b) => a + b, 0);
 
 /* ── Annotations ── */
 const ANNOS = [
-  /* 画卷左端=城市(卷尾)，右端=乡村(卷首)。pct 基于瓦片逐帧校准。top 为场景在画面中的垂直位置。 */
-  { pct: 0.946, top: "35%", num: 1, title: "驴队驮炭",
+  /*
+   * 画卷方向：左端=城市(卷尾)，右端=乡村(卷首)
+   * pct = 距图片左端的百分比位置（基于瓦片图像 + 学术文献交叉校准）
+   * top = 场景在画面中的垂直位置
+   *
+   * 参考文献：
+   *   黄杰《从虹桥与脚店彩楼看清明上河图的格局》荣宝斋 2019/8
+   *   凤凰网《细看清明上河图：汴京城内的六处险情》
+   *   故宫博物院藏品介绍
+   *
+   * 画卷结构（从右往左阅读）：
+   *   首段·郊野 (tile 30-36) → 中段·汴河 (tile 14-29) → 末段·城内 (tile 1-13)
+   */
+  { pct: 0.935, top: "35%", num: 1, title: "驴队驮炭",       /* tile 035 — 驴群清晰可辨 */
     short: "卷首第一组人物，炭贩赶驴进城",
     full: "卷首第一组人物。十头毛驴驮满木炭沿小径进城。清明虽至仍需烧炭取暖——学者据此推断当年气候异常偏寒。" },
-  { pct: 0.813, top: "25%", num: 2, title: "香椿与麦芽糖",
+  { pct: 0.810, top: "25%", num: 2, title: "香椿与麦芽糖",   /* tile 030 — 路边摊贩聚集处 */
     short: "清明时令食品，确定了画作的季节",
     full: "路边摊贩售卖红色香椿和麦芽糖，两种清明节令食品。全画至少五处出现麦芽糖贩——这是确定「清明」为节气而非政治寓意的关键证据。" },
-  { pct: 0.733, top: "15%", num: 3, title: "望火楼 · 空无一人",
+  { pct: 0.640, top: "15%", num: 3, title: "望火楼 · 空无一人", /* tile 024 — 码头区高楼 */
     short: "消防中枢无人值守，暗示制度荒废",
     full: "望火楼是城市消防系统的中枢，本应日夜有人瞭望。然而画中望火楼空无一人，军巡铺大门紧闭。张择端以此暗示这座繁华都城的安全体系已然瘫痪。" },
-  { pct: 0.680, top: "65%", num: 4, title: "船帮祭水神",
+  { pct: 0.580, top: "55%", num: 4, title: "船帮祭水神",     /* tile 022 — 大船靠岸处 */
     short: "货船靠岸，船帮吊供品答谢水神",
     full: "北宋风俗：走陆路祭路神，走水路祭水神。一艘靠岸货船上，船帮吊着供品祭神——货物安全运达后的谢恩。此细节反映了汴河商贸的繁忙和民间信仰的鲜活。" },
-  { pct: 0.493, top: "30%", num: 5, title: "虹桥险情",
+  { pct: 0.500, top: "30%", num: 5, title: "虹桥险情",       /* tile 019 — 拱桥+险船 */
     short: "全卷高潮——漕船险撞桥身",
     full: "全卷最紧张的一幕。大型漕船逆流过桥，桅杆未及时放倒，即将撞上桥身。船工慌忙拉绳，桥上行人呼喊指点。桥面上同时发生文武仪仗冲突——秩序的崩溃在此达到顶点。" },
-  { pct: 0.440, top: "20%", num: 6, title: "赵太丞家药铺",
+  { pct: 0.460, top: "22%", num: 6, title: "赵太丞家药铺",   /* tile 017 — 桥头城侧店铺 */
     short: "御医退休开铺，北宋医疗商业的缩影",
     full: "桥头一家大药铺招牌写着「赵太丞家」。太丞是朝廷医官品级，店主为退休御医。门前竖着「治酒所伤真方集香丸」广告——北宋医疗商业已相当成熟。" },
-  { pct: 0.200, top: "25%", num: 7, title: "城门驼队 · 无兵把守",
+  { pct: 0.195, top: "25%", num: 7, title: "城门驼队 · 无兵把守", /* tile 007 — 城门楼+骆驼 */
     short: "丝路驼队穿过无人守卫的国都城门",
     full: "来自西域的骆驼队缓行穿过城门——连接着丝绸之路的贸易网络。然而城门无一兵一卒把守。不到二十年后靖康之变爆发，汴京正是从城门失守开始沦陷。" },
-  { pct: 0.093, top: "30%", num: 8, title: "考生算命",
+  { pct: 0.100, top: "30%", num: 8, title: "考生算命",       /* tile 003-004 — 正店附近 */
     short: "清明后即科考，儒生焦虑候命",
     full: "一处挂着「解」字招牌的算命摊前，三十岁上下的儒生围聚焦虑等待。北宋清明节后举行全国科考，为考生算命的人有好几千——应试焦虑千年不变。" },
-  { pct: 0.067, top: "20%", num: 9, title: "大宅深院",
+  { pct: 0.050, top: "20%", num: 9, title: "大宅深院",       /* tile 001-002 — 卷尾 */
     short: "卷尾富贵人家，与卷首乡野呼应",
     full: "卷尾渐入富贵之家。高墙大院，花木扶疏，仆从出入。与卷首的乡野茅舍首尾呼应——从田园到市井再到豪门，一幅画卷尽收北宋社会全貌。" },
 ];
